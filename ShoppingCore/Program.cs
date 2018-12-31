@@ -15,7 +15,7 @@ namespace ShoppingCore
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
-            //this is some demo code
+            //this is some demo code 2
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
