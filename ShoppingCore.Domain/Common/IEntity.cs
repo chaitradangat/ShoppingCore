@@ -6,6 +6,7 @@ namespace ShoppingCore.Domain.Common
 {
     interface IEntity
     {
-        int Id { get; set; }
+        //Id Commented so that each entity wil have a sensible name for Id
+        //int Id { get; set; }
     }
 }

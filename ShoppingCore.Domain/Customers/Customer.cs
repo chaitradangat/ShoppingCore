@@ -9,11 +9,16 @@ namespace ShoppingCore.Domain.Customers
 {
     public class Customer : IEntity
     {
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
 
-        public Customer()
-        {
-            Product p = new Product { Units = Units.Unit };
-        }
+        public string FirstName { get; set; }
+
+        public string MiddleName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Gender { get; set; }
+
+        public DateTime? DateOfBirth { get; set; }
     }
 }

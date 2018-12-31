@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ShoppingCore.Domain.Common
 {
-    public enum Units
+    public enum AddressTypeEnum
     {
-        Kg, g, L, ml, Nos
+        Residential,Business,Work,School,Hospital,Garage
     }
 }
