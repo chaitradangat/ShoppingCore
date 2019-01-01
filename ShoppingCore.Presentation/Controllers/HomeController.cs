@@ -39,5 +39,16 @@ namespace ShoppingCore.Presentation.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Index1()
+        {
+            ViewBag.value = 20;
+
+
+            return View();
+        }
+
+
+
     }
 }

@@ -10,6 +10,8 @@ namespace ShoppingCore.Domain.Sellers
     {
         public int SellerId { get; set; }
 
+        public int UserId { get; set; }
+
         public string BusinessName { get; set; }
     }
 }

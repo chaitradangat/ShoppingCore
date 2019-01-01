@@ -20,5 +20,8 @@ namespace ShoppingCore.Domain.Customers
         public string Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
+
+        public int UserId { get; set; }
+
     }
 }
