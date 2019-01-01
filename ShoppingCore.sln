@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Presentation", "ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{FBABEFA5-149E-4038-874C-F983E9854EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation", "ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{FBABEFA5-149E-4038-874C-F983E9854EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Domain", "ShoppingCore.Domain\ShoppingCore.Domain.csproj", "{467E03B3-5464-420F-95C8-7CD4BF608F85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Domain", "ShoppingCore.Domain\ShoppingCore.Domain.csproj", "{467E03B3-5464-420F-95C8-7CD4BF608F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
