@@ -4,11 +4,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Users\" />
-    <Folder Include="Sellers\" />
-    <Folder Include="Products\" />
-  </ItemGroup>
-
 </Project>
