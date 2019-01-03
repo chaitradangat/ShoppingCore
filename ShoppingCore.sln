@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Domain", "Shop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Persistence", "ShoppingCore.Persistence\ShoppingCore.Persistence.csproj", "{DB11E438-6EF0-479E-8E9D-F4C3325E3079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Application", "ShoppingCore.Application\ShoppingCore.Application.csproj", "{A785942B-8C7B-4CF5-AEA6-211F20D809DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DB11E438-6EF0-479E-8E9D-F4C3325E3079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB11E438-6EF0-479E-8E9D-F4C3325E3079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB11E438-6EF0-479E-8E9D-F4C3325E3079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
