@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Domain", "ShoppingCore.Domain\ShoppingCore.Domain.csproj", "{467E03B3-5464-420F-95C8-7CD4BF608F85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Persistence", "ShoppingCore.Persistence\ShoppingCore.Persistence.csproj", "{DB11E438-6EF0-479E-8E9D-F4C3325E3079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Persistence", "ShoppingCore.Persistence\ShoppingCore.Persistence.csproj", "{DB11E438-6EF0-479E-8E9D-F4C3325E3079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Application", "ShoppingCore.Application\ShoppingCore.Application.csproj", "{A785942B-8C7B-4CF5-AEA6-211F20D809DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", "ShoppingCore.Application\ShoppingCore.Application.csproj", "{A785942B-8C7B-4CF5-AEA6-211F20D809DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
