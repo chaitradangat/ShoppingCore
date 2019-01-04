@@ -18,7 +18,6 @@ namespace LanguageFeatures.Models
             InStock = stock;
         }
 
-
         public static Product[] GetProducts()
         {
             Product kayak = new Product
