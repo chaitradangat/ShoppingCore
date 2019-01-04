@@ -11,7 +11,13 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            //return View(new string[] { "C#", "Language", "Features" });
+            ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
+
+            var totalprices = cart.TotalPrices();
+
+
+
+
             List<string> results = new List<string>();
             foreach (Product p in Product.GetProducts())
             {
