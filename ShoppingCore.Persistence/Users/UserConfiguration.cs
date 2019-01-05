@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingCore.Persistence.Users
 {
-    class UserConfiguration
+    public class UserConfiguration
     {
     }
 }
