@@ -12,13 +12,11 @@ namespace ShoppingCore.Domain.Products
 
         public string Name { get; set; }
 
-        public List<ProductCategory> ProductCategories { get; set; }
+        public List<int> ProductCategoryId { get; set; }
 
         public Units Unit {get;set;}
 
-        public float Quantity { get; set; }
-
-        public float Price { get; set; }
+        public float UnitPrice { get; set; }
 
         public Address Address { get; set; }
 

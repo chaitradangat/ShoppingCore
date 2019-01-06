@@ -11,6 +11,8 @@ namespace ShoppingCore.Domain.Customers
     {
         public int CustomerId { get; set; }
 
+        public int UserId { get; set; }
+
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -20,8 +22,5 @@ namespace ShoppingCore.Domain.Customers
         public string Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
-
-        public int UserId { get; set; }
-
     }
 }
