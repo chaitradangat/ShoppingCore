@@ -9,14 +9,21 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Users;
+using ShoppingCore.Persistence.Interfaces;
+
 
 namespace ShoppingCore.Persistence
 {
-    public class ShoppingCoreDbContext : DbContext
+    public class ShoppingCoreDbContext : DbContext,IDataBaseService
     {
         public ShoppingCoreDbContext(DbContextOptions<ShoppingCoreDbContext> options) : base(options)
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
         }
 
         public DbSet<Address> Addresses { get; set; }
