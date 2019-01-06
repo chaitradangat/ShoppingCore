@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
