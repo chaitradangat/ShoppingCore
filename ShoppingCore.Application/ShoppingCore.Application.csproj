@@ -5,10 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Users\" />
-    <Folder Include="Sellers\" />
-    <Folder Include="Products\" />
+    <Folder Include="Customers\Commands\" />
+    <Folder Include="Customers\Models\" />
+    <Folder Include="Customers\Non_Standard\" />
+    <Folder Include="Customers\Queries\" />
+    <Folder Include="Products\Commands\" />
+    <Folder Include="Products\Models\" />
+    <Folder Include="Products\Non_Standard\" />
+    <Folder Include="Products\Queries\" />
+    <Folder Include="Sellers\Commands\" />
+    <Folder Include="Sellers\Models\" />
+    <Folder Include="Sellers\Non_Standard\" />
+    <Folder Include="Sellers\Queries\" />
+    <Folder Include="Users\Commands\" />
+    <Folder Include="Users\Models\" />
+    <Folder Include="Users\Non_Standard\" />
+    <Folder Include="Users\Queries\" />
   </ItemGroup>
 
 </Project>
