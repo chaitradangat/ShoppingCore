@@ -21,10 +21,10 @@ namespace ShoppingCore.Persistence
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(connectionString: "server=WORKSTATION-PC;database=ShoppingDB;uid=sa;pwd=sql");
+        //}
 
         public DbSet<Address> Addresses { get; set; }
 
