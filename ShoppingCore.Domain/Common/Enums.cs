@@ -11,7 +11,7 @@ namespace ShoppingCore.Domain.Common
 
     public enum AddressTypeEnum
     {
-        Residential, Business, Work, School, Hospital, Garage
+        Residential, Business, Work, School, Hospital, Garage , ProductGodown , ProductDistributionCenter
     }
 
     public enum AutheticationType

@@ -22,5 +22,16 @@ namespace ShoppingCore.Domain.Customers
         public string Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
+
+        public List<Address> Addresses { get; set; }
+
+
+        public Customer()
+        {
+            Addresses = new List<Address>();
+        }
+
+
+
     }
 }

@@ -10,5 +10,7 @@ namespace ShoppingCore.Domain.Products
         public int ProductCategoryId { get; set; }
 
         public string Name { get; set; }
+
+        public ProductCategory SubCategory { get; set; }
     }
 }
