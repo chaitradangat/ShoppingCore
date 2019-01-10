@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCore.Persistence;
 
 namespace ShoppingCore.Persistence.Migrations
 {
     [DbContext(typeof(ShoppingCoreDbContext))]
-    partial class ShoppingCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190110165706_DomainCleanup")]
+    partial class DomainCleanup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,9 +150,7 @@ namespace ShoppingCore.Persistence.Migrations
 
                     b.Property<string>("Password");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("UserName");
 
                     b.HasKey("UserId");
 

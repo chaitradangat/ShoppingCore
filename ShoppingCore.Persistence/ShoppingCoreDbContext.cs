@@ -33,5 +33,10 @@ namespace ShoppingCore.Persistence
 
         public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShoppingCoreDbContext).Assembly);
+        }
+
     }
 }
