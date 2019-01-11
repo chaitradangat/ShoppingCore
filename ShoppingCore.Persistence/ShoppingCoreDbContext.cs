@@ -21,6 +21,9 @@ namespace ShoppingCore.Persistence
 
         }
 
+
+
+
         public DbSet<Address> Addresses { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
