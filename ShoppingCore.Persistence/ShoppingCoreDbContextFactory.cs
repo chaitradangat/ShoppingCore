@@ -18,11 +18,24 @@ namespace ShoppingCore.Persistence
         public ShoppingCoreDbContext CreateDbContext(string [] args)
         {
 
-            var str = ConfigurationManager.ConnectionStrings["ShoppingCoreDbContext"].ConnectionString;
+
+            //below commented code is not working investigate why
+            //var connectionString = ConfigurationManager.ConnectionStrings["ShoppingCoreDbContext"].ConnectionString; -- not working
+            //var connectionString = ConfigurationManager.AppSettings["ShoppingCoreDbContext"]; -- not working
+
+            var config = 
+            ConfigurationManager.OpenMappedExeConfiguration(
+                new ExeConfigurationFileMap { ExeConfigFilename = "App.config" }, 
+                ConfigurationUserLevel.None);
+            
+            //var connectionString = config.AppSettings.Settings["ShoppingCoreDbContext"].Value; -- this works too! 
+
+            var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
+
 
             var optionsBuilder = new DbContextOptionsBuilder<ShoppingCoreDbContext>();
 
-            optionsBuilder.UseSqlServer("server=WORKSTATION-PC;database=ShoppingDB;uid=sa;pwd=sql;");
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new ShoppingCoreDbContext(optionsBuilder.Options);
         }
