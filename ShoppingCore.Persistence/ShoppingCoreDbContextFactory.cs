@@ -8,8 +8,7 @@ using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-
-
+using System.IO;
 
 namespace ShoppingCore.Persistence
 {
@@ -17,21 +16,16 @@ namespace ShoppingCore.Persistence
     {
         public ShoppingCoreDbContext CreateDbContext(string [] args)
         {
-
-
-            //below commented code is not working investigate why
-            //var connectionString = ConfigurationManager.ConnectionStrings["ShoppingCoreDbContext"].ConnectionString; -- not working
-            //var connectionString = ConfigurationManager.AppSettings["ShoppingCoreDbContext"]; -- not working
+            var persistenceConfigPath = Convert.ToString(Directory.GetCurrentDirectory());
+            persistenceConfigPath = persistenceConfigPath.Remove(persistenceConfigPath.IndexOf("ShoppingCore"));
+            persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
 
             var config = 
             ConfigurationManager.OpenMappedExeConfiguration(
-                new ExeConfigurationFileMap { ExeConfigFilename = "App.config" }, 
+                new ExeConfigurationFileMap { ExeConfigFilename = persistenceConfigPath },
                 ConfigurationUserLevel.None);
-            
-            //var connectionString = config.AppSettings.Settings["ShoppingCoreDbContext"].Value; -- this works too! 
 
             var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
-
 
             var optionsBuilder = new DbContextOptionsBuilder<ShoppingCoreDbContext>();
 
