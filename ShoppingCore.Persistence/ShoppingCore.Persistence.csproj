@@ -9,6 +9,7 @@
     <Compile Remove="Migrations\20190113153517_test3.cs" />
     <Compile Remove="Migrations\20190113155017_test4.cs" />
     <Compile Remove="Migrations\20190113155523_moretests2.cs" />
+    <Compile Remove="Migrations\20190114182210_domain-update-7-major-update-configurations.cs" />
   </ItemGroup>
 
   <ItemGroup>

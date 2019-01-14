@@ -8,7 +8,7 @@ namespace ShoppingCore.Persistence.Configurations.Products
     {
         public void Configure(EntityTypeBuilder<ProductCategory> builder)
         {
-            builder.HasKey(p => new { p.CategoryID,p.ProductID});
+            builder.HasKey(p => p.ProductCategoryID);
         }
     }
 }
