@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using ShoppingCore.Domain.Users;
+﻿using ShoppingCore.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-
-namespace ShoppingCore.Persistence.Users
+namespace ShoppingCore.Persistence.Configurations.Users
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
@@ -19,8 +14,6 @@ namespace ShoppingCore.Persistence.Users
             builder.Property(u => u.UserName)
                    .IsRequired()
                    .HasMaxLength(50);
-
-
         }
     }
 }
