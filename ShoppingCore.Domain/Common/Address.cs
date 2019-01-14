@@ -6,7 +6,7 @@ namespace ShoppingCore.Domain.Common
 {
     public class Address : IEntity
     {
-        public int AddressId { get; set; }
+        public int AddressID { get; set; }
 
         public string AddressLine1 { get; set; }
 

@@ -14,7 +14,7 @@ namespace ShoppingCore.Persistence.Users
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(u => u.UserId);
+            builder.HasKey(u => u.UserID);
 
             builder.Property(u => u.UserName)
                    .IsRequired()

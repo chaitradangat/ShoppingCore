@@ -7,7 +7,7 @@ namespace ShoppingCore.Domain.Users
 {
     public class User : IEntity
     {
-        public int UserId { get; set; }
+        public int UserID { get; set; }
 
         public string UserName { get; set; }
 

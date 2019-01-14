@@ -9,9 +9,9 @@ namespace ShoppingCore.Domain.Customers
 {
     public class Customer : IEntity
     {
-        public int CustomerId { get; set; }
+        public int CustomerID { get; set; }
 
-        public int UserId { get; set; }
+        public int UserID { get; set; }
 
         public string FirstName { get; set; }
 

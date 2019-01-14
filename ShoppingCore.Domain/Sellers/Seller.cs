@@ -8,9 +8,9 @@ namespace ShoppingCore.Domain.Sellers
 {
     public class Seller : IEntity
     {
-        public int SellerId { get; set; }
+        public int SellerID { get; set; }
 
-        public int UserId { get; set; }
+        public int UserID { get; set; }
 
         public string BusinessName { get; set; }
     }
