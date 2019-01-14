@@ -16,13 +16,9 @@ namespace ShoppingCore.Persistence
     {
         public ShoppingCoreDbContext CreateDbContext(string [] args)
         {
-            var persistenceConfigPath = Convert.ToString(Directory.GetCurrentDirectory());
-            persistenceConfigPath = persistenceConfigPath.Remove(persistenceConfigPath.IndexOf("ShoppingCore"));
-            persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
-
             var config = 
             ConfigurationManager.OpenMappedExeConfiguration(
-                new ExeConfigurationFileMap { ExeConfigFilename = persistenceConfigPath },
+                new ExeConfigurationFileMap { ExeConfigFilename = GetPersistenceConfigPath() },
                 ConfigurationUserLevel.None);
 
             var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
@@ -34,7 +30,13 @@ namespace ShoppingCore.Persistence
             return new ShoppingCoreDbContext(optionsBuilder.Options);
         }
 
-
+        private string GetPersistenceConfigPath()
+        {
+            var persistenceConfigPath = Convert.ToString(Directory.GetCurrentDirectory());
+            persistenceConfigPath = persistenceConfigPath.Remove(persistenceConfigPath.IndexOf("ShoppingCore"));
+            persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
+            return persistenceConfigPath;
+        }
 
 
     }
