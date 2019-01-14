@@ -12,8 +12,6 @@ namespace ShoppingCore.Domain.Products
 
         public string Name { get; set; }
 
-        //public IList<int> ProductCategoryId { get; set; }
-
         public Units Unit {get;set;}
 
         public float UnitPrice { get; set; }
@@ -23,5 +21,8 @@ namespace ShoppingCore.Domain.Products
         public string ProductTitle { get; set; }
 
         public string ProductDescription { get; set; }
+
+        public List<ProductCategory> ProductCategories { get; set; }
+
     }
 }
