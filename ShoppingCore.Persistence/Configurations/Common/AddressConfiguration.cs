@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ShoppingCore.Persistence.Configurations.Common
 {
-    class AddressConfiguration : IEntityTypeConfiguration<Address>
+    public class AddressConfiguration : IEntityTypeConfiguration<Address>
     {
-        public void Configure( EntityTypeBuilder<Address> builder)
+        public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.HasKey(a => a.AddressID);
         }
