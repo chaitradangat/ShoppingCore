@@ -6,5 +6,9 @@ namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
     class CreateUserCommand :ICreateUserCommand
     {
+        public void Execute(CreateUserModel model)
+        {
+
+        }
     }
 }
