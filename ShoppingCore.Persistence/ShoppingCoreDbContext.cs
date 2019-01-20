@@ -9,12 +9,12 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Users;
-using ShoppingCore.Persistence.Interfaces;
+using ShoppingCore.Application.Interfaces;
 
 
 namespace ShoppingCore.Persistence
 {
-    public class ShoppingCoreDbContext : DbContext,IDataBaseService
+    public class ShoppingCoreDbContext : DbContext,IDatabaseService
     {
         public ShoppingCoreDbContext(DbContextOptions<ShoppingCoreDbContext> options) : base(options)
         {
