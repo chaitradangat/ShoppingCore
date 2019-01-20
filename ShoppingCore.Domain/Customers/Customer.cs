@@ -25,13 +25,9 @@ namespace ShoppingCore.Domain.Customers
 
         public List<Address> Addresses { get; set; }
 
-
         public Customer()
         {
             Addresses = new List<Address>();
         }
-
-
-
     }
 }
