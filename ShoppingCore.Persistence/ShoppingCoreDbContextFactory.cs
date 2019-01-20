@@ -37,7 +37,5 @@ namespace ShoppingCore.Persistence
             persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
             return persistenceConfigPath;
         }
-
-
     }
 }

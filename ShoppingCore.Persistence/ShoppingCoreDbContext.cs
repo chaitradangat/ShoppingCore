@@ -69,6 +69,5 @@ namespace ShoppingCore.Persistence
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShoppingCoreDbContext).Assembly);
         }
-
     }
 }
