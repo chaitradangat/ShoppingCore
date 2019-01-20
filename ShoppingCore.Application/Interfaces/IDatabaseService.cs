@@ -23,5 +23,7 @@ namespace ShoppingCore.Application.Interfaces
 
         DbSet<User> Users { get; set; }
 
+        void Save();
+
     }
 }
