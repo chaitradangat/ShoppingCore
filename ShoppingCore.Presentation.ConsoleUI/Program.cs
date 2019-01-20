@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Microsoft.Extensions.DependencyInjection;
 
 using ShoppingCore.Application.Users.Commands.CreateUser;
@@ -30,4 +31,5 @@ namespace ShoppingCore.Presentation.ConsoleUI
             Console.ReadLine();
         }
     }
+
 }
