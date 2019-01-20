@@ -1,7 +1,5 @@
 ﻿using System;
-
 using Microsoft.Extensions.DependencyInjection;
-
 
 using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
@@ -32,23 +30,4 @@ namespace ShoppingCore.Presentation.ConsoleUI
             Console.ReadLine();
         }
     }
-
-    public class DoSomeAction
-    {
-        private readonly ICreateUserCommand _createusercommand;
-        private readonly IUserFactory _userFactory;
-        private readonly IDatabaseService _database;
-
-        public DoSomeAction()
-        {
-            _createusercommand = new CreateUserCommand(_database, _userFactory);
-        }
-
-        public void DoAction(string username,string password)
-        {
-            _createusercommand.Execute(new CreateUserModel() { UserName = username, Password = password });
-        }
-    }
-
-
 }
