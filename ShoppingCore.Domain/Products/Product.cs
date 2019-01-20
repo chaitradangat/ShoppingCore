@@ -21,5 +21,8 @@ namespace ShoppingCore.Domain.Products
         public string ProductTitle { get; set; }
 
         public string ProductDescription { get; set; }
+
+        public List<ProductCategory> ProductCategories { get; set; }
+
     }
 }

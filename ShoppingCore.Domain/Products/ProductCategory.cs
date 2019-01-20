@@ -7,7 +7,7 @@ namespace ShoppingCore.Domain.Products
 {
     public class ProductCategory : IEntity
     {
-        public int ProductCategoryID { get; set; }
+        //public int ProductCategoryID { get; set; }
 
         public int CategoryID { get; set; }
 
