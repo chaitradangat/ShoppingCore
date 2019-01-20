@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShoppingCore.Application\ShoppingCore.Application.csproj" />
+    <ProjectReference Include="..\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj" />
     <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Persistence.csproj" />
   </ItemGroup>
 

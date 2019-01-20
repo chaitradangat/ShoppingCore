@@ -2,6 +2,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
+using ShoppingCore.DependencyInjection;
+
 using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
 using ShoppingCore.Application.Interfaces;
@@ -14,22 +16,13 @@ namespace ShoppingCore.Presentation.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var serviceprovider = new ServiceCollection()
-            .AddDbContext<ShoppingCoreDbContext>()
-            .AddSingleton<IDatabaseService, ShoppingCoreDbContext>()
-            .AddSingleton<IUserFactory, UserFactory>()
-            .AddSingleton<ICreateUserCommand, CreateUserCommand>()
-            .BuildServiceProvider();
+            DIContainer.InjectDependencies();
 
-            var c = serviceprovider.GetService<ICreateUserCommand>();
-
-            c.Execute(new CreateUserModel() { UserName = "abc", Password = "def" });
-
-
+            ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
+            command.Execute(new CreateUserModel() { UserName="xxx", Password = "zzz" });
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();
         }
     }
-
 }
