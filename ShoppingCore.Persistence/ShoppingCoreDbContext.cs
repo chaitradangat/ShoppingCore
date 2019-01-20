@@ -10,7 +10,8 @@ using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Application.Interfaces;
-
+using System.Configuration;
+using System.IO;
 
 namespace ShoppingCore.Persistence
 {
@@ -20,6 +21,30 @@ namespace ShoppingCore.Persistence
         {
 
         }
+
+        #region -Code for constring and provider setting-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var config =
+            ConfigurationManager.OpenMappedExeConfiguration(
+                new ExeConfigurationFileMap { ExeConfigFilename = GetPersistenceConfigPath() },
+                ConfigurationUserLevel.None);
+
+            var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
+
+            optionsBuilder.UseSqlServer(connectionString);
+
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        private string GetPersistenceConfigPath()
+        {
+            var persistenceConfigPath = Convert.ToString(Directory.GetCurrentDirectory());
+            persistenceConfigPath = persistenceConfigPath.Remove(persistenceConfigPath.IndexOf("ShoppingCore"));
+            persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
+            return persistenceConfigPath;
+        }
+        #endregion
 
         public DbSet<Address> Addresses { get; set; }
 

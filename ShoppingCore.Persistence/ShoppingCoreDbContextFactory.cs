@@ -12,7 +12,7 @@ using System.IO;
 
 namespace ShoppingCore.Persistence
 {
-    class ShoppingCoreDbContextFactory : IDesignTimeDbContextFactory<ShoppingCoreDbContext>
+   public class ShoppingCoreDbContextFactory : IDesignTimeDbContextFactory<ShoppingCoreDbContext>
     {
         public ShoppingCoreDbContext CreateDbContext(string [] args)
         {
