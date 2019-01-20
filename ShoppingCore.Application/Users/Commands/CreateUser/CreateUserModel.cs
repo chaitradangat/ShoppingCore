@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
-    class CreateUserModel
+   public  class CreateUserModel
     {
         public string UserName { get; set; }
 

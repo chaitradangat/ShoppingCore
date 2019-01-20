@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
-    interface ICreateUserCommand
+    public interface ICreateUserCommand
     {
         void Execute(CreateUserModel model);
     }

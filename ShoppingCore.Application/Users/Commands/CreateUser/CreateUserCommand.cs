@@ -7,7 +7,7 @@ using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
-    class CreateUserCommand :ICreateUserCommand
+    public class CreateUserCommand :ICreateUserCommand
     {
         private readonly IDatabaseService _database;
         private readonly IUserFactory _factory;
