@@ -9,6 +9,9 @@ namespace ShoppingCore.Persistence.Configurations.Sellers
         public void Configure(EntityTypeBuilder<Seller> builder)
         {
             builder.HasKey(s => s.SellerID);
+
+            builder.HasMany(p => p.Products)
+                .WithOne(s => s.Seller);
         }
     }
 }
