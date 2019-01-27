@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShoppingCore.Domain.Customers;
+using ShoppingCore.Domain.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,5 +31,10 @@ namespace ShoppingCore.Domain.Common
         public string PinCode { get; set; }
 
         public AddressTypeEnum AddressType { get; set; }
+
+        public Product Product { get; set; }
+
+        public Customer Customer { get; set; }
+
     }
 }
