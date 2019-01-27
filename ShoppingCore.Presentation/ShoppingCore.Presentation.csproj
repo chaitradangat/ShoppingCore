@@ -16,4 +16,9 @@
     <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Persistence.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>
