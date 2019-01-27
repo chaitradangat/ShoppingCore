@@ -60,6 +60,8 @@ namespace ShoppingCore.Persistence
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<ProductImage> ProductImages { get; set; }
+
         public void Save()
         {
             this.SaveChanges();
@@ -68,6 +70,8 @@ namespace ShoppingCore.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShoppingCoreDbContext).Assembly);
+
+            modelBuilder.SeedAllData();
         }
     }
 }
