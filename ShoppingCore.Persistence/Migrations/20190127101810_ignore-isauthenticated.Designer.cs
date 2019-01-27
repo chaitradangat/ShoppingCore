@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCore.Persistence;
 
 namespace ShoppingCore.Persistence.Migrations
 {
     [DbContext(typeof(ShoppingCoreDbContext))]
-    partial class ShoppingCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190127101810_ignore-isauthenticated")]
+    partial class ignoreisauthenticated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

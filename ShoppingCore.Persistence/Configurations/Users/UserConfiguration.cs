@@ -14,6 +14,8 @@ namespace ShoppingCore.Persistence.Configurations.Users
             builder.Property(u => u.UserName)
                    .IsRequired()
                    .HasMaxLength(50);
+
+            builder.Ignore(u => u.IsAutheticated);
         }
     }
 }
