@@ -18,4 +18,9 @@ namespace ShoppingCore.Domain.Common
     {
         AppDatabase,Facebook,Google,Twitter
     }
+
+    public enum UserRole
+    {
+        Customer,Seller,PrimeCustomer,PrimeSeller,CustomerSellerBoth
+    }
 }
