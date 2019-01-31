@@ -16,5 +16,8 @@ namespace ShoppingCore.Domain.Users
         public bool IsAutheticated { get; set; }
 
         public AutheticationType AutheticationType { get; set; }
+
+        public UserRole UserRole { get; set; }
+
     }
 }
