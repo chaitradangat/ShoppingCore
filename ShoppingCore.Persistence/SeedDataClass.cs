@@ -14,16 +14,70 @@ namespace ShoppingCore.Persistence
     {
         public static void SeedAllData(this ModelBuilder modelBuilder)
         {
-            SeedAddresses(modelBuilder);
-            SeedCustomers(modelBuilder);
-            SeedCategories(modelBuilder);
-            SeedSellers(modelBuilder);
-            SeedProducts(modelBuilder);
-            SeedProductCategories(modelBuilder);
-            SeedProductImages(modelBuilder);
             SeedUsers(modelBuilder);
+
+            SeedSellers(modelBuilder);
+
+            SeedCustomers(modelBuilder);
+
+            SeedAddresses(modelBuilder);
+
+            SeedProducts(modelBuilder);
+
+            SeedCategories(modelBuilder);
+            
+            SeedProductCategories(modelBuilder);
+
+            SeedProductImages(modelBuilder);
         }
 
+        //first the users are seeded
+        public static void SeedUsers(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(
+                new User { UserID = 1, UserName = "sam", Password = "samseller", AutheticationType = AutheticationType.AppDatabase , UserRole = UserRole.Seller },
+                new User { UserID = 2, UserName = "lisa", Password = "lisabuyer", AutheticationType = AutheticationType.AppDatabase , UserRole = UserRole.Customer }
+                );
+        }
+
+        //second the sellers are seeded
+        public static void SeedSellers(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Seller>().HasData(
+
+                new
+                {
+                    SellerID = 1,
+                    UserID = 1,
+                    BusinessName = "SamuelSales",
+                    FirstName = "Samuel",
+                    MiddleName = "L",
+                    LastName = "Jackson",
+                    Gender = "Male",
+                    DateOfBirth = DateTime.Parse("1969-01-05")
+                }
+
+                );
+        }
+
+        //third the customers are seeded
+        public static void SeedCustomers(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer
+                {
+                    CustomerID = 1,
+                    UserID = 2,
+                    FirstName = "Lisa",
+                    MiddleName = "M",
+                    LastName = "Taylor",
+                    Gender = "Female",
+                    DateOfBirth = DateTime.Parse("1969-04-05")
+                }
+                );
+        }
+
+        //next the addresses are seeded
         public static void SeedAddresses(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Address>().HasData(
@@ -62,38 +116,12 @@ namespace ShoppingCore.Persistence
                 );
         }
 
-        public static void SeedCustomers(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Customer>().HasData(
-                new Customer
-                {
-                    CustomerID = 1,
-                    UserID = 2,
-                    FirstName = "Lisa",
-                    MiddleName = "M",
-                    LastName = "Taylor",
-                    Gender = "Female",
-                    DateOfBirth = DateTime.Parse("1969-04-05")
-                }
-                );
-        }
-
-        public static void SeedCategories(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Category>().HasData(
-                new Category
-                {
-                    CategoryID = 1,
-                    CategoryName = "Category1",
-                }
-                );
-        }
-
+        //next the product is seeded
         public static void SeedProducts(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
 
-                new //Product
+                new
                 {
                     ProductID = 1,
                     SellerID = 1,
@@ -102,19 +130,32 @@ namespace ShoppingCore.Persistence
                     ProductTitle = "Iphone X",
                     Unit = Units.Nos,
                     UnitPrice = 1200f,
-                    Currency = "USD",
+                    Currency = "USD"
                 }
                 );
         }
 
+        //next the category is seeded
+        public static void SeedCategories(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(
+                new Category
+                {
+                    CategoryID = 1,
+                    CategoryName = "Category1"
+                }
+                );
+        }
+
+        //next the product category is seeded
         public static void SeedProductCategories(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductCategory>().HasData(
-
                 new { CategoryID = 1, ProductID = 1 }
                 );
         }
 
+        //next the product image is seeded
         public static void SeedProductImages(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductImage>().HasData(
@@ -127,31 +168,5 @@ namespace ShoppingCore.Persistence
                 );
         }
 
-        public static void SeedSellers(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Seller>().HasData(
-
-                new //Seller
-                {
-                    SellerID = 1,
-                    UserID = 1,
-                    BusinessName = "SamuelSales",
-                    FirstName = "Samuel",
-                    MiddleName = "L",
-                    LastName = "Jackson",
-                    Gender = "Male",
-                    DateOfBirth = DateTime.Parse("1969-01-05")
-                }
-
-                );
-        }
-
-        public static void SeedUsers(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>().HasData(
-                new User { UserID = 1, UserName = "sam", Password = "samseller", AutheticationType = AutheticationType.AppDatabase },
-                new User { UserID = 2, UserName = "lisa", Password = "lisabuyer", AutheticationType = AutheticationType.AppDatabase }
-                );
-        }
     }
 }
