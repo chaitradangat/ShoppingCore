@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\Commands\" />
-    <Folder Include="Customers\Models\" />
+    <Folder Include="Customers\Commands\CreateCustomer\" />
     <Folder Include="Customers\Non_Standard\" />
     <Folder Include="Customers\Queries\" />
     <Folder Include="Products\Commands\" />
