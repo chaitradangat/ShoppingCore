@@ -7,6 +7,10 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class CustomerModel : IAppModel
     {
+        public int CustomerID { get; set; }
+
+        public int UserID { get; set; }
+
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }

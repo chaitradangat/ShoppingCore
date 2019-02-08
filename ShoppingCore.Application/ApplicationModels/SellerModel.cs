@@ -6,6 +6,8 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class SellerModel : IAppModel
     {
+        public int SellerID { get; set; }
+
         public int UserID { get; set; }
 
         public string BusinessName { get; set; }

@@ -4,6 +4,8 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class AddressModel : IAppModel
     {
+        public int AddressID { get; set; }
+
         public string AddressLine1 { get; set; }
 
         public string AddressLine2 { get; set; }
@@ -25,5 +27,9 @@ namespace ShoppingCore.Application.ApplicationModels
         public string PinCode { get; set; }
 
         public AddressTypeEnum AddressType { get; set; }
+
+        public int ProductID { get; set; }
+
+        public int CustomerID { get; set; }
     }
 }
