@@ -5,18 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Addresses\Commands\CreateAddress\" />
+    <Folder Include="Common\Addresses\XNonStandard\" />
+    <Folder Include="Common\Addresses\Queries\" />
     <Folder Include="Customers\Commands\CreateCustomer\" />
     <Folder Include="Customers\Non_Standard\" />
     <Folder Include="Customers\Queries\" />
     <Folder Include="Products\Commands\" />
-    <Folder Include="Products\Models\" />
     <Folder Include="Products\Non_Standard\" />
     <Folder Include="Products\Queries\" />
     <Folder Include="Sellers\Commands\" />
-    <Folder Include="Sellers\Models\" />
     <Folder Include="Sellers\Non_Standard\" />
     <Folder Include="Sellers\Queries\" />
-    <Folder Include="Users\Models\" />
     <Folder Include="Users\Non_Standard\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>
