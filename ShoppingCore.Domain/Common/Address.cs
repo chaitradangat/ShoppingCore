@@ -1,12 +1,13 @@
 ﻿using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ShoppingCore.Domain.Common
 {
-    public class Address : IEntity
+    public class Address : IEntity,IAddress
     {
         public int AddressID { get; set; }
 

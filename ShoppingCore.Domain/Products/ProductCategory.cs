@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-    public class ProductCategory : IEntity
+    public class ProductCategory : IEntity,IProductCategory
     {
         //public int ProductCategoryID { get; set; }
 

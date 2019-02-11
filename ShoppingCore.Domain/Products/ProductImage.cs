@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-    public class ProductImage
+    public class ProductImage :IEntity,IProductImage
     {
         public int ProductImageID { get; set; }
 

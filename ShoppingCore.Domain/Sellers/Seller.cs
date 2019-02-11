@@ -3,11 +3,11 @@ using ShoppingCore.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Sellers
 {
-    public class Seller : IEntity
+    public class Seller : IEntity,ISeller
     {
         public int SellerID { get; set; }
 

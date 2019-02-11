@@ -1,5 +1,6 @@
 ﻿using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace ShoppingCore.Domain.Customers
 {
-    public class Customer : IEntity
+    public class Customer : IEntity,ICustomer
     {
         public int CustomerID { get; set; }
 

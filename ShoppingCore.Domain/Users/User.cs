@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Users
 {
-    public class User : IEntity
+    public class User : IEntity,IUser
     {
         public int UserID { get; set; }
 
