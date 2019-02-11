@@ -1,10 +1,11 @@
 ﻿using ShoppingCore.Application.Interfaces;
 using System;
 using System.Collections.Generic;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
-    public class ProductModel : IAppModel
+    public class ProductModel : IAppModel,IProduct
     {
         public int ProductID { get; set; }
 
@@ -25,5 +26,7 @@ namespace ShoppingCore.Application.ApplicationModels
         public float UnitPrice { get; set; }
 
         public SellerModel Seller { get; set; }
+
+        
     }
 }

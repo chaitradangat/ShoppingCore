@@ -1,8 +1,9 @@
 ﻿using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
-    public class AddressModel : IAppModel
+    public class AddressModel : IAppModel,IAddress
     {
         public int AddressID { get; set; }
 
@@ -31,5 +32,7 @@ namespace ShoppingCore.Application.ApplicationModels
         public int ProductID { get; set; }
 
         public int CustomerID { get; set; }
+
+        
     }
 }
