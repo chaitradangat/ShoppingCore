@@ -1,15 +1,11 @@
-﻿
-using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace ShoppingCore.Application.ApplicationModels
+namespace ShoppingCore.Application.Customers.Models
 {
-    public class CustomerModel : IAppModel
+    public class CustomerModel
     {
-        public int CustomerID { get; set; }
-
         public int UserID { get; set; }
 
         public string FirstName { get; set; }
@@ -21,8 +17,6 @@ namespace ShoppingCore.Application.ApplicationModels
         public string Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
-
-        public List<AddressModel> Addresses { get; set; }
 
     }
 }

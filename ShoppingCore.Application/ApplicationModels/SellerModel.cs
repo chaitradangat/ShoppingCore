@@ -6,7 +6,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
-    public class SellerModel : IAppModel,ISeller
+    public class SellerModel : IAppModel
     {
         public int SellerID { get; set; }
 
@@ -25,7 +25,5 @@ namespace ShoppingCore.Application.ApplicationModels
         public DateTime DateOfBirth { get; set; }
 
         public List<ProductModel> Products { get; set; }
-
-        
     }
 }

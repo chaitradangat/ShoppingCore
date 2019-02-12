@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingCore.Application.Interfaces
 {
-    interface IAppModel
+    public interface IAppModel
     {
     }
 }

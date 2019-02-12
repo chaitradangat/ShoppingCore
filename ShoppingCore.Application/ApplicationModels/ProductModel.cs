@@ -5,7 +5,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
-    public class ProductModel : IAppModel,IProduct
+    public class ProductModel : IAppModel
     {
         public int ProductID { get; set; }
 
@@ -26,7 +26,5 @@ namespace ShoppingCore.Application.ApplicationModels
         public float UnitPrice { get; set; }
 
         public SellerModel Seller { get; set; }
-
-        
     }
 }
