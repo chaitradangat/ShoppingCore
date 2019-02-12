@@ -31,6 +31,9 @@ namespace ShoppingCore.Presentation
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -50,6 +53,9 @@ namespace ShoppingCore.Presentation
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            
+            
 
             app.UseMvc(routes =>
             {
