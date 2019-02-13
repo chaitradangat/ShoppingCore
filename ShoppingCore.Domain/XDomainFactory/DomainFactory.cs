@@ -1,4 +1,5 @@
 ﻿using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
 using System;
@@ -7,18 +8,26 @@ using System.Text;
 
 namespace ShoppingCore.Domain.XDomainFactory
 {
-    public class DomainFactory
+    public class DomainFactory : IDomainFactory
     {
-        public IEntity GetEntity(Type type)
+        public IEntity<T> GetEntity<T>()
         {
-            if (type == typeof(IProduct))
+            object objEntity = null;
+
+            if (typeof(T) == typeof(IProduct))
             {
-                return new Product();
+               objEntity =  new Product();
+            }
+            else if (typeof(T) == typeof(ICustomer))
+            {
+                objEntity = new Customer();
             }
             else
             {
-                return null;
+                objEntity = null;    
             }
+
+            return (IEntity<T>)objEntity;
         }
 
 
