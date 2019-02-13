@@ -9,6 +9,7 @@ using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Persistence;
 using Microsoft.EntityFrameworkCore.Design;
+using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -18,8 +19,14 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
-            ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
-            command.Execute(new CreateUserModel() { UserName="xxx", Password = "zzz" });
+            //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
+            //command.Execute(new CreateUserModel() { UserName="xxx", Password = "zzz" });
+
+
+            ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
+            command.Execute(null);
+
+
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();
