@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ShoppingCore.Domain.Common
 {
-    public class Address : IEntity,IAddress
+    public class Address : IEntity<IAddress>
     {
         public int AddressID { get; set; }
 

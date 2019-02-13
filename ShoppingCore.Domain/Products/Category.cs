@@ -7,7 +7,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-    public class Category : IEntity,ICategory
+    public class Category : IEntity<ICategory>
     {
         public int CategoryID { get; set; }
 

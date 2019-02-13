@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ShoppingCore.Domain.Customers
 {
-    public class Customer : IEntity,ICustomer
+    public class Customer : IEntity<ICustomer>
     {
         public int CustomerID { get; set; }
 
