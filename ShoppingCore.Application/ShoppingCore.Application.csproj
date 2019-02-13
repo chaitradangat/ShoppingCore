@@ -8,7 +8,6 @@
     <Folder Include="Common\Addresses\Commands\CreateAddress\" />
     <Folder Include="Common\Addresses\XNonStandard\" />
     <Folder Include="Common\Addresses\Queries\" />
-    <Folder Include="Customers\Commands\CreateCustomer\" />
     <Folder Include="Customers\Non_Standard\" />
     <Folder Include="Customers\Queries\" />
     <Folder Include="Products\Commands\" />
