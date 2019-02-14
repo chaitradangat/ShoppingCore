@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using ShoppingCore.Domain.Interfaces;
-
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
@@ -25,5 +25,10 @@ namespace ShoppingCore.Application.ApplicationModels
         public DateTime DateOfBirth { get; set; }
 
         public List<ProductModel> Products { get; set; }
+
+        public IEntity MorphAppModel()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

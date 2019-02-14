@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
@@ -26,5 +27,10 @@ namespace ShoppingCore.Application.ApplicationModels
         public float UnitPrice { get; set; }
 
         public SellerModel Seller { get; set; }
+
+        public IEntity MorphAppModel()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
