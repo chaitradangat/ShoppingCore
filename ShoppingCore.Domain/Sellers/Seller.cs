@@ -7,7 +7,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Sellers
 {
-    public class Seller : IEntity<ISeller>
+    public class Seller : IEntity,ISeller
     {
         public int SellerID { get; set; }
 

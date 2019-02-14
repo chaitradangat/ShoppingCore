@@ -2,6 +2,8 @@
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Sellers;
+using ShoppingCore.Domain.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,30 +12,44 @@ namespace ShoppingCore.Domain.XDomainFactory
 {
     public class DomainFactory : IDomainFactory
     {
-        public IEntity<T> GetEntity<T>()
+        public IEntity GetEntity<T>()
         {
-            object objEntity = null;
-
-            if (typeof(T) == typeof(IProduct))
+            if (typeof(T) == typeof(IAddress))
             {
-               objEntity =  new Product();
+                return new Address();
+            }
+            else if (typeof(T) == typeof(ICategory))
+            {
+                return new Category();
             }
             else if (typeof(T) == typeof(ICustomer))
             {
-                objEntity = new Customer();
+                return new Customer();
+            }
+            else if (typeof(T) == typeof(IProduct))
+            {
+               return  new Product();
+            }
+            else if (typeof(T) == typeof(IProductCategory))
+            {
+                return new ProductCategory();
+            }
+            else if (typeof(T) == typeof(IProductImage))
+            {
+                return new ProductImage();
+            }
+            else if (typeof(T) == typeof(ISeller))
+            {
+                return new Seller();
+            }
+            else if (typeof(T) == typeof(IUser))
+            {
+                return new User();
             }
             else
             {
-                objEntity = null;    
+                return null;    
             }
-
-            return (IEntity<T>)objEntity;
         }
-
-
-        
-
-        
-
     }
 }

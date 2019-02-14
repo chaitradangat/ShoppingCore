@@ -7,7 +7,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-   public class Product : IEntity<IProduct>
+   public class Product : IEntity,IProduct
     {
         public int ProductID { get; set; }
 

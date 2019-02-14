@@ -6,7 +6,7 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-    public class ProductImage :IEntity<IProductImage>
+    public class ProductImage :IEntity,IProductImage
     {
         public int ProductImageID { get; set; }
 

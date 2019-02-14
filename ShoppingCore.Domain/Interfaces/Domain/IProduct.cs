@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Sellers;
 
 namespace ShoppingCore.Domain.Interfaces
 {
@@ -16,9 +18,9 @@ namespace ShoppingCore.Domain.Interfaces
 
         string ProductDescription { get; set; }
 
-        IList<IProductCategory> ProductCategories { get; set; }
+        List<ProductCategory> ProductCategories { get; set; }
 
-        IList<IProductImage> ProductImages { get; set; }
+        List<ProductImage> ProductImages { get; set; }
 
         Units Unit { get; set; }
 
@@ -26,7 +28,7 @@ namespace ShoppingCore.Domain.Interfaces
 
         float UnitPrice { get; set; }
 
-        ISeller Seller { get; set; }
+        Seller Seller { get; set; }
 
         int SellerID { get; set; }
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Customers;
+using ShoppingCore.Domain.Products;
 
 namespace ShoppingCore.Domain.Interfaces
 {
@@ -32,8 +34,8 @@ namespace ShoppingCore.Domain.Interfaces
 
         AddressTypeEnum AddressType { get; set; }
 
-        IProduct Product { get; set; }
+        Product Product { get; set; }
 
-        ICustomer Customer { get; set; }
+        Customer Customer { get; set; }
     }
 }

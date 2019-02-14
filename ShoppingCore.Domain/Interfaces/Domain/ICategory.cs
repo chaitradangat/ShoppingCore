@@ -1,14 +1,16 @@
-﻿
+﻿using System.Collections.Generic;
+using ShoppingCore.Domain.Products;
+
 namespace ShoppingCore.Domain.Interfaces
 {
     public interface ICategory
     {
          int CategoryID { get; set; }
 
-         int ProductID { get; set; }
+         string CategoryName { get; set; }
 
-         ICategory Category { get; set; }
+         Category SubCategory { get; set; }
 
-         IProduct Product { get; set; }
+         List<ProductCategory> ProductCategories { get; set; }
     }
 }

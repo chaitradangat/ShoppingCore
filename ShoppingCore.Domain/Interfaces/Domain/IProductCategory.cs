@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Domain.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,8 +11,8 @@ namespace ShoppingCore.Domain.Interfaces
 
          int ProductID { get; set; }
 
-         ICategory Category { get; set; }
+         Category Category { get; set; }
 
-         IProduct Product { get; set; }
+         Product Product { get; set; }
     }
 }

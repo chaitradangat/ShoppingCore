@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Domain.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -22,6 +23,6 @@ namespace ShoppingCore.Domain.Interfaces
 
          DateTime DateOfBirth { get; set; }
 
-         IList<IProduct> Products { get; set; }
+         List<Product> Products { get; set; }
     }
 }

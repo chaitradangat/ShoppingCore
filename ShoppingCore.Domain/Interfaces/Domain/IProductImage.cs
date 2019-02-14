@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Domain.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace ShoppingCore.Domain.Interfaces
 
          string ImageUrl { get; set; }
 
-         IProduct Product { get; set; }
+         Product Product { get; set; }
 
          int ProductID { get; set; }
     }

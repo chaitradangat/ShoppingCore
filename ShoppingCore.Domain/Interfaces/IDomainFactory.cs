@@ -5,6 +5,6 @@ namespace ShoppingCore.Domain.Interfaces
 {
     public interface IDomainFactory
     {
-        IEntity<T> GetEntity<T>();
+        IEntity GetEntity<T>();
     }
 }

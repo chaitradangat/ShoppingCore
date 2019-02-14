@@ -24,9 +24,9 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 
         public void Execute(CustomerModel customerModel)
         {
-            var customer = _factory.GetEntity<ICustomer>();
+            var customer = (ICustomer)_factory.GetEntity<ICustomer>();
 
-            var x = (ICustomer)customer;
+            
 
 
         }
