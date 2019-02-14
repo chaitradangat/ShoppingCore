@@ -12,6 +12,7 @@ using ShoppingCore.Domain.Users;
 using ShoppingCore.Application.Interfaces;
 using System.Configuration;
 using System.IO;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Persistence
 {

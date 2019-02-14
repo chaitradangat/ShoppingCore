@@ -24,7 +24,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
 
             ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
-            command.Execute(null);
+            //command.Execute(null);
 
 
 
