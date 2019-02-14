@@ -20,5 +20,10 @@ namespace ShoppingCore.Domain.Users
 
         public UserRole UserRole { get; set; }
 
+        public User()
+        {
+            //default user role will be customer
+            UserRole = UserRole.Customer;
+        }
     }
 }
