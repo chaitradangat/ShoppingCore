@@ -22,14 +22,18 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
             _factory = factory;
         }
 
-        public void Execute(CustomerModel customerModel)
+        public void Execute(CustomerModel customerModel,IUser user = null)
         {
-            var customer = (ICustomer)_factory.GetEntity<ICustomer>();
+            var customer = customerModel.MorphAppModel(user);
 
-            
+            _database.Customers.Add(customer);
 
+            _database.Save();
 
         }
+
+        
+
 
     }
 }
