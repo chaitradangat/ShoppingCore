@@ -9,6 +9,11 @@ using ShoppingCore.Persistence;
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.XDomainFactory;
+using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Users;
+using ShoppingCore.Domain.Customers;
+using ShoppingCore.Domain.Sellers;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -19,6 +24,16 @@ namespace ShoppingCore.DependencyInjection
         public static void InjectDependencies()
         {
             Serviceprovider = new ServiceCollection()
+            .AddTransient<IAddress,Address>()
+            .AddTransient<ICategory,Category>()
+            .AddTransient<IProductCategory,ProductCategory>()
+            .AddTransient<IProduct,Product>()
+            .AddTransient<IUser,User>()
+            .AddTransient<ICustomer,Customer>()
+            .AddTransient<ISeller,Seller>()
+            .AddTransient<IProductImage,ProductImage>()
+
+
             .AddDbContext<ShoppingCoreDbContext>()
             .AddSingleton<IDomainFactory,DomainFactory>()
             .AddSingleton<IDatabaseService, ShoppingCoreDbContext>()
