@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ApplicationModels\Enums.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Common\Addresses\Commands\CreateAddress\" />
     <Folder Include="Common\Addresses\XNonStandard\" />
     <Folder Include="Common\Addresses\Queries\" />
