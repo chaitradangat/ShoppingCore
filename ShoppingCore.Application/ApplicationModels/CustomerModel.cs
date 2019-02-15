@@ -31,6 +31,8 @@ namespace ShoppingCore.Application.ApplicationModels
         public CustomerModel(IDomainFactory factory)
         {
             _factory = factory;
+
+            Addresses = new List<AddressModel>();
         }
 
         public IEntity MorphAppModel()
@@ -53,9 +55,30 @@ namespace ShoppingCore.Application.ApplicationModels
 
             customer.MiddleName = MiddleName;
 
-            //customer.Addresses = Addresses;
-
             customer.DateOfBirth = DateOfBirth;
+
+            customer.Addresses = new List<Address>();
+
+            foreach (var address in Addresses)
+            {
+                var a = (IAddress)_factory.GetEntity<IAddress>();
+
+                a.AddressLine1 = address.AddressLine1;
+                a.AddressLine2 = address.AddressLine2;
+                a.AddressLine3 = address.AddressLine3;
+                a.AddressLine4 = address.AddressLine4;
+                a.AddressLine5 = address.AddressLine5;
+                a.AddressType = address.AddressType;
+                a.City = address.City;
+                a.Country = address.Country;
+                a.District = address.District;
+                a.LandMark = address.LandMark;
+                a.PinCode = address.PinCode;
+                a.Product = null;
+                a.Customer = (Customer)customer;
+
+                customer.Addresses.Add((Address)a);
+            }
 
             return (Customer)customer;
         }
