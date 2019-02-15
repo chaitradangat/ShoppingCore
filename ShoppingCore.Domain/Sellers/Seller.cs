@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Domain.Sellers
 {
     public class Seller : IEntity,ISeller
     {
         public int SellerID { get; set; }
+
+        public User User { get; set; }
 
         public int UserID { get; set; }
 

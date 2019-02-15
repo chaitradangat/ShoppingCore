@@ -5,12 +5,15 @@ using ShoppingCore.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Domain.Customers
 {
     public class Customer : IEntity,ICustomer
     {
         public int CustomerID { get; set; }
+
+        public User User { get; set; }
 
         public int UserID { get; set; }
 
