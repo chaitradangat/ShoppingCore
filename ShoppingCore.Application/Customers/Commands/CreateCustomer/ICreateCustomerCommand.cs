@@ -5,6 +5,6 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 {
     public interface ICreateCustomerCommand
     {
-        void Execute(CustomerModel customerModel,IUser user);
+        void Execute(CustomerModel customerModel);
     }
 }

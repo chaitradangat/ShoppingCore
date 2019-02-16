@@ -23,14 +23,13 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
             _factory = factory;
         }
 
-        public void Execute(CustomerModel customerModel,IUser user = null)
+        public void Execute(CustomerModel customerModel)
         {
-            var customer = customerModel.MorphAppModel(user);
+            var customer = customerModel.MorphAppModel() as Customer;
 
             _database.Customers.Add(customer);
 
             _database.Save();
-
         }
 
         public void Execute(CreateCustomerModel model)
