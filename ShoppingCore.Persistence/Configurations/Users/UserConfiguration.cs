@@ -16,6 +16,12 @@ namespace ShoppingCore.Persistence.Configurations.Users
                    .HasMaxLength(50);
 
             builder.Ignore(u => u.IsAutheticated);
+
+
+            //builder.HasOne(u => u.Customer)
+                
+            //builder.HasOne(u => u.Seller);
+
         }
     }
 }
