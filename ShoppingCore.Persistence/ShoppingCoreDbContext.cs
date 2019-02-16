@@ -20,7 +20,7 @@ namespace ShoppingCore.Persistence
     {
         public ShoppingCoreDbContext(DbContextOptions<ShoppingCoreDbContext> options) : base(options)
         {
-
+            
         }
 
         #region -Code for constring and provider setting-
@@ -33,7 +33,9 @@ namespace ShoppingCore.Persistence
 
             var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
 
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer(connectionString);
 
             base.OnConfiguring(optionsBuilder);
         }
