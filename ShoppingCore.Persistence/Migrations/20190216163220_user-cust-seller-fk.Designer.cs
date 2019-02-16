@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCore.Persistence;
 
 namespace ShoppingCore.Persistence.Migrations
 {
     [DbContext(typeof(ShoppingCoreDbContext))]
-    partial class ShoppingCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190216163220_user-cust-seller-fk")]
+    partial class usercustsellerfk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +112,13 @@ namespace ShoppingCore.Persistence.Migrations
 
                     b.Property<string>("MiddleName");
 
+                    b.Property<int>("UserID");
+
+                    b.Property<int?>("UserID1");
+
                     b.HasKey("CustomerID");
+
+                    b.HasIndex("UserID1");
 
                     b.ToTable("Customers");
 
@@ -122,7 +130,8 @@ namespace ShoppingCore.Persistence.Migrations
                             FirstName = "Lisa",
                             Gender = "Female",
                             LastName = "Taylor",
-                            MiddleName = "M"
+                            MiddleName = "M",
+                            UserID = 2
                         });
                 });
 
@@ -254,7 +263,13 @@ namespace ShoppingCore.Persistence.Migrations
 
                     b.Property<string>("MiddleName");
 
+                    b.Property<int>("UserID");
+
+                    b.Property<int?>("UserID1");
+
                     b.HasKey("SellerID");
+
+                    b.HasIndex("UserID1");
 
                     b.ToTable("Sellers");
 
@@ -267,7 +282,8 @@ namespace ShoppingCore.Persistence.Migrations
                             FirstName = "Samuel",
                             Gender = "Male",
                             LastName = "Jackson",
-                            MiddleName = "L"
+                            MiddleName = "L",
+                            UserID = 1
                         });
                 });
 
@@ -292,14 +308,6 @@ namespace ShoppingCore.Persistence.Migrations
                     b.Property<int>("UserRole");
 
                     b.HasKey("UserID");
-
-                    b.HasIndex("CustomerID")
-                        .IsUnique()
-                        .HasFilter("[CustomerID] IS NOT NULL");
-
-                    b.HasIndex("SellerID")
-                        .IsUnique()
-                        .HasFilter("[SellerID] IS NOT NULL");
 
                     b.ToTable("Users");
 
@@ -333,6 +341,13 @@ namespace ShoppingCore.Persistence.Migrations
                     b.HasOne("ShoppingCore.Domain.Products.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID");
+                });
+
+            modelBuilder.Entity("ShoppingCore.Domain.Customers.Customer", b =>
+                {
+                    b.HasOne("ShoppingCore.Domain.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID1");
                 });
 
             modelBuilder.Entity("ShoppingCore.Domain.Products.Category", b =>
@@ -371,15 +386,11 @@ namespace ShoppingCore.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ShoppingCore.Domain.Users.User", b =>
+            modelBuilder.Entity("ShoppingCore.Domain.Sellers.Seller", b =>
                 {
-                    b.HasOne("ShoppingCore.Domain.Customers.Customer")
-                        .WithOne("User")
-                        .HasForeignKey("ShoppingCore.Domain.Users.User", "CustomerID");
-
-                    b.HasOne("ShoppingCore.Domain.Sellers.Seller")
-                        .WithOne("User")
-                        .HasForeignKey("ShoppingCore.Domain.Users.User", "SellerID");
+                    b.HasOne("ShoppingCore.Domain.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID1");
                 });
 #pragma warning restore 612, 618
         }
