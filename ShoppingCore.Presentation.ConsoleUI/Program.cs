@@ -10,6 +10,8 @@ using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Persistence;
 using Microsoft.EntityFrameworkCore.Design;
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
+using ShoppingCore.Application.ApplicationModels;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -24,7 +26,22 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
 
             ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
-            //command.Execute(null);
+
+            CustomerModel customerModel = new CustomerModel(DIContainer.Serviceprovider.GetService<IDomainFactory>())
+            {
+                Addresses = new System.Collections.Generic.List<AddressModel>(),
+                AutheticationType = Domain.Common.AutheticationType.AppDatabase,
+                DateOfBirth = DateTime.Now,
+                FirstName = "FirstName test",
+                Gender = "Male",
+                LastName = "LastName test",
+                MiddleName = "MiddleName test",
+                Password = "psswrd",
+                UserName = "UserName test",
+                UserRole = Domain.Common.UserRole.Customer
+            };
+
+            command.Execute(customerModel);
 
 
 
