@@ -22,21 +22,16 @@ namespace ShoppingCore.Domain.Users
 
         public UserRole UserRole { get; set; }
 
-        public int SellerID { get; set; }
+        //marked as nullable int as seller can be null
+        public int? SellerID { get; set; }
 
-        public Seller Seller { get; set; }
-
-
-        public int CustomerID { get; set; }
-
-        public Customer Customer { get; set; }
+        //marked as nullable int as customer can be null
+        public int? CustomerID { get; set; }
 
         public User()
         {
             //default user role will be customer
             UserRole = UserRole.Customer;
-            Customer = new Customer();
-            Seller = null;
         }
     }
 }

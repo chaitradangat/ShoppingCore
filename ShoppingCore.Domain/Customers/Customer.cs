@@ -15,7 +15,7 @@ namespace ShoppingCore.Domain.Customers
 
         public User User { get; set; }
 
-        public int UserID { get; set; }
+        //public int UserID { get; set; }
 
         public string FirstName { get; set; }
 

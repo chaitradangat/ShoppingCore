@@ -1,4 +1,5 @@
 ﻿using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,9 @@ namespace ShoppingCore.Domain.Interfaces
     {
         int CustomerID { get; set; }
 
-        int UserID { get; set; }
+        //int UserID { get; set; }
+
+        User User { get; set; }
 
         string FirstName { get; set; }
 
