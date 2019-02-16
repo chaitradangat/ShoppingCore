@@ -12,7 +12,7 @@ namespace ShoppingCore.Domain.Sellers
     {
         public int SellerID { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         //public int UserID { get; set; }
 
