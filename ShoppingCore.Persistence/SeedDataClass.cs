@@ -25,7 +25,7 @@ namespace ShoppingCore.Persistence
             SeedProducts(modelBuilder);
 
             SeedCategories(modelBuilder);
-            
+
             SeedProductCategories(modelBuilder);
 
             SeedProductImages(modelBuilder);
@@ -35,8 +35,8 @@ namespace ShoppingCore.Persistence
         public static void SeedUsers(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User { UserID = 1, UserName = "sam", Password = "samseller", AutheticationType = AutheticationType.AppDatabase , UserRole = UserRole.Seller },
-                new User { UserID = 2, UserName = "lisa", Password = "lisabuyer", AutheticationType = AutheticationType.AppDatabase , UserRole = UserRole.Customer }
+                new User { UserID = 1, UserName = "sam", Password = "samseller", AutheticationType = AutheticationType.AppDatabase, UserRole = UserRole.Seller, CustomerID = null, SellerID = 1 },
+                new User { UserID = 2, UserName = "lisa", Password = "lisabuyer", AutheticationType = AutheticationType.AppDatabase, UserRole = UserRole.Customer, CustomerID = 1, SellerID = null }
                 );
         }
 
@@ -48,7 +48,7 @@ namespace ShoppingCore.Persistence
                 new
                 {
                     SellerID = 1,
-                    UserID = 1,
+                    //UserID = 1,
                     BusinessName = "SamuelSales",
                     FirstName = "Samuel",
                     MiddleName = "L",
@@ -67,7 +67,7 @@ namespace ShoppingCore.Persistence
                 new Customer
                 {
                     CustomerID = 1,
-                    UserID = 2,
+                    //UserID = 2,
                     FirstName = "Lisa",
                     MiddleName = "M",
                     LastName = "Taylor",
