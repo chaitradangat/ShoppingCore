@@ -6,6 +6,8 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class AddressModel : IAppModel
     {
+        public IEntity _entity { get; set; }
+
         public int AddressID { get; set; }
 
         public string AddressLine1 { get; set; }
@@ -30,13 +32,87 @@ namespace ShoppingCore.Application.ApplicationModels
 
         public AddressTypeEnum AddressType { get; set; }
 
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
 
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
 
-        public IEntity MorphAppModel()
+        public AddressModel()
         {
-            throw new System.NotImplementedException();
+            _entity = new Address();
+        }
+
+        public IAppModel ConvertToAppModel()
+        {
+            var address = _entity as Address;
+
+            AddressID = address.AddressID;
+
+            AddressLine1 = address.AddressLine1;
+
+            AddressLine2 = address.AddressLine2;
+
+            AddressLine3 = address.AddressLine3;
+
+            AddressLine4 = address.AddressLine4;
+
+            AddressLine5 = address.AddressLine5;
+
+            LandMark = address.LandMark;
+
+            City = address.City;
+
+            District = address.District;
+
+            Country = address.Country;
+
+            PinCode = address.PinCode;
+
+            AddressType = address.AddressType;
+
+            ProductID = address.Product?.ProductID;
+
+            CustomerID = address.Customer?.CustomerID;
+
+            return this;
+        }
+
+        public IEntity ConvertToDomainModel()
+        {
+            var address = _entity as Address;
+
+            address.AddressID = AddressID;
+
+            address.AddressLine1 = AddressLine1;
+
+            address.AddressLine2 = AddressLine2;
+
+            address.AddressLine3 = AddressLine3;
+
+            address.AddressLine4 = AddressLine4;
+
+            address.AddressLine5 = AddressLine5;
+
+            address.LandMark = LandMark;
+
+            address.City = City;
+
+            address.District = District;
+
+            address.Country = Country;
+
+            address.PinCode = PinCode;
+
+            address.AddressType = AddressType;
+
+
+            if (address.Product != null)
+                address.Product.ProductID = ProductID;
+
+            if (address.Customer != null)
+                address.Customer.CustomerID = CustomerID;
+
+            return address;
+
         }
     }
 }

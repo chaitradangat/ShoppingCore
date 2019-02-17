@@ -30,5 +30,20 @@ namespace ShoppingCore.Application.ApplicationModels
         {
             throw new NotImplementedException();
         }
+
+        public IAppModel MorphDomainModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAppModel ConvertToAppModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEntity ConvertToDomainModel()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

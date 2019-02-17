@@ -12,8 +12,10 @@ namespace ShoppingCore.Application.ApplicationModels
     {
         private readonly IDomainFactory _factory;
 
+        public Customer _entity;
+
         #region -Properties required for new customer creation-
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
 
         public int UserID { get; set; }
 
@@ -44,7 +46,6 @@ namespace ShoppingCore.Application.ApplicationModels
 
         #endregion
 
-
         public CustomerModel(IDomainFactory factory)
         {
             _factory = factory;
@@ -53,60 +54,160 @@ namespace ShoppingCore.Application.ApplicationModels
         }
 
         //this method is violating loose coupling..finding better ways to do this
-        public IEntity MorphAppModel()
+        public IEntity ConvertToDomainModel()
         {
-            var user = (User)_factory.GetEntity<IUser>();
-            user.UserName = UserName;
-            user.Password = Password;
-            user.UserRole = UserRole;
-            user.AutheticationType = AutheticationType;
-
-
-            var customer = (Customer)_factory.GetEntity<ICustomer>();
-
-            customer.DateOfBirth = DateOfBirth;
-
-            customer.FirstName = FirstName;
-
-            customer.MiddleName = MiddleName;
-
-            customer.LastName = LastName;
-
-            customer.Gender = Gender;
-
-            customer.User = user;
-
-
-            foreach (var address in Addresses)
+            if (_entity == null)
             {
-                var a = (Address)_factory.GetEntity<IAddress>();
+                var user = (User)_factory.GetEntity<IUser>();
+                user.UserName = UserName;
 
-                a.AddressLine1 = address.AddressLine1;
-                a.AddressLine2 = address.AddressLine2;
-                a.AddressLine3 = address.AddressLine3;
-                a.AddressLine4 = address.AddressLine4;
-                a.AddressLine5 = address.AddressLine5;
-                a.AddressType = address.AddressType;
-                a.City = address.City;
-                a.Country = address.Country;
-                a.District = address.District;
-                a.LandMark = address.LandMark;
-                a.PinCode = address.PinCode;
-                a.Product = null;
-                a.Customer = customer;
+                user.Password = Password;
 
-                customer.Addresses.Add(a);
+                user.UserRole = UserRole;
+
+                user.AutheticationType = AutheticationType;
+
+                user.UserID = UserID;
+
+                var customer = (Customer)_factory.GetEntity<ICustomer>();
+
+                customer.DateOfBirth = DateOfBirth;
+
+                customer.FirstName = FirstName;
+
+                customer.MiddleName = MiddleName;
+
+                customer.LastName = LastName;
+
+                customer.Gender = Gender;
+
+                customer.User = user;
+
+                customer.CustomerID = CustomerID;
+
+                foreach (var address in Addresses)
+                {
+                    //var a = address.ConvertToDomainModel() as Address;
+
+
+                    var a = (Address)_factory.GetEntity<IAddress>();
+                    a.AddressLine1 = address.AddressLine1;
+                    a.AddressLine2 = address.AddressLine2;
+                    a.AddressLine3 = address.AddressLine3;
+                    a.AddressLine4 = address.AddressLine4;
+                    a.AddressLine5 = address.AddressLine5;
+                    a.AddressType = address.AddressType;
+                    a.City = address.City;
+                    a.Country = address.Country;
+                    a.District = address.District;
+                    a.LandMark = address.LandMark;
+                    a.PinCode = address.PinCode;
+                    a.Product = null;
+                    a.Customer = customer;
+
+                    a.AddressID = address.AddressID;
+
+
+                    customer.Addresses.Add(a);
+                }
+
+                return customer;
             }
+            else
+            {
+                _entity.DateOfBirth = DateOfBirth;
 
+                _entity.FirstName = FirstName;
 
+                _entity.MiddleName = MiddleName;
 
+                _entity.LastName = LastName;
 
+                _entity.Gender = Gender;
 
+                _entity.User.UserName = UserName;
 
+                _entity.User.Password = Password;
 
-            return customer;
+                _entity.User.UserRole = UserRole;
 
+                _entity.User.IsAutheticated = IsAutheticated;
+
+                _entity.User.AutheticationType = AutheticationType;
+
+                _entity.Addresses.Clear();
+
+                foreach (var address in Addresses)
+                {
+                    
+                    var a = (Address)_factory.GetEntity<IAddress>();
+                    a.AddressLine1 = address.AddressLine1;
+                    a.AddressLine2 = address.AddressLine2;
+                    a.AddressLine3 = address.AddressLine3;
+                    a.AddressLine4 = address.AddressLine4;
+                    a.AddressLine5 = address.AddressLine5;
+                    a.AddressType = address.AddressType;
+                    a.City = address.City;
+                    a.Country = address.Country;
+                    a.District = address.District;
+                    a.LandMark = address.LandMark;
+                    a.PinCode = address.PinCode;
+                    a.Product = null;
+                    a.Customer = _entity;
+
+                    _entity.Addresses.Add(a);
+                }
+                return _entity;
+            }
         }
 
+        public IAppModel ConvertToAppModel()
+        {
+            var customer = _entity;
+
+            UserID = customer.User.UserID;
+
+            UserName = customer.User.UserName;
+
+            Password = customer.User.Password;
+
+            IsAutheticated = customer.User.IsAutheticated;
+
+            AutheticationType = customer.User.AutheticationType;
+
+            UserRole = customer.User.UserRole;
+
+            CustomerID = customer.CustomerID;
+
+            FirstName = customer.FirstName;
+
+            MiddleName = customer.MiddleName;
+
+            LastName = customer.LastName;
+
+            Gender = customer.Gender;
+
+            DateOfBirth = customer.DateOfBirth;
+
+            customer.Addresses.ForEach(a => Addresses.Add(
+               new AddressModel()
+               {
+                   AddressLine1 = a.AddressLine1,
+                   AddressLine2 = a.AddressLine2,
+                   AddressLine3 = a.AddressLine3,
+                   AddressLine4 = a.AddressLine4,
+                   AddressLine5 = a.AddressLine5,
+                   AddressType = a.AddressType,
+                   City = a.City,
+                   Country = a.Country,
+                   District = a.District,
+                   LandMark = a.LandMark,
+                   PinCode = a.PinCode,
+                   AddressID = a.AddressID,
+                   CustomerID = a.Customer.CustomerID
+               }));
+
+            return this;
+        }
     }
 }

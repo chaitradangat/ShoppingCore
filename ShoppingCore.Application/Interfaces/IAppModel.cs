@@ -7,6 +7,8 @@ namespace ShoppingCore.Application.Interfaces
 {
     public interface IAppModel
     {
-        IEntity MorphAppModel();
+        IEntity ConvertToDomainModel();
+
+        IAppModel ConvertToAppModel();
     }
 }
