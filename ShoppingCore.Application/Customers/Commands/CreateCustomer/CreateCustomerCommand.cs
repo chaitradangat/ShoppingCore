@@ -25,21 +25,11 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 
         public void Execute(CustomerModel customerModel)
         {
-            var customer = customerModel.MorphAppModel() as Customer;
+            var customer = customerModel.ConvertToDomainModel() as Customer;
 
             _database.Customers.Add(customer);
 
             _database.Save();
         }
-
-        public void Execute(CreateCustomerModel model)
-        {
-            
-        }
-
-
-
-
-
     }
 }

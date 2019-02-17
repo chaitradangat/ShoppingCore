@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-
 using Microsoft.Extensions.DependencyInjection;
 
 using ShoppingCore.DependencyInjection;
@@ -12,13 +11,20 @@ using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Persistence;
+
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-//using Microsoft.EntityFrameworkCore;
+
 
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Domain.Interfaces;
+
+
+using ShoppingCore.Persistence.Configurations;
+using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
+using ShoppingCore.Domain.Customers;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -53,19 +59,48 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             #region -Loading related Entities-
             //loading related entities
-
             var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
+            var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
 
-            var customersWithoutInclude = database.Customers.Where(c => c.FirstName.Contains("test")).ToList();
+            #endregion
 
-            
-            //var customers = database.Customers.Include(c => c.User)
-            //                .Where(c => c.FirstName.Contains("test"))
-            //                .ToList();
+            #region -Updating Entities-
+
+            IUpdateCustomerCommand cmd = DIContainer.Serviceprovider.GetService<IUpdateCustomerCommand>();
+
+            var customerModel = MockAppModel(database, domainfactory) as CustomerModel;
+
+            customerModel = cmd.Execute(customerModel) as CustomerModel;
+
             #endregion
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();
         }
+
+
+        public static IAppModel MockAppModel(IDatabaseService database,IDomainFactory domainFactory)
+        {
+            //fetch sample data from database to mock
+            var customer = database.Customers.LoadRelatedEntities().Where(c => c.FirstName.Contains("test") && c.Addresses.Count > 1).FirstOrDefault();
+
+            //declare appmodel
+            var customerModel = new CustomerModel(domainFactory) { _entity = customer };
+
+            //convert domain to appmodel for mocking
+            customerModel =  customerModel.ConvertToAppModel() as CustomerModel;
+
+            //set the domain entity to null for mock data as if it was passed by the view/another dto
+            customerModel._entity = null;
+
+            //add custom data to mock as if it was added by user
+            customerModel.Addresses.Add(new AddressModel() { AddressLine1 = "addressline1 test", AddressLine2 = "addressline2 test", City = "city test" });
+
+            return customerModel;
+        }
+
+
+
+
     }
 }
