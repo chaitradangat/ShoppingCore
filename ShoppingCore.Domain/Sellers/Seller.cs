@@ -14,8 +14,6 @@ namespace ShoppingCore.Domain.Sellers
 
         public virtual User User { get; set; }
 
-        //public int UserID { get; set; }
-
         public string BusinessName { get; set; }
 
         public string FirstName { get; set; }

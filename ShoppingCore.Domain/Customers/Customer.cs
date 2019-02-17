@@ -11,11 +11,9 @@ namespace ShoppingCore.Domain.Customers
 {
     public class Customer : IEntity,ICustomer
     {
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
 
         public virtual User User { get; set; }
-
-        //public int UserID { get; set; }
 
         public string FirstName { get; set; }
 

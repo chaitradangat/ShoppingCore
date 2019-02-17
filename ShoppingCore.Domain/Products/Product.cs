@@ -9,7 +9,7 @@ namespace ShoppingCore.Domain.Products
 {
    public class Product : IEntity,IProduct
     {
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
 
         public string Name { get; set; }
 

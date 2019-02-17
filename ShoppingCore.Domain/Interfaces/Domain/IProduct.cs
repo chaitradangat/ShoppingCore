@@ -10,7 +10,7 @@ namespace ShoppingCore.Domain.Interfaces
 {
     public interface IProduct
     {
-        int ProductID { get; set; }
+        int? ProductID { get; set; }
 
         string Name { get; set; }
 
