@@ -34,7 +34,6 @@ namespace ShoppingCore.Persistence
             var connectionString = config.ConnectionStrings.ConnectionStrings["ShoppingCoreConstr"].ConnectionString;
 
             optionsBuilder
-                .UseLazyLoadingProxies()
                 .UseSqlServer(connectionString);
 
             base.OnConfiguring(optionsBuilder);
