@@ -14,6 +14,7 @@ using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
+using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -40,6 +41,8 @@ namespace ShoppingCore.DependencyInjection
             .AddSingleton<IUserFactory, UserFactory>()
             .AddSingleton<ICreateUserCommand, CreateUserCommand>()
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
+            .AddSingleton<IUpdateCustomerCommand,UpdateCustomerCommand>()
+
             .BuildServiceProvider();
         }
     }
