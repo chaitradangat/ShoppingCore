@@ -78,29 +78,67 @@ namespace ShoppingCore.Presentation.ConsoleUI
             Console.ReadLine();
         }
 
-
-        public static IAppModel MockAppModel(IDatabaseService database,IDomainFactory domainFactory)
+        public static IAppModel MockAppModel(IDatabaseService database, IDomainFactory domainFactory)
         {
             //fetch sample data from database to mock
-            var customer = database.Customers.LoadRelatedEntities().Where(c => c.FirstName.Contains("test") && c.Addresses.Count > 1).FirstOrDefault();
+            var customer = database.Customers.LoadRelatedEntities().Where(c => c.FirstName.Contains("test") && c.Addresses.Count > 0).FirstOrDefault();
+            //var customer = database.Customers.LoadRelatedEntities().Where(c => c.FirstName.Contains("test")).FirstOrDefault();
 
-            //declare appmodel
-            var customerModel = new CustomerModel(domainFactory) { _entity = customer };
+            //create appmodel
+            var customerModel = new CustomerModel(domainFactory)
+            {
 
-            //convert domain to appmodel for mocking
-            customerModel =  customerModel.ConvertToAppModel() as CustomerModel;
+                UserID = customer.User.UserID,
 
-            //set the domain entity to null for mock data as if it was passed by the view/another dto
-            customerModel._entity = null;
+                UserName = customer.User.UserName,
+
+                Password = customer.User.Password,
+
+                IsAutheticated = customer.User.IsAutheticated,
+
+                AutheticationType = customer.User.AutheticationType,
+
+                UserRole = customer.User.UserRole,
+
+                CustomerID = customer.CustomerID,
+
+                FirstName = customer.FirstName,
+
+                MiddleName = customer.MiddleName,
+
+                LastName = customer.LastName,
+
+                Gender = customer.Gender,
+
+                DateOfBirth = customer.DateOfBirth
+            };
+
+            customer.Addresses.ForEach(a => customerModel.Addresses.Add(
+               new AddressModel()
+               {
+                   AddressLine1 = a.AddressLine1,
+                   AddressLine2 = a.AddressLine2,
+                   AddressLine3 = a.AddressLine3,
+                   AddressLine4 = a.AddressLine4,
+                   AddressLine5 = a.AddressLine5,
+                   AddressType = a.AddressType,
+                   City = a.City,
+                   Country = a.Country,
+                   District = a.District,
+                   LandMark = a.LandMark,
+                   PinCode = a.PinCode,
+                   AddressID = a.AddressID,
+                   CustomerID = a.Customer.CustomerID
+               }));
 
             //add custom data to mock as if it was added by user
             customerModel.Addresses.Add(new AddressModel() { AddressLine1 = "addressline1 test", AddressLine2 = "addressline2 test", City = "city test" });
 
+            //remove address to mock address has been deleted by user 
+            customerModel.Addresses.RemoveAll(a => a.AddressID == 58);
+
             return customerModel;
         }
-
-
-
 
     }
 }
