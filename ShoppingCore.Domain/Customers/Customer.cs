@@ -1,11 +1,12 @@
-﻿using ShoppingCore.Domain.Products;
-using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Users;
+using ShoppingCore.Domain.Products;
 
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ShoppingCore.Domain.Users;
+
 
 namespace ShoppingCore.Domain.Customers
 {
