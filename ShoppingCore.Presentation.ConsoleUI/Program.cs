@@ -34,43 +34,33 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
+            var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
+            var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
+
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
             //command.Execute(new CreateUserModel() { UserName="xxx", Password = "zzz" });
             #endregion
 
             #region -Create Customer Command Test-
-            //ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
-            //CustomerModel customerModel = new CustomerModel(DIContainer.Serviceprovider.GetService<IDomainFactory>())
-            //{
-            //    Addresses = new System.Collections.Generic.List<AddressModel>(),
-            //    AutheticationType = Domain.Common.AutheticationType.AppDatabase,
-            //    DateOfBirth = DateTime.Now,
-            //    FirstName = "FirstName test",
-            //    Gender = "Male",
-            //    LastName = "LastName test",
-            //    MiddleName = "MiddleName test",
-            //    Password = "psswrd",
-            //    UserName = "UserName test",
-            //    UserRole = Domain.Common.UserRole.Customer
-            //};
-            //command.Execute(customerModel);
+            ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
+
+            var customerModel = command.Execute(MockCustomerAppModel(database, domainfactory) as CustomerModel) as CustomerModel;
+
             #endregion
 
             #region -Loading related Entities-
             //loading related entities
-            var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
-            var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
 
             #endregion
 
             #region -Updating Entities-
 
-            IUpdateCustomerCommand cmd = DIContainer.Serviceprovider.GetService<IUpdateCustomerCommand>();
+            //IUpdateCustomerCommand cmd = DIContainer.Serviceprovider.GetService<IUpdateCustomerCommand>();
 
-            var customerModel = MockAppModel(database, domainfactory) as CustomerModel;
+            //var customerModel = MockAppModel(database, domainfactory) as CustomerModel;
 
-            customerModel = cmd.Execute(customerModel) as CustomerModel;
+            //customerModel = cmd.Execute(customerModel) as CustomerModel;
 
             #endregion
 
@@ -139,6 +129,33 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             return customerModel;
         }
+
+        public static IAppModel MockCustomerAppModel(IDatabaseService database, IDomainFactory domainFactory)
+        {
+            var customerAppModel = new CustomerModel(domainFactory);
+
+            customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1",AddressLine2 = "insert line2",Country = "India" });
+            customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1", AddressLine2 = "insert line2", Country = "USA" });
+            customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1", AddressLine2 = "insert line2", Country = "UK" });
+            customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1", AddressLine2 = "insert line2", Country = "Canada" });
+
+            customerAppModel.AutheticationType = Domain.Common.AutheticationType.AppDatabase;
+            customerAppModel.DateOfBirth = DateTime.Now;
+
+            customerAppModel.Gender = "Female";
+            customerAppModel.IsAutheticated = false;
+
+            customerAppModel.FirstName = "insert first name";
+            customerAppModel.MiddleName = "insert middle name";
+            customerAppModel.Password = "pwrd";
+            customerAppModel.UserName = "insert username";
+
+            customerAppModel.UserRole = Domain.Common.UserRole.Customer;
+
+            return customerAppModel;
+        }
+
+
 
     }
 }
