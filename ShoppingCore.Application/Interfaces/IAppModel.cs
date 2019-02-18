@@ -7,8 +7,6 @@ namespace ShoppingCore.Application.Interfaces
 {
     public interface IAppModel
     {
-        IEntity ConvertToDomainModel();
-
-        IAppModel ConvertToAppModel();
+        
     }
 }
