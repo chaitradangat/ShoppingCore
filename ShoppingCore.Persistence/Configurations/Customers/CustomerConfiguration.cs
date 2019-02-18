@@ -1,10 +1,10 @@
-﻿using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Common;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+using ShoppingCore.Domain.Customers;
+using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Users;
-//using Microsoft.EntityFrameworkCore.SqlServer;
+
 
 namespace ShoppingCore.Persistence.Configurations.Customers
 {
