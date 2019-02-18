@@ -12,8 +12,6 @@ namespace ShoppingCore.Application.ApplicationModels
     {
         private readonly IDomainFactory _factory;
 
-        public Customer _entity;
-
         #region -Properties required for new customer creation-
         public int? CustomerID { get; set; }
 
@@ -51,63 +49,8 @@ namespace ShoppingCore.Application.ApplicationModels
             _factory = factory;
 
             Addresses = new List<AddressModel>();
+
+            UserRole = UserRole.Customer;
         }
-
-        //this method is violating loose coupling..finding better ways to do this
-        /* Polluting code removed
-        
-
-        public IAppModel ConvertToAppModel()
-        {
-            var customer = _entity;
-
-            UserID = customer.User.UserID;
-
-            UserName = customer.User.UserName;
-
-            Password = customer.User.Password;
-
-            IsAutheticated = customer.User.IsAutheticated;
-
-            AutheticationType = customer.User.AutheticationType;
-
-            UserRole = customer.User.UserRole;
-
-            CustomerID = customer.CustomerID;
-
-            FirstName = customer.FirstName;
-
-            MiddleName = customer.MiddleName;
-
-            LastName = customer.LastName;
-
-            Gender = customer.Gender;
-
-            DateOfBirth = customer.DateOfBirth;
-
-            customer.Addresses.ForEach(a => Addresses.Add(
-               new AddressModel()
-               {
-                   AddressLine1 = a.AddressLine1,
-                   AddressLine2 = a.AddressLine2,
-                   AddressLine3 = a.AddressLine3,
-                   AddressLine4 = a.AddressLine4,
-                   AddressLine5 = a.AddressLine5,
-                   AddressType = a.AddressType,
-                   City = a.City,
-                   Country = a.Country,
-                   District = a.District,
-                   LandMark = a.LandMark,
-                   PinCode = a.PinCode,
-                   AddressID = a.AddressID,
-                   CustomerID = a.Customer.CustomerID
-               }));
-
-            return this;
-        }
-
-
-        */
-
     }
 }
