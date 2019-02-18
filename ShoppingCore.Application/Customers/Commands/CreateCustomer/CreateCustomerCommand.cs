@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using ShoppingCore.Application.ApplicationModels;
-using ShoppingCore.Application.Customers.Models;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
@@ -126,31 +125,32 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
         {
             var customer = entity as Customer;
 
-            var customerModel = new CustomerModel(_factory);
+            var customerModel = new CustomerModel(_factory)
+            {
+                UserID = customer.User.UserID,
 
-            customerModel.UserID = customer.User.UserID;
+                UserName = customer.User.UserName,
 
-            customerModel.UserName = customer.User.UserName;
+                Password = customer.User.Password,
 
-            customerModel.Password = customer.User.Password;
+                IsAutheticated = customer.User.IsAutheticated,
 
-            customerModel.IsAutheticated = customer.User.IsAutheticated;
+                AutheticationType = customer.User.AutheticationType,
 
-            customerModel.AutheticationType = customer.User.AutheticationType;
+                UserRole = customer.User.UserRole,
 
-            customerModel.UserRole = customer.User.UserRole;
+                CustomerID = customer.CustomerID,
 
-            customerModel.CustomerID = customer.CustomerID;
+                FirstName = customer.FirstName,
 
-            customerModel.FirstName = customer.FirstName;
+                MiddleName = customer.MiddleName,
 
-            customerModel.MiddleName = customer.MiddleName;
+                LastName = customer.LastName,
 
-            customerModel.LastName = customer.LastName;
+                Gender = customer.Gender,
 
-            customerModel.Gender = customer.Gender;
-
-            customerModel.DateOfBirth = customer.DateOfBirth;
+                DateOfBirth = customer.DateOfBirth
+            };
 
             customer.Addresses.ForEach(a => customerModel.Addresses.Add(
                new AddressModel()

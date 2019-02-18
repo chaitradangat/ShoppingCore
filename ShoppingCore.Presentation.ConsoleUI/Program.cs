@@ -25,6 +25,7 @@ using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Persistence.Configurations;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 using ShoppingCore.Domain.Customers;
+using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -43,9 +44,9 @@ namespace ShoppingCore.Presentation.ConsoleUI
             #endregion
 
             #region -Create Customer Command Test-
-            ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
+            //ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
 
-            var customerModel = command.Execute(MockCustomerAppModel(database, domainfactory) as CustomerModel) as CustomerModel;
+            //var customerModel = command.Execute(MockCustomerAppModel(database, domainfactory) as CustomerModel) as CustomerModel;
 
             #endregion
 
@@ -63,6 +64,15 @@ namespace ShoppingCore.Presentation.ConsoleUI
             //customerModel = cmd.Execute(customerModel) as CustomerModel;
 
             #endregion
+
+            #region -Get Customer Details-
+
+            var cmd = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+            var customerModel = cmd.Execute(2) as CustomerModel;
+
+            #endregion
+
+
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();

@@ -13,7 +13,6 @@
     <Folder Include="Common\Addresses\XNonStandard\" />
     <Folder Include="Common\Addresses\Queries\" />
     <Folder Include="Customers\Non_Standard\" />
-    <Folder Include="Customers\Queries\GetCustomerQuery\" />
     <Folder Include="Products\Commands\" />
     <Folder Include="Products\Non_Standard\" />
     <Folder Include="Products\Queries\" />

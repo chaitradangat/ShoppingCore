@@ -4,6 +4,9 @@ using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Common;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace ShoppingCore.Application.Interfaces
 {
@@ -24,6 +27,9 @@ namespace ShoppingCore.Application.Interfaces
         DbSet<User> Users { get; set; }
 
         void Save();
+
+        IQueryable<T> Include<T>(string[] Properties);
+
 
     }
 }

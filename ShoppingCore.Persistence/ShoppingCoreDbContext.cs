@@ -13,6 +13,8 @@ using ShoppingCore.Application.Interfaces;
 using System.Configuration;
 using System.IO;
 using ShoppingCore.Domain.Interfaces;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace ShoppingCore.Persistence
 {
@@ -74,6 +76,32 @@ namespace ShoppingCore.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShoppingCoreDbContext).Assembly);
 
             modelBuilder.SeedAllData();
+        }
+
+        public IQueryable<T> Include<T>(string [] Properties)
+        {
+            if (typeof(T) == typeof(Customer))
+            {
+                IQueryable<Customer> result = null;
+
+                foreach (var property in Properties)
+                {
+                    if (result == null)
+                    {
+                        result = Customers.Include(property);
+                    }
+                    else
+                    {
+                        result = result.Include(property);
+                    }
+                }
+
+                return (IQueryable<T>)result;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

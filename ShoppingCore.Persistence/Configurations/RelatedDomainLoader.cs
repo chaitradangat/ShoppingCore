@@ -9,8 +9,7 @@ using Microsoft.EntityFrameworkCore.Query;
 
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Common;
-
-
+using ShoppingCore.Application.Interfaces;
 
 namespace ShoppingCore.Persistence.Configurations
 {
@@ -21,7 +20,10 @@ namespace ShoppingCore.Persistence.Configurations
             return customers.Include(c => c.User).Include(c => c.Addresses);
         }
 
-
+        public static IIncludableQueryable<Customer, List<Address>> LoadRelatedEntities(this IDatabaseService database)
+        {
+            return database.Customers.Include(c => c.User).Include(c => c.Addresses);
+        }
 
 
     }

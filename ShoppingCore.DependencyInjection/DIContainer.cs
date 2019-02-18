@@ -15,6 +15,7 @@ using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
+using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -33,6 +34,7 @@ namespace ShoppingCore.DependencyInjection
             .AddTransient<ICustomer,Customer>()
             .AddTransient<ISeller,Seller>()
             .AddTransient<IProductImage,ProductImage>()
+            .AddTransient<IGetCustomerDetailQuery,GetCustomerDetailQuery>()
 
 
             .AddDbContext<ShoppingCoreDbContext>()
