@@ -26,24 +26,5 @@ namespace ShoppingCore.Application.ApplicationModels
 
         public List<ProductModel> Products { get; set; }
 
-        public IEntity MorphAppModel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IAppModel MorphDomainModel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IAppModel ConvertToAppModel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEntity ConvertToDomainModel()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

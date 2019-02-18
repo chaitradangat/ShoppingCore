@@ -9,25 +9,5 @@ namespace ShoppingCore.Application.ApplicationModels
         public ProductModel ProductModel { get; set; }
 
         public CategoryModel CategoryModel { get; set; }
-
-        public IEntity MorphAppModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IAppModel MorphDomainModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IAppModel ConvertToAppModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEntity ConvertToDomainModel()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

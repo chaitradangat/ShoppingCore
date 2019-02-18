@@ -41,6 +41,8 @@ namespace ShoppingCore.Application.ApplicationModels
             _entity = new Address();
         }
 
+        /* this code was polluting the DTO so it was removed..
+
         public IAppModel ConvertToAppModel()
         {
             var address = _entity as Address;
@@ -114,5 +116,6 @@ namespace ShoppingCore.Application.ApplicationModels
             return address;
 
         }
+        */
     }
 }

@@ -11,25 +11,5 @@ namespace ShoppingCore.Application.ApplicationModels
         public string ImageUrl { get; set; }
 
         public int ProductID { get; set; }
-
-        public IEntity MorphAppModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IAppModel MorphDomainModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IAppModel ConvertToAppModel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEntity ConvertToDomainModel()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
