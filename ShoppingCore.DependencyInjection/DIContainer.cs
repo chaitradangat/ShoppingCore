@@ -16,6 +16,10 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
+using ShoppingCore.Independent.Persistence.Interfaces;
+using ShoppingCore.Independent.Persistence;
+using ShoppingCore.Independent.Persistence.EfCore;
+using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -35,15 +39,21 @@ namespace ShoppingCore.DependencyInjection
             .AddTransient<ISeller,Seller>()
             .AddTransient<IProductImage,ProductImage>()
             .AddTransient<IGetCustomerDetailQuery,GetCustomerDetailQuery>()
+            
 
 
             .AddDbContext<ShoppingCoreDbContext>()
             .AddSingleton<IDomainFactory,DomainFactory>()
             .AddSingleton<IDatabaseService, ShoppingCoreDbContext>()
+
+            .AddSingleton<IEfcoreDatabaseService, ShoppingCoreDbContext>()
+
             .AddSingleton<IUserFactory, UserFactory>()
             .AddSingleton<ICreateUserCommand, CreateUserCommand>()
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
             .AddSingleton<IUpdateCustomerCommand,UpdateCustomerCommand>()
+
+            .AddTransient<IRepository<User>, ShoppingCore.Independent.Persistence.EfCore.Users.Users>()
 
             .BuildServiceProvider();
         }

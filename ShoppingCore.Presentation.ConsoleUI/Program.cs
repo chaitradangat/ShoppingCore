@@ -26,6 +26,12 @@ using ShoppingCore.Persistence.Configurations;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
+using ShoppingCore.Independent.Persistence.Interfaces;
+using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
+
+using ShoppingCore.Independent.Persistence;
+using ShoppingCore.Domain.Users;
+
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -35,8 +41,10 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
-            var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
+            //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
             var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
+
+            var database_independent = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
 
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
@@ -67,10 +75,18 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             #region -Get Customer Details-
 
-            var cmd = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
-            var customerModel = cmd.Execute(2) as CustomerModel;
+            //var cmd = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+            //var customerModel = cmd.Execute(2) as CustomerModel;
 
             #endregion
+
+
+            var users = DIContainer.Serviceprovider.GetService<IRepository<User>>();
+
+
+
+            var ulist = users.List().ToList();
+
 
 
 

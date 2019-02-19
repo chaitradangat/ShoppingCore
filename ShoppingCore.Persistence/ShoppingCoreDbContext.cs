@@ -15,10 +15,12 @@ using System.IO;
 using ShoppingCore.Domain.Interfaces;
 using System.Linq.Expressions;
 using System.Linq;
+using ShoppingCore.Independent.Persistence.Interfaces;
+using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
 
 namespace ShoppingCore.Persistence
 {
-    public class ShoppingCoreDbContext : DbContext,IDatabaseService
+    public class ShoppingCoreDbContext : DbContext,IDatabaseService,IEfcoreDatabaseService
     {
         public ShoppingCoreDbContext(DbContextOptions<ShoppingCoreDbContext> options) : base(options)
         {
