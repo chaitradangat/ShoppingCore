@@ -93,8 +93,8 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
                     a.District = address.District;
                     a.LandMark = address.LandMark;
                     a.PinCode = address.PinCode;
-                    a.Product = null;
-                    a.Customer = customer;
+                    //a.Product = null;
+                    //a.Customer = customer;
                     a.AddressID = address.AddressID;
                 }
                 else
@@ -167,7 +167,7 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
                    LandMark = a.LandMark,
                    PinCode = a.PinCode,
                    AddressID = a.AddressID,
-                   CustomerID = a.Customer.CustomerID
+                   //CustomerID = a.Customer.CustomerID
                }));
 
             return customerModel;

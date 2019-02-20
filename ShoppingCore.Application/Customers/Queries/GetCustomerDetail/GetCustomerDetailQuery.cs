@@ -95,7 +95,7 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
                        LandMark = a.LandMark,
                        PinCode = a.PinCode,
                        AddressID = a.AddressID,
-                       CustomerID = a.Customer.CustomerID
+                       //CustomerID = a.Customer.CustomerID
                    }));
 
                 return customerModel;

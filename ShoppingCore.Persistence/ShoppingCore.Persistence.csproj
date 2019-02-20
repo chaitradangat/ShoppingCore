@@ -5,12 +5,60 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190107171546_initial.cs" />
+    <Compile Remove="Migrations\20190107171546_initial.Designer.cs" />
+    <Compile Remove="Migrations\20190110165706_DomainCleanup.cs" />
+    <Compile Remove="Migrations\20190110165706_DomainCleanup.Designer.cs" />
+    <Compile Remove="Migrations\20190110171042_test.cs" />
+    <Compile Remove="Migrations\20190110171042_test.Designer.cs" />
+    <Compile Remove="Migrations\20190110171708_test1.cs" />
+    <Compile Remove="Migrations\20190110171708_test1.Designer.cs" />
     <Compile Remove="Migrations\20190111173708_moretests1.cs" />
     <Compile Remove="Migrations\20190113153517_test3.cs" />
     <Compile Remove="Migrations\20190113155017_test4.cs" />
     <Compile Remove="Migrations\20190113155523_moretests2.cs" />
+    <Compile Remove="Migrations\20190113161128_furthertests.cs" />
+    <Compile Remove="Migrations\20190113161128_furthertests.Designer.cs" />
+    <Compile Remove="Migrations\20190114165202_domain-update-1.cs" />
+    <Compile Remove="Migrations\20190114165202_domain-update-1.Designer.cs" />
+    <Compile Remove="Migrations\20190114170838_domain-update-3.cs" />
+    <Compile Remove="Migrations\20190114170838_domain-update-3.Designer.cs" />
+    <Compile Remove="Migrations\20190114171218_domain-update-4.cs" />
+    <Compile Remove="Migrations\20190114171218_domain-update-4.Designer.cs" />
+    <Compile Remove="Migrations\20190114171352_domain-update-5.cs" />
+    <Compile Remove="Migrations\20190114171352_domain-update-5.Designer.cs" />
+    <Compile Remove="Migrations\20190114172543_domain-update-6-major-update.cs" />
+    <Compile Remove="Migrations\20190114172543_domain-update-6-major-update.Designer.cs" />
     <Compile Remove="Migrations\20190114182210_domain-update-7-major-update-configurations.cs" />
+    <Compile Remove="Migrations\20190114182402_domain-update-7-major-update-configurations.cs" />
+    <Compile Remove="Migrations\20190114182402_domain-update-7-major-update-configurations.Designer.cs" />
+    <Compile Remove="Migrations\20190120145858_many-to-many-categories.cs" />
+    <Compile Remove="Migrations\20190120145858_many-to-many-categories.Designer.cs" />
+    <Compile Remove="Migrations\20190127101810_ignore-isauthenticated.cs" />
+    <Compile Remove="Migrations\20190127101810_ignore-isauthenticated.Designer.cs" />
+    <Compile Remove="Migrations\20190127103319_seller-product-one-to-many.cs" />
+    <Compile Remove="Migrations\20190127103319_seller-product-one-to-many.Designer.cs" />
+    <Compile Remove="Migrations\20190127105135_product-images.cs" />
+    <Compile Remove="Migrations\20190127105135_product-images.Designer.cs" />
+    <Compile Remove="Migrations\20190127105321_product-images1.cs" />
+    <Compile Remove="Migrations\20190127105321_product-images1.Designer.cs" />
+    <Compile Remove="Migrations\20190127173637_seed-initial-data.cs" />
+    <Compile Remove="Migrations\20190127173637_seed-initial-data.Designer.cs" />
+    <Compile Remove="Migrations\20190131165640_seeding-datachanged.cs" />
+    <Compile Remove="Migrations\20190131165640_seeding-datachanged.Designer.cs" />
     <Compile Remove="Migrations\20190216162726_user-cust-seller-fk.cs" />
+    <Compile Remove="Migrations\20190216163220_user-cust-seller-fk.cs" />
+    <Compile Remove="Migrations\20190216163220_user-cust-seller-fk.Designer.cs" />
+    <Compile Remove="Migrations\20190216163908_user-cust-seller-fk1.cs" />
+    <Compile Remove="Migrations\20190216163908_user-cust-seller-fk1.Designer.cs" />
+    <Compile Remove="Migrations\20190220164456_categories-change.cs" />
+    <Compile Remove="Migrations\20190220164456_categories-change.Designer.cs" />
+    <Compile Remove="Migrations\20190220171107_database-screwed.cs" />
+    <Compile Remove="Migrations\20190220171107_database-screwed.Designer.cs" />
+    <Compile Remove="Migrations\20190220172056_database-screwed-1.cs" />
+    <Compile Remove="Migrations\20190220172056_database-screwed-1.Designer.cs" />
+    <Compile Remove="Migrations\20190220174426_database-fked-1.cs" />
+    <Compile Remove="Migrations\20190220174426_database-fked-1.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

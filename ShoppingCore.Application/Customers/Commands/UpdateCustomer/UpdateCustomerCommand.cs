@@ -80,8 +80,8 @@ namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
                 a.District = address.District;
                 a.LandMark = address.LandMark;
                 a.PinCode = address.PinCode;
-                a.Product = null;
-                a.Customer = customer;
+                //a.Product = null;
+                //a.Customer = customer;
                 a.AddressID = address.AddressID;
             }
 
