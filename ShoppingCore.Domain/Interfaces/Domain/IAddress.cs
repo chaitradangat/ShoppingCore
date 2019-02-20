@@ -34,8 +34,8 @@ namespace ShoppingCore.Domain.Interfaces
 
         AddressTypeEnum AddressType { get; set; }
 
-        Product Product { get; set; }
+        //Product Product { get; set; }
 
-        Customer Customer { get; set; }
+        //Customer Customer { get; set; }
     }
 }

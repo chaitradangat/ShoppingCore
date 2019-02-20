@@ -61,7 +61,7 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Products
             if (_category != null)
             {
                 _category.CategoryName = category.CategoryName;
-                _category.ProductCategories = category.ProductCategories;
+                //_category.ProductCategories = category.ProductCategories;
                 _category.SubCategory = category.SubCategory;
                 _efcoreDatabase.Categories.Update(_category);
             }

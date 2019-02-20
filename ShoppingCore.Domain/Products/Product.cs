@@ -27,13 +27,9 @@ namespace ShoppingCore.Domain.Products
 
         public float UnitPrice { get; set; }
 
+        public virtual Address Address { get; set; }
 
-        //public int AddressID { get; set; }
-
-        //public Address Address { get; set; }
-
-        
-        public Seller Seller { get; set;}
+        public virtual Seller Seller { get; set;}
 
         public int SellerID { get; set; }
 

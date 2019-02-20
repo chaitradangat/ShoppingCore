@@ -59,11 +59,11 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Common
                 _address.AddressType = address.AddressType;
                 _address.City = address.City;
                 _address.Country = address.Country;
-                _address.Customer = address.Customer;
+                //_address.Customer = address.Customer;
                 _address.District = address.District;
                 _address.LandMark = address.LandMark;
                 _address.PinCode = address.PinCode;
-                _address.Product = address.Product;
+                //_address.Product = address.Product;
 
                 _efcoreDatabase.Addresses.Update(_address);
             }

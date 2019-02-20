@@ -11,6 +11,6 @@ namespace ShoppingCore.Domain.Interfaces
 
          Category SubCategory { get; set; }
 
-         List<ProductCategory> ProductCategories { get; set; }
+         //List<ProductCategory> ProductCategories { get; set; }
     }
 }
