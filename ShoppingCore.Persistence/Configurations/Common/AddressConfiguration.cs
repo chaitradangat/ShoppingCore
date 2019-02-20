@@ -9,9 +9,6 @@ namespace ShoppingCore.Persistence.Configurations.Common
         public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.HasKey(a => a.AddressID);
-
-            
-
         }
     }
 }

@@ -16,9 +16,7 @@ namespace ShoppingCore.Persistence.Configurations.Customers
 
             builder.HasOne(c => c.User);
 
-            builder.HasMany<Address>(a => a.Addresses)
-                .WithOne(c => c.Customer);
-
+            builder.HasMany(c => c.Addresses);
         }
     }
 }

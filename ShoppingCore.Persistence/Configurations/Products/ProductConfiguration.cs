@@ -17,9 +17,11 @@ namespace ShoppingCore.Persistence.Configurations.Products
             builder.HasOne(p => p.Seller)
                 .WithMany(s => s.Products);
 
-            //builder.HasOne(p => p.Address)
-            //    .WithOne(a => a.Product)
-            //    .HasForeignKey<Address>(a=>a.AddressID);
+            builder.HasMany(p => p.ProductCategories)
+                .WithOne(pc => pc.Product)
+                .HasForeignKey(pc => pc.ProductID);
+
+            builder.HasOne(p => p.Address);
 
         }
     }
