@@ -22,7 +22,7 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Users
 
         public IQueryable<User> List()
         {
-            return _efcoredatabase.Users.AsQueryable();
+            return _efcoredatabase.Users as IQueryable<User>;
         }
 
         public IEntity Find(int UserID)
@@ -30,26 +30,45 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Users
             return _efcoredatabase.Users.Find(UserID);
         }
 
-        public void Add(User u)
+        public void Add(User user)
         {
-            _efcoredatabase.Users.Add(u);
+            _efcoredatabase.Users.Add(user);
         }
 
-        public void Update(User u)
+        public void Update(User user)
         {
-            var user = _efcoredatabase.Users.Find(u.UserID);
-            user.UserName = u.UserName;
-            user.Password = u.Password;
-            user.AutheticationType = u.AutheticationType;
-            user.CustomerID = u.CustomerID;
-            user.IsAutheticated = u.IsAutheticated;
-            user.SellerID = u.SellerID;
-            user.UserRole = u.UserRole;
+            //optimize this code..
+            var _user = _efcoredatabase.Users.Find(user.UserID);
+
+            if (_user != null)
+            {
+                _user.UserName = user.UserName;
+                _user.Password = user.Password;
+                _user.AutheticationType = user.AutheticationType;
+                _user.CustomerID = user.CustomerID;
+                _user.IsAutheticated = user.IsAutheticated;
+                _user.SellerID = user.SellerID;
+                _user.UserRole = user.UserRole;
+                _efcoredatabase.Users.Update(_user);
+            }
+            else
+            {
+                throw new Exception("Error Updating " + nameof(User) +" Entity");
+            }
+            
         }
 
-        public void Delete(User u)
+        public void Delete(User user)
         {
-            _efcoredatabase.Users.Remove(u);
+            try
+            {
+                _efcoredatabase.Users.Remove(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 }

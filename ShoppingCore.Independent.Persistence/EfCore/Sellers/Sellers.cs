@@ -22,7 +22,7 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Sellers
 
         public IQueryable<Seller> List()
         {
-            return _efcoredatabase.Sellers.AsQueryable();
+            return _efcoredatabase.Sellers as IQueryable<Seller>;
         }
 
         public IEntity Find(int sellerID)
@@ -33,17 +33,48 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Sellers
 
         public void Add(Seller seller)
         {
-
+            try
+            {
+                _efcoredatabase.Sellers.Add(seller);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void Update(Seller seller)
         {
+            var _seller = _efcoredatabase.Sellers.Find(seller.SellerID);
 
+            if (_seller != null)
+            {
+                _seller.BusinessName = seller.BusinessName;
+                _seller.DateOfBirth = seller.DateOfBirth;
+                _seller.FirstName = seller.FirstName;
+                _seller.Gender = seller.Gender;
+                _seller.LastName = seller.LastName;
+                _seller.MiddleName = seller.MiddleName;
+                _seller.Products = seller.Products;
+                _seller.User = seller.User;
+                _efcoredatabase.Sellers.Update(_seller);
+            }
+            else
+            {
+                throw new Exception("Error updating " + nameof(Seller) + " entity");
+            }
         }
 
         public void Delete(Seller seller)
         {
-
+            try
+            {
+                _efcoredatabase.Sellers.Remove(seller);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
