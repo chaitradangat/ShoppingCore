@@ -95,7 +95,9 @@ namespace ShoppingCore.Persistence
                     District = "CustomerDistrict",
                     LandMark = "CustomerLandmark",
                     PinCode = "CustomerPincode",
+                    ProductID = (int?)null,
                     CustomerID = 1
+                    
                 },
                 new
                 {
@@ -111,7 +113,8 @@ namespace ShoppingCore.Persistence
                     District = "ProductDistrict",
                     LandMark = "ProductLandmark",
                     PinCode = "ProductPincode",
-                    ProductID = 1
+                    ProductID = 1,
+                    CustomerID = (int?)null
                 }
                 );
         }
@@ -130,7 +133,7 @@ namespace ShoppingCore.Persistence
                     ProductTitle = "Iphone X",
                     Unit = Units.Nos,
                     UnitPrice = 1200f,
-                    Currency = "USD"
+                    Currency = "USD",
                 }
                 );
         }
@@ -151,7 +154,7 @@ namespace ShoppingCore.Persistence
         public static void SeedProductCategories(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductCategory>().HasData(
-                new { CategoryID = 1, ProductID = 1 }
+                new {ProductCategoryID = 1, CategoryID = 1, ProductID = 1 }
                 );
         }
 
@@ -167,6 +170,5 @@ namespace ShoppingCore.Persistence
                 }
                 );
         }
-
     }
 }
