@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Products;
+using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
+using ShoppingCore.Independent.Persistence.Interfaces;
+
+
+namespace ShoppingCore.Independent.Persistence.EfCore.Products
+{
+    public class Products : IRepository<Product>
+    {
+        IEfcoreDatabaseService _efcoreDatabaseService;
+
+
+        public Products(IEfcoreDatabaseService efcoreDatabaseService)
+        {
+            efcoreDatabaseService = _efcoreDatabaseService;
+        }
+
+        void IRepository<Product>.Add(Product product)
+        {
+            try
+            {
+                _efcoreDatabaseService.Products.Add(product);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        void IRepository<Product>.Delete(Product product)
+        {
+            try
+            {
+                _efcoreDatabaseService.Products.Remove(product);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        IEntity IRepository<Product>.Find(int ProductID)
+        {
+            return _efcoreDatabaseService.Products.Find(ProductID);
+        }
+
+        IQueryable<Product> IRepository<Product>.List()
+        {
+            return _efcoreDatabaseService.Products as IQueryable<Product>;
+        }
+
+        void IRepository<Product>.Update(Product product)
+        {
+            var _product = _efcoreDatabaseService.Products.Find(product.ProductID);
+
+            if (_product != null)
+            {
+                _product.Currency = product.Currency;
+                _product.Name = product.Name;
+                _product.ProductCategories = product.ProductCategories;
+                _product.ProductDescription = product.ProductDescription;
+                _product.ProductImages = product.ProductImages;
+                _product.ProductTitle = product.ProductTitle;
+                _product.Seller = product.Seller;
+                _product.SellerID = product.SellerID;
+                _product.Unit = product.Unit;
+                _product.UnitPrice = product.UnitPrice;
+                _efcoreDatabaseService.Products.Update(_product);
+            }
+            else
+            {
+                throw new Exception("Error Updating " + nameof(Product) + " entity.");
+            }
+
+        }
+    }
+}
