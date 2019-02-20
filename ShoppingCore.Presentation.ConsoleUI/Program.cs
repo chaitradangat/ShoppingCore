@@ -144,7 +144,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
                    LandMark = a.LandMark,
                    PinCode = a.PinCode,
                    AddressID = a.AddressID,
-                   CustomerID = a.Customer.CustomerID
+                   //CustomerID = a.Customer.CustomerID
                }));
 
             //add custom data to mock as if it was added by user
