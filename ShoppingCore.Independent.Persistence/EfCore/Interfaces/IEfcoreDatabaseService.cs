@@ -23,6 +23,8 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Interfaces
 
         DbSet<ProductCategory> ProductCategories { get; set; }
 
+        DbSet<ProductImage> ProductImages { get; set; }
+
         DbSet<Seller> Sellers { get; set; }
 
         DbSet<User> Users { get; set; }
