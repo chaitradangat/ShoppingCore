@@ -12,19 +12,19 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Products
 {
     public class Products : IRepository<Product>
     {
-        IEfcoreDatabaseService _efcoreDatabaseService;
+        IEfcoreDatabaseService _efcoreDatabase;
 
 
-        public Products(IEfcoreDatabaseService efcoreDatabaseService)
+        public Products(IEfcoreDatabaseService efcoreDatabase)
         {
-            efcoreDatabaseService = _efcoreDatabaseService;
+            _efcoreDatabase = efcoreDatabase;
         }
 
         void IRepository<Product>.Add(Product product)
         {
             try
             {
-                _efcoreDatabaseService.Products.Add(product);
+                _efcoreDatabase.Products.Add(product);
             }
             catch (Exception)
             {
@@ -36,7 +36,7 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Products
         {
             try
             {
-                _efcoreDatabaseService.Products.Remove(product);
+                _efcoreDatabase.Products.Remove(product);
             }
             catch (Exception)
             {
@@ -46,17 +46,17 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Products
 
         IEntity IRepository<Product>.Find(int ProductID)
         {
-            return _efcoreDatabaseService.Products.Find(ProductID);
+            return _efcoreDatabase.Products.Find(ProductID);
         }
 
         IQueryable<Product> IRepository<Product>.List()
         {
-            return _efcoreDatabaseService.Products as IQueryable<Product>;
+            return _efcoreDatabase.Products as IQueryable<Product>;
         }
 
         void IRepository<Product>.Update(Product product)
         {
-            var _product = _efcoreDatabaseService.Products.Find(product.ProductID);
+            var _product = _efcoreDatabase.Products.Find(product.ProductID);
 
             if (_product != null)
             {
@@ -70,7 +70,7 @@ namespace ShoppingCore.Independent.Persistence.EfCore.Products
                 _product.SellerID = product.SellerID;
                 _product.Unit = product.Unit;
                 _product.UnitPrice = product.UnitPrice;
-                _efcoreDatabaseService.Products.Update(_product);
+                _efcoreDatabase.Products.Update(_product);
             }
             else
             {
