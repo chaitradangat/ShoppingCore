@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShoppingCore.Independent.Persistence.EfCore.Interfaces
+namespace ShoppingCore.Persistence.EfCore.Interfaces
 {
     public interface IEfcoreDatabaseService
     {

@@ -11,8 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\ShoppingCore.Application\ShoppingCore.Application.csproj" />
     <ProjectReference Include="..\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
-    <ProjectReference Include="..\ShoppingCore.Independent.Persistence\ShoppingCore.Independent.Persistence.csproj" />
-    <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Persistence.csproj" />
+    <ProjectReference Include="..\ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj" />
+    <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Provider.EfCore.csproj" />
     <ProjectReference Include="..\ShoppingCore.Service\ShoppingCore.Service.csproj" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ShoppingCore.Persistence.Configurations.Products
+namespace ShoppingCore.Provider.EfCore.Configurations.Products
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

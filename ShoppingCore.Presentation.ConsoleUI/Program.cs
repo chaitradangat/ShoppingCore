@@ -10,7 +10,7 @@ using ShoppingCore.DependencyInjection;
 using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
 using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Persistence;
+using ShoppingCore.Provider.EfCore;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -22,16 +22,16 @@ using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Domain.Interfaces;
 
 
-using ShoppingCore.Persistence.Configurations;
+using ShoppingCore.Provider.EfCore.Configurations;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
-using ShoppingCore.Independent.Persistence.Interfaces;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
 
-using ShoppingCore.Independent.Persistence;
+using ShoppingCore.Persistence.EfCore.Interfaces;
+
+using ShoppingCore.Persistence;
 using ShoppingCore.Domain.Users;
-
+using System.IO;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ShoppingCore.Domain.Products;
 
-namespace ShoppingCore.Persistence.Configurations.Products
+namespace ShoppingCore.Provider.EfCore.Configurations.Products
 {
     class ProductImageConfiguration : IEntityTypeConfiguration<ProductImage>
     {

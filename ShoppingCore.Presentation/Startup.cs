@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ShoppingCore.Persistence;
+using ShoppingCore.Provider.EfCore;
 
 namespace ShoppingCore.Presentation
 {

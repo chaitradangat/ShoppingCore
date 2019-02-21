@@ -1,7 +1,7 @@
 ﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Users;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
-using ShoppingCore.Independent.Persistence.Interfaces;
+using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Application.Interfaces;
 
 
 using System;
@@ -9,13 +9,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace ShoppingCore.Independent.Persistence.EfCore.Users
+
+namespace ShoppingCore.Persistence.EfCore.Users
 {
-    public class Users : IRepository<User>
+    public class UserRepository : IRepository<User>
     {
         protected readonly IEfcoreDatabaseService _efcoredatabase;
 
-        public Users(IEfcoreDatabaseService efcoredatabase)
+        public UserRepository(IEfcoreDatabaseService efcoredatabase)
         {
             _efcoredatabase = efcoredatabase;
         }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ShoppingCore.Persistence.Configurations.Common
+namespace ShoppingCore.Provider.EfCore.Configurations.Common
 {
     public class AddressConfiguration : IEntityTypeConfiguration<Address>
     {

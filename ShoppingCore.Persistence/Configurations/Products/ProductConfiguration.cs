@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ShoppingCore.Domain.Common;
 
-namespace ShoppingCore.Persistence.Configurations.Products
+namespace ShoppingCore.Provider.EfCore.Configurations.Products
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {

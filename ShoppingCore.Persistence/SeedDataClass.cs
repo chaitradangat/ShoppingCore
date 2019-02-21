@@ -8,7 +8,7 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Products;
 
-namespace ShoppingCore.Persistence
+namespace ShoppingCore.Provider.EfCore
 {
     public static class SeedDataClass
     {
@@ -48,7 +48,6 @@ namespace ShoppingCore.Persistence
                 new
                 {
                     SellerID = 1,
-                    //UserID = 1,
                     BusinessName = "SamuelSales",
                     FirstName = "Samuel",
                     MiddleName = "L",
@@ -67,7 +66,6 @@ namespace ShoppingCore.Persistence
                 new Customer
                 {
                     CustomerID = 1,
-                    //UserID = 2,
                     FirstName = "Lisa",
                     MiddleName = "M",
                     LastName = "Taylor",

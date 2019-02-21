@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
 
-namespace ShoppingCore.Persistence.Configurations.Sellers
+namespace ShoppingCore.Provider.EfCore.Configurations.Sellers
 {
     public class SellerConfiguration : IEntityTypeConfiguration<Seller>
     {

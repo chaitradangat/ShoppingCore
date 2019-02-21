@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
-using ShoppingCore.Persistence;
+using ShoppingCore.Provider.EfCore;
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.XDomainFactory;
@@ -16,10 +16,10 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
-using ShoppingCore.Independent.Persistence.Interfaces;
-using ShoppingCore.Independent.Persistence;
-using ShoppingCore.Independent.Persistence.EfCore;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
+
+using ShoppingCore.Persistence;
+using ShoppingCore.Persistence.EfCore;
+using ShoppingCore.Persistence.EfCore.Interfaces;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -53,7 +53,7 @@ namespace ShoppingCore.DependencyInjection
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
             .AddSingleton<IUpdateCustomerCommand,UpdateCustomerCommand>()
 
-            .AddTransient<IRepository<User>, ShoppingCore.Independent.Persistence.EfCore.Users.Users>()
+            .AddTransient<IRepository<User>, ShoppingCore.Persistence.EfCore.Users.UserRepository>()
 
             .BuildServiceProvider();
         }

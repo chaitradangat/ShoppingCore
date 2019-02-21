@@ -11,7 +11,7 @@ using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Application.Interfaces;
 
-namespace ShoppingCore.Persistence.Configurations
+namespace ShoppingCore.Provider.EfCore.Configurations
 {
     public static class RelatedDomainLoader
     {

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Linq;
 using ShoppingCore.Domain.Common;
 
-namespace ShoppingCore.Independent.Persistence.Interfaces
+namespace ShoppingCore.Application.Interfaces
 {
+    /// <summary>
+    /// This interface defines the repository which needs to be implemented
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IRepository<T> where T: IEntity
     {
         IQueryable<T> List();

@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 
-using ShoppingCore.Independent.Persistence.Interfaces;
+
 
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.EfCore.Interfaces;
 using System.Linq;
 using ShoppingCore.Domain.Interfaces;
 
-namespace ShoppingCore.Independent.Persistence.EfCore.Common
+using ShoppingCore.Application.Interfaces;
+
+namespace ShoppingCore.Persistence.EfCore.Common
 {
-    public class Addresses : IRepository<Address>
+    public class AddressRepository : IRepository<Address>
     {
         private readonly IEfcoreDatabaseService _efcoreDatabase;
 
-        public Addresses(IEfcoreDatabaseService efcoreDatabase)
+        public AddressRepository(IEfcoreDatabaseService efcoreDatabase)
         {
             _efcoreDatabase = efcoreDatabase;
         }

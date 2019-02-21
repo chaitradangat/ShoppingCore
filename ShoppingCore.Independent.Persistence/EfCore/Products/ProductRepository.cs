@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
-using ShoppingCore.Independent.Persistence.Interfaces;
+using ShoppingCore.Persistence.EfCore.Interfaces;
 
 
-namespace ShoppingCore.Independent.Persistence.EfCore.Products
+namespace ShoppingCore.Persistence.EfCore.Products
 {
-    public class Products : IRepository<Product>
+    public class ProductRepository : IRepository<Product>
     {
         IEfcoreDatabaseService _efcoreDatabase;
 
-
-        public Products(IEfcoreDatabaseService efcoreDatabase)
+        public ProductRepository(IEfcoreDatabaseService efcoreDatabase)
         {
             _efcoreDatabase = efcoreDatabase;
         }

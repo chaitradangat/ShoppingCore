@@ -15,10 +15,9 @@ using System.IO;
 using ShoppingCore.Domain.Interfaces;
 using System.Linq.Expressions;
 using System.Linq;
-using ShoppingCore.Independent.Persistence.Interfaces;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.EfCore.Interfaces;
 
-namespace ShoppingCore.Persistence
+namespace ShoppingCore.Provider.EfCore
 {
     public class ShoppingCoreDbContext : DbContext,IDatabaseService,IEfcoreDatabaseService
     {
@@ -45,10 +44,7 @@ namespace ShoppingCore.Persistence
 
         private string GetPersistenceConfigPath()
         {
-            var persistenceConfigPath = Convert.ToString(Directory.GetCurrentDirectory());
-            persistenceConfigPath = persistenceConfigPath.Remove(persistenceConfigPath.IndexOf("ShoppingCore"));
-            persistenceConfigPath += @"ShoppingCore\ShoppingCore.Persistence\bin\Debug\netcoreapp2.1\ShoppingCore.Persistence.dll.config";
-            return persistenceConfigPath;
+            return Directory.GetCurrentDirectory() + "\\ShoppingCore.Provider.EfCore.dll.config";
         }
         #endregion
 

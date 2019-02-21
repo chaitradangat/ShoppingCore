@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace ShoppingCore.Persistence.Configurations.Users
+namespace ShoppingCore.Provider.EfCore.Configurations.Users
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

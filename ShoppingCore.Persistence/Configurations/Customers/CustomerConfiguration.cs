@@ -6,7 +6,7 @@ using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Users;
 
 
-namespace ShoppingCore.Persistence.Configurations.Customers
+namespace ShoppingCore.Provider.EfCore.Configurations.Customers
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {

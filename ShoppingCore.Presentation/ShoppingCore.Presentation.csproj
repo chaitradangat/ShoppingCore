@@ -13,12 +13,12 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Persistence.csproj" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
+    <ProjectReference Include="..\ShoppingCore.Persistence\ShoppingCore.Provider.EfCore.csproj" />
   </ItemGroup>
 
 </Project>

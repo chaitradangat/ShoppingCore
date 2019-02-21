@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Text;
 
 using System.Linq;
+using ShoppingCore.Persistence.EfCore.Interfaces;
 
-using ShoppingCore.Independent.Persistence.Interfaces;
-using ShoppingCore.Independent.Persistence.EfCore.Interfaces;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Common;
+using ShoppingCore.Application.Interfaces;
 
-namespace ShoppingCore.Independent.Persistence.EfCore.Sellers
+namespace ShoppingCore.Persistence.EfCore.Sellers
 {
-    public class Sellers : IRepository<Seller>
+    public class SellerRepository : IRepository<Seller>
     {
         protected readonly IEfcoreDatabaseService _efcoredatabase;
 
-        public Sellers(IEfcoreDatabaseService efcoredatabase)
+        public SellerRepository(IEfcoreDatabaseService efcoredatabase)
         {
             efcoredatabase = _efcoredatabase;
         }
