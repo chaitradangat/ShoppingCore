@@ -36,9 +36,5 @@ namespace ShoppingCore.Domain.Common
         public int? CustomerID { get; set; }
 
         public int? ProductID { get; set; }
-        //public Product Product { get; set; }
-
-        //public Customer Customer { get; set; }
-
     }
 }

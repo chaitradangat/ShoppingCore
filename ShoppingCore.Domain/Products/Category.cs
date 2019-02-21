@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
