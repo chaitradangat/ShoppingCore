@@ -78,5 +78,10 @@ namespace ShoppingCore.Persistence.EfCore
             _users = new UserRepository(_efcoreDatabaseService);
             #endregion
         }
+
+        public void Save()
+        {
+            _efcoreDatabaseService.Save();
+        }
     }
 }
