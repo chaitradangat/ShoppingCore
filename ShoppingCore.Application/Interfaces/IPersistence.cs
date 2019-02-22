@@ -29,5 +29,7 @@ namespace ShoppingCore.Application.Interfaces
         IRepository<Seller> Sellers { get; }
 
         IRepository<User> Users { get; }
+
+        void Save();
     }
 }
