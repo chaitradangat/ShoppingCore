@@ -30,30 +30,33 @@ namespace ShoppingCore.DependencyInjection
         public static void InjectDependencies()
         {
             Serviceprovider = new ServiceCollection()
-            .AddTransient<IAddress,Address>()
-            .AddTransient<ICategory,Category>()
-            .AddTransient<IProductCategory,ProductCategory>()
-            .AddTransient<IProduct,Product>()
-            .AddTransient<IUser,User>()
-            .AddTransient<ICustomer,Customer>()
-            .AddTransient<ISeller,Seller>()
-            .AddTransient<IProductImage,ProductImage>()
-            .AddTransient<IGetCustomerDetailQuery,GetCustomerDetailQuery>()
-            
+            .AddTransient<IAddress, Address>()
+            .AddTransient<ICategory, Category>()
+            .AddTransient<IProductCategory, ProductCategory>()
+            .AddTransient<IProduct, Product>()
+            .AddTransient<IUser, User>()
+            .AddTransient<ICustomer, Customer>()
+            .AddTransient<ISeller, Seller>()
+            .AddTransient<IProductImage, ProductImage>()
+            .AddTransient<IGetCustomerDetailQuery, GetCustomerDetailQuery>()
+
 
 
             .AddDbContext<ShoppingCoreDbContext>()
-            .AddSingleton<IDomainFactory,DomainFactory>()
+            .AddSingleton<IDomainFactory, DomainFactory>()
             .AddSingleton<IDatabaseService, ShoppingCoreDbContext>()
-
             .AddSingleton<IEfcoreDatabaseService, ShoppingCoreDbContext>()
 
             .AddSingleton<IUserFactory, UserFactory>()
             .AddSingleton<ICreateUserCommand, CreateUserCommand>()
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
-            .AddSingleton<IUpdateCustomerCommand,UpdateCustomerCommand>()
+            .AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>()
 
-            .AddTransient<IRepository<User>, ShoppingCore.Persistence.EfCore.Users.UserRepository>()
+            //.AddTransient<IRepository<User>, ShoppingCore.Persistence.EfCore.Users.UserRepository>()
+
+            .AddScoped<IPersistence<IEntity>,EfCorePersistence>()
+
+
 
             .BuildServiceProvider();
         }

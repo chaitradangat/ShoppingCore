@@ -32,6 +32,7 @@ using ShoppingCore.Persistence.EfCore.Interfaces;
 using ShoppingCore.Persistence;
 using ShoppingCore.Domain.Users;
 using System.IO;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -42,9 +43,9 @@ namespace ShoppingCore.Presentation.ConsoleUI
             DIContainer.InjectDependencies();
 
             //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
-            var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
+            //var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
 
-            var database_independent = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
+            //var database_independent = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
 
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
@@ -80,13 +81,11 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             #endregion
 
+            var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
 
-            var users = DIContainer.Serviceprovider.GetService<IRepository<User>>();
+            var u = persistence.Users.Find(1) as User;
 
-
-
-            var ulist = users.List().ToList();
-
+            var c = persistence.Customers.Find(1) as Customer;
 
 
 
