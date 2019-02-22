@@ -22,14 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Persistence", "ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj", "{0A62ACA1-F115-45E4-BC47-E6CCB3857420}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{768A05E7-13EE-4BEF-A4F7-B92C3E3755AD}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2CB3CFA8-CD24-40E1-AD56-7A20CCB02829}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EDA9B3A3-7B3C-447B-A4F6-8B2DDCAED4E8}"
 	ProjectSection(SolutionItems) = preProject
@@ -37,24 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{83CFB1B7-4E48-4841-8FA9-C0263EA9371F}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B0892F4F-860A-4DB7-8088-491B8C6D1638}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Research", "Research", "{4E333686-E9AB-4E16-AC7D-7507DC6E7F3A}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Provider", "Provider", "{3A754F56-B9F8-4B84-8FE8-29528BF3BFF7}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCore", "EfCore", "{A6362AEC-BD24-471D-85A9-B315A7BD9417}"
 EndProject
