@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2CB3CFA8-CD24-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EDA9B3A3-7B3C-447B-A4F6-8B2DDCAED4E8}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\ADMIN\Desktop\Readme.md = C:\Users\ADMIN\Desktop\Readme.md
+		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{83CFB1B7-4E48-4841-8FA9-C0263EA9371F}"
