@@ -39,22 +39,6 @@ namespace ShoppingCore.Persistence.EfCore
 
         private readonly IEfcoreDatabaseService _efcoreDatabaseService;
 
-        public IRepository<Address> Addresses => _addresses;
-
-        public IRepository<Customer> Customers => _customers;
-
-        public IRepository<Category> Categories => _categories;
-
-        public IRepository<ProductCategory> ProductCategories => _productcategories;
-
-        public IRepository<ProductImage> ProductImages => _productimages;
-
-        public IRepository<Product> Products => _products;
-
-        public IRepository<Seller> Sellers => _sellers;
-
-        public IRepository<User> Users => _users;
-
         public EfCorePersistence(IEfcoreDatabaseService efcoreDatabaseService)
         {
             _efcoreDatabaseService = efcoreDatabaseService;
@@ -78,6 +62,23 @@ namespace ShoppingCore.Persistence.EfCore
             _users = new UserRepository(_efcoreDatabaseService);
             #endregion
         }
+
+
+        public IRepository<Address> Addresses => _addresses;
+
+        public IRepository<Customer> Customers => _customers;
+
+        public IRepository<Category> Categories => _categories;
+
+        public IRepository<ProductCategory> ProductCategories => _productcategories;
+
+        public IRepository<ProductImage> ProductImages => _productimages;
+
+        public IRepository<Product> Products => _products;
+
+        public IRepository<Seller> Sellers => _sellers;
+
+        public IRepository<User> Users => _users;
 
         public void Save()
         {
