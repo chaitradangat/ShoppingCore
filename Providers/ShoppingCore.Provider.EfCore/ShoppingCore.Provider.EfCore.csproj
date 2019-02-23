@@ -75,7 +75,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\ShoppingCore.Application\ShoppingCore.Application.csproj" />
     <ProjectReference Include="..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
+    <ProjectReference Include="..\..\Persistence\ShoppingCore.Persistence\ShoppingCore.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
