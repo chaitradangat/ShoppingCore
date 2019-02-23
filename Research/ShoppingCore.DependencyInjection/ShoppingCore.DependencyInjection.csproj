@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.extensions.dependencyinjection" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
+    <ProjectReference Include="..\..\Providers\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
+    <ProjectReference Include="..\..\ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj" />
+    <ProjectReference Include="..\..\ShoppingCore.Service\ShoppingCore.Service.csproj" />
+  </ItemGroup>
+
+</Project>

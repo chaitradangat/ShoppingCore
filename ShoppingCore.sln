@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.DependencyInjection", "ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj", "{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Persistence", "ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj", "{0A62ACA1-F115-45E4-BC47-E6CCB3857420}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageFeatures", "Research\LanguageFeatures\LanguageFeatures.csproj", "{47D93DD7-A073-469F-B3E7-01FFD24EBA86}"
@@ -21,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Provider.EfCore", "Providers\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj", "{D7CA4AFB-3AB1-4C00-A3A7-FD7988350093}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.DependencyInjection", "Research\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj", "{A5DC4D76-DF07-4784-896B-FCA1476F054A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +31,6 @@ Global
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{D7CA4AFB-3AB1-4C00-A3A7-FD7988350093}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7CA4AFB-3AB1-4C00-A3A7-FD7988350093}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7CA4AFB-3AB1-4C00-A3A7-FD7988350093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5DC4D76-DF07-4784-896B-FCA1476F054A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5DC4D76-DF07-4784-896B-FCA1476F054A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5DC4D76-DF07-4784-896B-FCA1476F054A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5DC4D76-DF07-4784-896B-FCA1476F054A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
