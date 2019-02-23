@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation", "ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{26816B68-7296-4B1E-B429-5B39FCFB2B88}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation.ConsoleUI", "ShoppingCore.Presentation.ConsoleUI\ShoppingCore.Presentation.ConsoleUI.csproj", "{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.DependencyInjection", "ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj", "{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Persistence", "ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj", "{0A62ACA1-F115-45E4-BC47-E6CCB3857420}"
@@ -39,14 +35,6 @@ Global
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26816B68-7296-4B1E-B429-5B39FCFB2B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26816B68-7296-4B1E-B429-5B39FCFB2B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26816B68-7296-4B1E-B429-5B39FCFB2B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26816B68-7296-4B1E-B429-5B39FCFB2B88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
