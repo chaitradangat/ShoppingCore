@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ABC", "ABC", "{D3840987-17B
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
