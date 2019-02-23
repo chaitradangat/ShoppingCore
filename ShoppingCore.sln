@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Domain", "ShoppingCore.Domain\ShoppingCore.Domain.csproj", "{467E03B3-5464-420F-95C8-7CD4BF608F85}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", "ShoppingCore.Application\ShoppingCore.Application.csproj", "{A785942B-8C7B-4CF5-AEA6-211F20D809DD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
@@ -21,16 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation", "Presentation\Web\ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{7D0385C5-65ED-470E-8060-82FCBB724C7F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Domain", "Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj", "{B9BC2FFD-2DC5-4D36-A6F7-2B8D68BAA0BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{467E03B3-5464-420F-95C8-7CD4BF608F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{467E03B3-5464-420F-95C8-7CD4BF608F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{467E03B3-5464-420F-95C8-7CD4BF608F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{467E03B3-5464-420F-95C8-7CD4BF608F85}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9BC2FFD-2DC5-4D36-A6F7-2B8D68BAA0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BC2FFD-2DC5-4D36-A6F7-2B8D68BAA0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9BC2FFD-2DC5-4D36-A6F7-2B8D68BAA0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9BC2FFD-2DC5-4D36-A6F7-2B8D68BAA0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

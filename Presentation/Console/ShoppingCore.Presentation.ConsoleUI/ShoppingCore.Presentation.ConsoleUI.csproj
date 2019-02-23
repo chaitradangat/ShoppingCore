@@ -10,9 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingCore.Application\ShoppingCore.Application.csproj" />
-    <ProjectReference Include="..\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj" />
-    <ProjectReference Include="..\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
+    <ProjectReference Include="..\..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
+    <ProjectReference Include="..\..\..\ShoppingCore.Application\ShoppingCore.Application.csproj" />
+    <ProjectReference Include="..\..\..\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
   </ItemGroup>
 
 </Project>
