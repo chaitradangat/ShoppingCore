@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Provider.EfCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Application", "ShoppingCore.Application\ShoppingCore.Application.csproj", "{A785942B-8C7B-4CF5-AEA6-211F20D809DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Service", "ShoppingCore.Service\ShoppingCore.Service.csproj", "{B6536E03-894D-430B-A473-62C7D59CF188}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation", "ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{26816B68-7296-4B1E-B429-5B39FCFB2B88}"
@@ -20,30 +18,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.DependencyInjection", "ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj", "{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Persistence", "ShoppingCore.Independent.Persistence\ShoppingCore.Persistence.csproj", "{0A62ACA1-F115-45E4-BC47-E6CCB3857420}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{768A05E7-13EE-4BEF-A4F7-B92C3E3755AD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2CB3CFA8-CD24-40E1-AD56-7A20CCB02829}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EDA9B3A3-7B3C-447B-A4F6-8B2DDCAED4E8}"
-	ProjectSection(SolutionItems) = preProject
-		ReadMe.md = ReadMe.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{83CFB1B7-4E48-4841-8FA9-C0263EA9371F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B0892F4F-860A-4DB7-8088-491B8C6D1638}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Research", "Research", "{4E333686-E9AB-4E16-AC7D-7507DC6E7F3A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Provider", "Provider", "{3A754F56-B9F8-4B84-8FE8-29528BF3BFF7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCore", "EfCore", "{A6362AEC-BD24-471D-85A9-B315A7BD9417}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ABC", "ABC", "{D3840987-17B9-472A-AD7D-3DA5D8277C5A}"
-	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +37,6 @@ Global
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A785942B-8C7B-4CF5-AEA6-211F20D809DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6536E03-894D-430B-A473-62C7D59CF188}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,25 +57,9 @@ Global
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A62ACA1-F115-45E4-BC47-E6CCB3857420}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93E3A1F6-5BE8-4EF1-A00E-0E17895F5656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{467E03B3-5464-420F-95C8-7CD4BF608F85} = {83CFB1B7-4E48-4841-8FA9-C0263EA9371F}
-		{DB11E438-6EF0-479E-8E9D-F4C3325E3079} = {A6362AEC-BD24-471D-85A9-B315A7BD9417}
-		{A785942B-8C7B-4CF5-AEA6-211F20D809DD} = {EDA9B3A3-7B3C-447B-A4F6-8B2DDCAED4E8}
-		{42C4415D-9C84-40EA-8B1E-678E66CD7ECA} = {4E333686-E9AB-4E16-AC7D-7507DC6E7F3A}
-		{B6536E03-894D-430B-A473-62C7D59CF188} = {B0892F4F-860A-4DB7-8088-491B8C6D1638}
-		{26816B68-7296-4B1E-B429-5B39FCFB2B88} = {2CB3CFA8-CD24-40E1-AD56-7A20CCB02829}
-		{2B9BA6C8-ABD5-4EAD-A312-5EA3B9A0ACA8} = {2CB3CFA8-CD24-40E1-AD56-7A20CCB02829}
-		{5ECE4B3D-93B8-4427-970F-0B612EE3FB9E} = {4E333686-E9AB-4E16-AC7D-7507DC6E7F3A}
-		{0A62ACA1-F115-45E4-BC47-E6CCB3857420} = {768A05E7-13EE-4BEF-A4F7-B92C3E3755AD}
-		{A6362AEC-BD24-471D-85A9-B315A7BD9417} = {3A754F56-B9F8-4B84-8FE8-29528BF3BFF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76898979-2A23-42C5-965E-6B840DEBEC7F}
