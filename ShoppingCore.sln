@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Provider.EfCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageFeatures", "Research\LanguageFeatures\LanguageFeatures.csproj", "{47D93DD7-A073-469F-B3E7-01FFD24EBA86}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation.ConsoleUI", "Presentation\Console\ShoppingCore.Presentation.ConsoleUI\ShoppingCore.Presentation.ConsoleUI.csproj", "{67EFF6AD-E608-4832-A9BF-311577C6FD82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCore.Presentation", "Presentation\Web\ShoppingCore.Presentation\ShoppingCore.Presentation.csproj", "{7D0385C5-65ED-470E-8060-82FCBB724C7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{47D93DD7-A073-469F-B3E7-01FFD24EBA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D93DD7-A073-469F-B3E7-01FFD24EBA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D93DD7-A073-469F-B3E7-01FFD24EBA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EFF6AD-E608-4832-A9BF-311577C6FD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EFF6AD-E608-4832-A9BF-311577C6FD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EFF6AD-E608-4832-A9BF-311577C6FD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EFF6AD-E608-4832-A9BF-311577C6FD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0385C5-65ED-470E-8060-82FCBB724C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
