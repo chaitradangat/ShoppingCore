@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
+    <ProjectReference Include="..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
