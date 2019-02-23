@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Providers\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
     <ProjectReference Include="..\..\..\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj" />
-    <ProjectReference Include="..\..\..\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
   </ItemGroup>
 
 </Project>
