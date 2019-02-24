@@ -28,7 +28,7 @@ namespace ShoppingCore.Application.Interfaces
 
         void Save();
 
-        IQueryable<T> Include<T>(string[] Properties);
+        //IQueryable<T> Include<T>(string[] Properties);
 
 
     }

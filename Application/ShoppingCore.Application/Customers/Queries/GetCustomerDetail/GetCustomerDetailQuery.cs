@@ -31,7 +31,7 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
             var customer = _database.Customers.Include(c => c.Addresses).Include(c => c.User).Where(c => c.CustomerID == CustomerID).FirstOrDefault();
 
 
-            var x = _database.Include<Customer>(new[] { "User", "Addresses" }).Where(c=>c.CustomerID == 3).FirstOrDefault();
+            //var x = _database.Include<Customer>(new[] { "User", "Addresses" }).Where(c=>c.CustomerID == 3).FirstOrDefault();
 
 
 
