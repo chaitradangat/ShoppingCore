@@ -25,6 +25,6 @@ namespace ShoppingCore.Provider.EfCore.Configurations
             return database.Customers.Include(c => c.User).Include(c => c.Addresses);
         }
 
-
+        
     }
 }

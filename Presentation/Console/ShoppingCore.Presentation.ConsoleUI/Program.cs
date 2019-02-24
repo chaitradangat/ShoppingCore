@@ -44,16 +44,28 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
             //var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
+            //var test_ = test.ToList();
 
-            var dbTest = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
+            var db = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
 
-            var c_ = dbTest.Users.Include(us => us.Customer).Include(us=>us.Seller);
+            var address = db.Addresses.Include(a => a.Customer)
+                                        .Include(a => a.Product)
+                                        .Include(a=>a.Customer.User)
+                                        .Include(a=>a.Product.Seller)
+                                        .Include(a=>a.Product.Seller.User)
+                                        //.Include(a=>a.Product.ProductCategories)
+                                        //.Include(a=>a.Product.ProductImages)
+                                        .Where(a => a.AddressID == 2).FirstOrDefault();
 
-            var _c = c_.ToList();
+            if (address != null)
+            {
+                address.Product.UnitPrice = 6000;
+            }
 
 
+            db.Addresses.Attach(address).State = EntityState.Modified;
 
-
+            db.Save();
 
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
@@ -89,11 +101,11 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             #endregion
 
-            var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
+            //var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
 
-            var u = persistence.Users.Find(1) as User;
+            //var u = persistence.Users.Find(1) as User;
 
-            var c = persistence.Customers.Find(1) as Customer;
+            //var c = persistence.Customers.Find(1) as Customer;
 
 
 
