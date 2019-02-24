@@ -40,14 +40,20 @@ namespace ShoppingCore.Presentation.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var x = Directory.GetCurrentDirectory();
-
             DIContainer.InjectDependencies();
 
             //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
             //var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
 
-            //var database_independent = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
+            var dbTest = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
+
+            var c_ = dbTest.Users.Include(us => us.Customer).Include(us=>us.Seller);
+
+            var _c = c_.ToList();
+
+
+
+
 
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
