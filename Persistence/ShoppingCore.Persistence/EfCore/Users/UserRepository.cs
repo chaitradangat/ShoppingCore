@@ -23,12 +23,16 @@ namespace ShoppingCore.Persistence.EfCore.Users
 
         public IQueryable<User> List()
         {
-            return _efcoredatabase.Users as IQueryable<User>;
+            return
+            _efcoredatabase.Users.Include(u => u.Customer).Include(u => u.Seller) as IQueryable<User>;
         }
 
         public IEntity Find(int UserID)
         {
-            return _efcoredatabase.Users.Find(UserID);
+            return _efcoredatabase.Users.Include(u => u.Customer)
+                                        .Include(u => u.Seller)
+                                        .Where(u => u.UserID == UserID)
+                                        .FirstOrDefault();
         }
 
         public void Add(User user)
@@ -38,25 +42,35 @@ namespace ShoppingCore.Persistence.EfCore.Users
 
         public void Update(User user)
         {
-            //optimize this code..
-            var _user = _efcoredatabase.Users.Find(user.UserID);
+            try
+            {
+                _efcoredatabase.Users.Attach(user).State = EntityState.Modified;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error Updating " + nameof(User) + " Entity");
+            }
 
-            if (_user != null)
-            {
-                _user.UserName = user.UserName;
-                _user.Password = user.Password;
-                _user.AutheticationType = user.AutheticationType;
-                _user.CustomerID = user.CustomerID;
-                _user.IsAutheticated = user.IsAutheticated;
-                _user.SellerID = user.SellerID;
-                _user.UserRole = user.UserRole;
-                _efcoredatabase.Users.Update(_user);
-            }
-            else
-            {
-                throw new Exception("Error Updating " + nameof(User) +" Entity");
-            }
-            
+            #region -bad code-
+            //optimize this code..
+            //var _user = _efcoredatabase.Users.Find(user.UserID);
+
+            /* if (_user != null)
+           {
+               _user.UserName = user.UserName;
+               _user.Password = user.Password;
+               _user.AutheticationType = user.AutheticationType;
+               _user.CustomerID = user.CustomerID;
+               _user.IsAutheticated = user.IsAutheticated;
+               _user.SellerID = user.SellerID;
+               _user.UserRole = user.UserRole;
+               _efcoredatabase.Users.Update(_user);
+           }
+           else
+           {
+               throw new Exception("Error Updating " + nameof(User) +" Entity");
+           } */
+            #endregion
         }
 
         public void Delete(User user)

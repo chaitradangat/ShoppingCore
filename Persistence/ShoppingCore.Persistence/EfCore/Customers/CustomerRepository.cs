@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
+using Microsoft.EntityFrameworkCore;
+
+
 using ShoppingCore.Persistence.EfCore.Interfaces;
 
 using ShoppingCore.Domain.Customers;
@@ -19,7 +22,6 @@ namespace ShoppingCore.Persistence.EfCore.Customers
         {
             _efcoreDatabase = efcoreDatabase;
         }
-
 
         public void Add(Customer customer)
         {
@@ -47,34 +49,50 @@ namespace ShoppingCore.Persistence.EfCore.Customers
 
         public IEntity Find(int CustomerID)
         {
-            return _efcoreDatabase.Customers.Find(CustomerID);
+            return _efcoreDatabase.Customers.Include(c => c.Addresses)
+                    .Include(c => c.User)
+                    .Where(c => c.CustomerID == CustomerID)
+                    .FirstOrDefault();
         }
 
         public IQueryable<Customer> List()
         {
-            return _efcoreDatabase.Customers as IQueryable<Customer>;
+            return _efcoreDatabase.Customers.Include(c => c.Addresses)
+                                            .Include(c => c.User)
+                                            as IQueryable<Customer>;
         }
 
         public void Update(Customer customer)
         {
-            var _customer = _efcoreDatabase.Customers.Find(customer.CustomerID);
-
-            if (_customer != null)
+            try
             {
-                _customer.Addresses = customer.Addresses;
-                _customer.DateOfBirth = customer.DateOfBirth;
-                _customer.FirstName = customer.FirstName;
-                _customer.Gender = customer.Gender;
-                _customer.LastName = customer.LastName;
-                _customer.MiddleName = customer.MiddleName;
-                _customer.User = customer.User;
-
-                _efcoreDatabase.Customers.Update(_customer);
+                _efcoreDatabase.Customers.Attach(customer).State = EntityState.Modified;
             }
-            else
+            catch (Exception)
             {
                 throw new Exception("Error Updating " + nameof(Customer) + " Entity");
             }
+
+            #region -bad code-
+            //var _customer = _efcoreDatabase.Customers.Find(customer.CustomerID);
+
+            //if (_customer != null)
+            //{
+            //    _customer.Addresses = customer.Addresses;
+            //    _customer.DateOfBirth = customer.DateOfBirth;
+            //    _customer.FirstName = customer.FirstName;
+            //    _customer.Gender = customer.Gender;
+            //    _customer.LastName = customer.LastName;
+            //    _customer.MiddleName = customer.MiddleName;
+            //    _customer.User = customer.User;
+
+            //    _efcoreDatabase.Customers.Update(_customer);
+            //}
+            //else
+            //{
+            //    throw new Exception("Error Updating " + nameof(Customer) + " Entity");
+            //}
+            #endregion
         }
     }
 }
