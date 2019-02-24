@@ -40,6 +40,8 @@ namespace ShoppingCore.Presentation.ConsoleUI
     {
         static void Main(string[] args)
         {
+            var x = Directory.GetCurrentDirectory();
+
             DIContainer.InjectDependencies();
 
             //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
