@@ -14,8 +14,6 @@ namespace ShoppingCore.Domain.Customers
     {
         public int? CustomerID { get; set; }
 
-        public virtual User User { get; set; }
-
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -26,7 +24,9 @@ namespace ShoppingCore.Domain.Customers
 
         public DateTime? DateOfBirth { get; set; }
 
-        public List<Address> Addresses { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual List<Address> Addresses { get; set; }
 
         public Customer()
         {

@@ -17,15 +17,16 @@ namespace ShoppingCore.Domain.Products
 
         public string ProductDescription { get; set; }
 
-        public List<ProductCategory> ProductCategories { get; set; }
-
-        public List<ProductImage> ProductImages { get; set; }
-
         public Units Unit {get;set;}
 
         public string Currency { get; set; }
 
         public float UnitPrice { get; set; }
+
+
+        public virtual List<ProductCategory> ProductCategories { get; set; }
+
+        public virtual List<ProductImage> ProductImages { get; set; }
 
         public virtual Address Address { get; set; }
 

@@ -12,8 +12,6 @@ namespace ShoppingCore.Domain.Sellers
     {
         public int SellerID { get; set; }
 
-        public virtual User User { get; set; }
-
         public string BusinessName { get; set; }
 
         public string FirstName { get; set; }
@@ -26,7 +24,9 @@ namespace ShoppingCore.Domain.Sellers
 
         public DateTime DateOfBirth { get; set; }
 
-        public List<Product> Products { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual List<Product> Products { get; set; }
 
         public Seller()
         {

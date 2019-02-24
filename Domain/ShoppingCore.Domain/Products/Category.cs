@@ -1,5 +1,6 @@
 ﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Interfaces;
+using System.Collections.Generic;
 
 namespace ShoppingCore.Domain.Products
 {
@@ -10,5 +11,7 @@ namespace ShoppingCore.Domain.Products
         public string CategoryName { get; set; }
 
         public Category SubCategory { get; set; }
+
+        public virtual List<ProductCategory> ProductCategories { get; set; }
     }
 }
