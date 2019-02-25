@@ -50,15 +50,17 @@ namespace ShoppingCore.Persistence.EfCore.Products
 
         public IEntity Find(int CategoryID)
         {
-            return _efcoreDatabase.Categories.Include(c => c.ProductCategories)
-                                  .Where(c => c.CategoryID == CategoryID)
-                                  .FirstOrDefault();
+            return _efcoreDatabase.Categories
+                    .Include(c => c.ProductCategories)
+                    .Where(c => c.CategoryID == CategoryID)
+                    .FirstOrDefault();
         }
 
         public IQueryable<Category> List()
         {
-            return _efcoreDatabase.Categories.Include(c => c.ProductCategories)
-                                  as IQueryable<Category>;
+            return _efcoreDatabase.Categories
+                    .Include(c => c.ProductCategories)
+                     as IQueryable<Category>;
         }
 
         public void Update(Category category)

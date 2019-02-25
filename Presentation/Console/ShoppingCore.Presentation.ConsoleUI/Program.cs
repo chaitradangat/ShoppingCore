@@ -42,10 +42,11 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
+            #region -testing the efcore persistence layer-
             //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
             //var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
             //var test_ = test.ToList();
-
+            /*
             var db = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
 
             var address = db.Addresses.Include(a => a.Customer)
@@ -65,7 +66,8 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             db.Addresses.Attach(address).State = EntityState.Modified;
 
-            db.Save();
+            db.Save();*/
+            #endregion
 
             #region -Create User Command Test-
             //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
@@ -101,11 +103,11 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             #endregion
 
-            //var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
+            var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
 
-            //var u = persistence.Users.Find(1) as User;
+            var u = persistence.Users.Find(1) as User;
 
-            //var c = persistence.Customers.Find(1) as Customer;
+            var c = persistence.Users.Find(2) as User;
 
 
 
