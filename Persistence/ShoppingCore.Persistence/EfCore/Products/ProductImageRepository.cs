@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
@@ -20,7 +22,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        void IRepository<ProductImage>.Add(ProductImage productImage)
+        public void Add(ProductImage productImage)
         {
             try
             {
@@ -32,7 +34,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        void IRepository<ProductImage>.Delete(ProductImage productImage)
+        public void Delete(ProductImage productImage)
         {
             try
             {
@@ -44,19 +46,36 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        IEntity IRepository<ProductImage>.Find(int ProductImageID)
+        public IEntity Find(int ProductImageID)
         {
-            return _efcoreDatabase.ProductImages.Find(ProductImageID);
+            return
+            _efcoreDatabase.ProductImages
+                .Include(pi => pi.Product)
+                .Where(pi => pi.ProductImageID == ProductImageID)
+                .FirstOrDefault();
         }
 
-        IQueryable<ProductImage> IRepository<ProductImage>.List()
+        public IQueryable<ProductImage> List()
         {
-            return _efcoreDatabase.ProductImages as IQueryable<ProductImage>;
+            return
+            _efcoreDatabase.ProductImages
+                .Include(pi => pi.Product)
+                as IQueryable<ProductImage>;
         }
 
-        void IRepository<ProductImage>.Update(ProductImage productImage)
+        public void Update(ProductImage productImage)
         {
-            var _productImage = _efcoreDatabase.ProductImages.Find(productImage.ProductImageID);
+            try
+            {
+                _efcoreDatabase.ProductImages.Attach(productImage).State = EntityState.Modified;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error Updating " + nameof(ProductImage) + " Entity.");
+            }
+
+            #region -bad code-
+            /*var _productImage = _efcoreDatabase.ProductImages.Find(productImage.ProductImageID);
 
             if (_productImage != null)
             {
@@ -68,7 +87,8 @@ namespace ShoppingCore.Persistence.EfCore.Products
             else
             {
                 throw new Exception("Error Updating " + nameof(ProductImage) + " Entity.");
-            }
+            }*/
+            #endregion
         }
     }
 }

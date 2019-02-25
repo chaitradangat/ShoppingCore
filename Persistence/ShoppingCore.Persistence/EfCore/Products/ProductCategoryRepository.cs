@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Microsoft.EntityFrameworkCore;
+
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
@@ -19,7 +22,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        void IRepository<ProductCategory>.Add(ProductCategory productCategory)
+        public void Add(ProductCategory productCategory)
         {
             try
             {
@@ -31,7 +34,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        void IRepository<ProductCategory>.Delete(ProductCategory productCategory)
+        public void Delete(ProductCategory productCategory)
         {
             try
             {
@@ -44,32 +47,52 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        IEntity IRepository<ProductCategory>.Find(int ProductCategoryID)
+        public IEntity Find(int ProductCategoryID)
         {
-            return _efcoreDatabase.ProductCategories.Find(ProductCategoryID);
+            return
+            _efcoreDatabase.ProductCategories
+                .Include(pc => pc.Product)
+                .Include(pc => pc.Category)
+                .Where(pc => pc.ProductCategoryID == ProductCategoryID)
+                .FirstOrDefault();
         }
 
-        IQueryable<ProductCategory> IRepository<ProductCategory>.List()
+        public IQueryable<ProductCategory> List()
         {
-            return _efcoreDatabase.ProductCategories as IQueryable<ProductCategory>;
+            return
+            _efcoreDatabase.ProductCategories
+                .Include(pc => pc.Product)
+                .Include(pc => pc.Category)
+                as IQueryable<ProductCategory>;
         }
 
-        void IRepository<ProductCategory>.Update(ProductCategory productCategory)
+        public void Update(ProductCategory productCategory)
         {
-            var _productCategory = _efcoreDatabase.ProductCategories.Find(productCategory);
-
-            if (_productCategory != null)
+            try
             {
-                _productCategory.Category = productCategory.Category;
-                _productCategory.CategoryID = productCategory.CategoryID;
-                _productCategory.Product = productCategory.Product;
-                _productCategory.ProductID = productCategory.ProductID;
-                _efcoreDatabase.ProductCategories.Update(_productCategory);
+                _efcoreDatabase.ProductCategories.Attach(productCategory).State = EntityState.Modified;
             }
-            else
+            catch (Exception)
             {
                 throw new Exception("Error Updating " + nameof(ProductCategory) + " Entity.");
             }
+            #region -bad code-
+            /*
+           var _productCategory = _efcoreDatabase.ProductCategories.Find(productCategory);
+
+           if (_productCategory != null)
+           {
+               _productCategory.Category = productCategory.Category;
+               _productCategory.CategoryID = productCategory.CategoryID;
+               _productCategory.Product = productCategory.Product;
+               _productCategory.ProductID = productCategory.ProductID;
+               _efcoreDatabase.ProductCategories.Update(_productCategory);
+           }
+           else
+           {
+               throw new Exception("Error Updating " + nameof(ProductCategory) + " Entity.");
+           } */
+            #endregion
         }
     }
 }

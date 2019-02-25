@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Microsoft.EntityFrameworkCore;
+
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
@@ -21,7 +24,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        void IRepository<Category>.Add(Category category)
+        public void Add(Category category)
         {
             try
             {
@@ -33,7 +36,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        void IRepository<Category>.Delete(Category category)
+        public void Delete(Category category)
         {
             try
             {
@@ -45,18 +48,32 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        IEntity IRepository<Category>.Find(int CategoryID)
+        public IEntity Find(int CategoryID)
         {
-            return _efcoreDatabase.Categories.Find(CategoryID);
+            return _efcoreDatabase.Categories.Include(c => c.ProductCategories)
+                                  .Where(c => c.CategoryID == CategoryID)
+                                  .FirstOrDefault();
         }
 
-        IQueryable<Category> IRepository<Category>.List()
+        public IQueryable<Category> List()
         {
-            return _efcoreDatabase.Categories as IQueryable<Category>;
+            return _efcoreDatabase.Categories.Include(c => c.ProductCategories)
+                                  as IQueryable<Category>;
         }
 
-        void IRepository<Category>.Update(Category category)
+        public void Update(Category category)
         {
+            try
+            {
+                _efcoreDatabase.Categories.Attach(category).State = EntityState.Modified;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error updating " + nameof(Category) + " Entity.");
+            }
+
+            #region -old code-
+            /*
             var _category = _efcoreDatabase.Categories.Find(category.CategoryID);
 
             if (_category != null)
@@ -70,7 +87,8 @@ namespace ShoppingCore.Persistence.EfCore.Products
             {
                 throw new Exception("Error updating " + nameof(Category)  +" Entity.");
             }
-
+            */
+            #endregion
         }
     }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Microsoft.EntityFrameworkCore;
+
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
@@ -19,7 +22,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        void IRepository<Product>.Add(Product product)
+        public void Add(Product product)
         {
             try
             {
@@ -31,7 +34,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        void IRepository<Product>.Delete(Product product)
+        public void Delete(Product product)
         {
             try
             {
@@ -43,39 +46,62 @@ namespace ShoppingCore.Persistence.EfCore.Products
             }
         }
 
-        IEntity IRepository<Product>.Find(int ProductID)
+        public IEntity Find(int ProductID)
         {
-            return _efcoreDatabase.Products.Find(ProductID);
+            return
+            _efcoreDatabase.Products.Include(p => p.Address)
+                .Include(p => p.ProductCategories)
+                .Include(p => p.ProductImages)
+                .Include(p => p.Seller)
+                .Include(p => p.Seller.User)
+                .Where(p => p.ProductID == ProductID)
+                .SingleOrDefault();
         }
 
-        IQueryable<Product> IRepository<Product>.List()
+        public IQueryable<Product> List()
         {
-            return _efcoreDatabase.Products as IQueryable<Product>;
+            return
+               _efcoreDatabase.Products.Include(p => p.Address)
+                .Include(p => p.ProductCategories)
+                .Include(p => p.ProductImages)
+                .Include(p => p.Seller)
+                .Include(p => p.Seller.User)
+                as IQueryable<Product>;
         }
 
-        void IRepository<Product>.Update(Product product)
+        public void Update(Product product)
         {
-            var _product = _efcoreDatabase.Products.Find(product.ProductID);
-
-            if (_product != null)
+            try
             {
-                _product.Currency = product.Currency;
-                _product.Name = product.Name;
-                _product.ProductCategories = product.ProductCategories;
-                _product.ProductDescription = product.ProductDescription;
-                _product.ProductImages = product.ProductImages;
-                _product.ProductTitle = product.ProductTitle;
-                _product.Seller = product.Seller;
-                _product.SellerID = product.SellerID;
-                _product.Unit = product.Unit;
-                _product.UnitPrice = product.UnitPrice;
-                _efcoreDatabase.Products.Update(_product);
+                _efcoreDatabase.Products.Attach(product).State = EntityState.Modified;
             }
-            else
+            catch (Exception)
             {
                 throw new Exception("Error Updating " + nameof(Product) + " entity.");
             }
 
+            #region -bad code-
+            /*var _product = _efcoreDatabase.Products.Find(product.ProductID);
+
+           if (_product != null)
+           {
+               _product.Currency = product.Currency;
+               _product.Name = product.Name;
+               _product.ProductCategories = product.ProductCategories;
+               _product.ProductDescription = product.ProductDescription;
+               _product.ProductImages = product.ProductImages;
+               _product.ProductTitle = product.ProductTitle;
+               _product.Seller = product.Seller;
+               _product.SellerID = product.SellerID;
+               _product.Unit = product.Unit;
+               _product.UnitPrice = product.UnitPrice;
+               _efcoreDatabase.Products.Update(_product);
+           }
+           else
+           {
+               throw new Exception("Error Updating " + nameof(Product) + " entity.");
+           }*/
+            #endregion
         }
     }
 }
