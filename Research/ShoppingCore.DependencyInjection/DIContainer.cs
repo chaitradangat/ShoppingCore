@@ -56,7 +56,7 @@ namespace ShoppingCore.DependencyInjection
 
             .AddScoped<IPersistence<IEntity>,EfCorePersistence>()
 
-
+            .AddScoped<IGetCustomerDetailQuery,GetCustomerDetailQuery>()
 
             .BuildServiceProvider();
         }

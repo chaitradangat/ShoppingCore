@@ -2,37 +2,12 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-
 using Microsoft.Extensions.DependencyInjection;
 
 using ShoppingCore.DependencyInjection;
-
-using ShoppingCore.Application.Users.Commands.CreateUser;
-using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
-using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Provider.EfCore;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-
-
-
-using ShoppingCore.Application.Customers.Commands.CreateCustomer;
-using ShoppingCore.Application.ApplicationModels;
-using ShoppingCore.Domain.Interfaces;
-
-
-using ShoppingCore.Provider.EfCore.Configurations;
-using ShoppingCore.Application.Customers.Commands.UpdateCustomer;
-using ShoppingCore.Domain.Customers;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 
-using ShoppingCore.Persistence.EfCore.Interfaces;
 
-using ShoppingCore.Persistence;
-using ShoppingCore.Domain.Users;
-using System.IO;
-using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -42,72 +17,12 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
-            #region -testing the efcore persistence layer-
-            //var database = DIContainer.Serviceprovider.GetService<IDatabaseService>();
-            //var domainfactory = DIContainer.Serviceprovider.GetService<IDomainFactory>();
-            //var test_ = test.ToList();
-            /*
-            var db = DIContainer.Serviceprovider.GetService<IEfcoreDatabaseService>();
+            var customerDetailsQuery = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
 
-            var address = db.Addresses.Include(a => a.Customer)
-                                        .Include(a => a.Product)
-                                        .Include(a=>a.Customer.User)
-                                        .Include(a=>a.Product.Seller)
-                                        .Include(a=>a.Product.Seller.User)
-                                        //.Include(a=>a.Product.ProductCategories)
-                                        //.Include(a=>a.Product.ProductImages)
-                                        .Where(a => a.AddressID == 2).FirstOrDefault();
-
-            if (address != null)
-            {
-                address.Product.UnitPrice = 6000;
-            }
+            var customerDetails = customerDetailsQuery.Execute(1);
 
 
-            db.Addresses.Attach(address).State = EntityState.Modified;
 
-            db.Save();*/
-            #endregion
-
-            #region -Create User Command Test-
-            //ICreateUserCommand command = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
-            //command.Execute(new CreateUserModel() { UserName="xxx", Password = "zzz" });
-            #endregion
-
-            #region -Create Customer Command Test-
-            //ICreateCustomerCommand command = DIContainer.Serviceprovider.GetService<ICreateCustomerCommand>();
-
-            //var customerModel = command.Execute(MockCustomerAppModel(database, domainfactory) as CustomerModel) as CustomerModel;
-
-            #endregion
-
-            #region -Loading related Entities-
-            //loading related entities
-
-            #endregion
-
-            #region -Updating Entities-
-
-            //IUpdateCustomerCommand cmd = DIContainer.Serviceprovider.GetService<IUpdateCustomerCommand>();
-
-            //var customerModel = MockAppModel(database, domainfactory) as CustomerModel;
-
-            //customerModel = cmd.Execute(customerModel) as CustomerModel;
-
-            #endregion
-
-            #region -Get Customer Details-
-
-            //var cmd = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
-            //var customerModel = cmd.Execute(2) as CustomerModel;
-
-            #endregion
-
-            var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
-
-            var u = persistence.Users.Find(1) as User;
-
-            var c = persistence.Users.Find(2) as User;
 
 
 
@@ -115,6 +30,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
             Console.ReadLine();
         }
 
+        /* test code will be removed later..
         public static IAppModel MockAppModel(IDatabaseService database, IDomainFactory domainFactory)
         {
             //fetch sample data from database to mock
@@ -122,7 +38,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
             //var customer = database.Customers.LoadRelatedEntities().Where(c => c.FirstName.Contains("test")).FirstOrDefault();
 
             //create appmodel
-            var customerModel = new CustomerModel(domainFactory)
+            var customerModel = new CustomerModel()
             {
 
                 UserID = customer.User.UserID,
@@ -176,10 +92,12 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             return customerModel;
         }
+        */
 
+        /* test code will be removed later
         public static IAppModel MockCustomerAppModel(IDatabaseService database, IDomainFactory domainFactory)
         {
-            var customerAppModel = new CustomerModel(domainFactory);
+            var customerAppModel = new CustomerModel();
 
             customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1",AddressLine2 = "insert line2",Country = "India" });
             customerAppModel.Addresses.Add(new AddressModel() { AddressLine1 = "insert line1", AddressLine2 = "insert line2", Country = "USA" });
@@ -200,9 +118,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
             customerAppModel.UserRole = Domain.Common.UserRole.Customer;
 
             return customerAppModel;
-        }
-
-
+        } */
 
     }
 }
