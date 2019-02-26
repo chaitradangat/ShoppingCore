@@ -1,11 +1,8 @@
 ﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Interfaces;
 
-using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
-
-using Microsoft.EntityFrameworkCore;
+using ShoppingCore.Application.ApplicationModels;
 
 
 using System;
@@ -17,43 +14,27 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
 {
     public class GetCustomerDetailQuery : IGetCustomerDetailQuery
     {
-        private readonly IDatabaseService _database;
-        private readonly IDomainFactory _factory;
+        private readonly IPersistence<IEntity> _persistence;
 
-        public GetCustomerDetailQuery(IDatabaseService database, IDomainFactory factory)
+
+        public GetCustomerDetailQuery(IPersistence<IEntity> persistence)
         {
-            _database = database;
-            _factory = factory;
+            _persistence = persistence;
         }
 
         public IAppModel Execute(int CustomerID)
         {
-            var customer = _database.Customers.Include(c => c.Addresses).Include(c => c.User).Where(c => c.CustomerID == CustomerID).FirstOrDefault();
-
-
-            //var x = _database.Include<Customer>(new[] { "User", "Addresses" }).Where(c=>c.CustomerID == 3).FirstOrDefault();
-
-
-
-
-
-
+            var customer = _persistence.Customers.Find(CustomerID) as Customer;
             return ConvertToAppModel(customer);
         }
 
         private IAppModel ConvertToAppModel(IEntity entity)
         {
-            if (! (entity is Customer) )
-            {
-
-            }
-
-
             if (entity is Customer)
             {
                 var customer = entity as Customer;
 
-                var customerModel = new CustomerModel(_factory)
+                var customerModel = new CustomerModel()
                 {
                     UserID = customer.User.UserID,
 
