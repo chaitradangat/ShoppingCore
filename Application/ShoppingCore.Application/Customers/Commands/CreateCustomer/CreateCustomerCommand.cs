@@ -125,7 +125,7 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
         {
             var customer = entity as Customer;
 
-            var customerModel = new CustomerModel(_factory)
+            var customerModel = new CustomerModel()
             {
                 UserID = customer.User.UserID,
 
