@@ -10,8 +10,6 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class CustomerModel : IAppModel
     {
-        private readonly IDomainFactory _factory;
-
         #region -Properties required for new customer creation-
         public int? CustomerID { get; set; }
 
@@ -44,10 +42,8 @@ namespace ShoppingCore.Application.ApplicationModels
 
         #endregion
 
-        public CustomerModel(IDomainFactory factory)
+        public CustomerModel()
         {
-            _factory = factory;
-
             Addresses = new List<AddressModel>();
 
             UserRole = UserRole.Customer;
