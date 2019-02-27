@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
 
+using Microsoft.Extensions.DependencyInjection;
 using ShoppingCore.DependencyInjection;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 
