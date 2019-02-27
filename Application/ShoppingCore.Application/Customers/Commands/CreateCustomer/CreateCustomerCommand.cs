@@ -16,71 +16,68 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : ICreateCustomerCommand
     {
-        private readonly IDatabaseService _database;
         private readonly IDomainFactory _factory;
 
-        public CreateCustomerCommand(IDatabaseService database,IDomainFactory factory)
+        private readonly IPersistence<IEntity> _persistence;
+
+        public CreateCustomerCommand(IDomainFactory factory, IPersistence<IEntity> persistence)
         {
-            _database = database;
             _factory = factory;
+            _persistence = persistence;
         }
 
         public IAppModel Execute(CustomerModel customerModel)
         {
             var customer = ConvertToDomainModel(customerModel) as Customer;
 
-            _database.Customers.Add(customer);
+            _persistence.Customers.Add(customer);
 
-            _database.Save();
+            _persistence.Save();
 
             return ConvertToAppModel(customer);
         }
 
         private IEntity ConvertToDomainModel(CustomerModel customerModel)
         {
-            var customer = _database.Customers.Find(customerModel.CustomerID);
-            var user = _database.Users.Find(customerModel.UserID);
+            var customer = _persistence.Customers.List().Where(c => c.User.UserName == customerModel.UserName).SingleOrDefault();
 
-            if (customer == null)
+            var user = default(User);
+
+            if (customer is null)
             {
+                customer = (Customer)_factory.GetEntity<ICustomer>();
+
                 user = (User)_factory.GetEntity<IUser>();
 
-                customer = (Customer)_factory.GetEntity<ICustomer>();
-            }
+                user.UserName = customerModel.UserName;
 
-            user.UserName = customerModel.UserName;
+                user.Password = customerModel.Password;
 
-            user.Password = customerModel.Password;
+                user.UserRole = customerModel.UserRole;
 
-            user.UserRole = customerModel.UserRole;
+                user.AutheticationType = customerModel.AutheticationType;
 
-            user.AutheticationType = customerModel.AutheticationType;
+                user.UserID = customerModel.UserID;
 
-            user.UserID = customerModel.UserID;
+                customer.DateOfBirth = customerModel.DateOfBirth;
 
-            customer.DateOfBirth = customerModel.DateOfBirth;
+                customer.FirstName = customerModel.FirstName;
 
-            customer.FirstName = customerModel.FirstName;
+                customer.MiddleName = customerModel.MiddleName;
 
-            customer.MiddleName = customerModel.MiddleName;
+                customer.LastName = customerModel.LastName;
 
-            customer.LastName = customerModel.LastName;
+                customer.Gender = customerModel.Gender;
 
-            customer.Gender = customerModel.Gender;
+                customer.User = user;
 
-            customer.User = user;
+                customer.CustomerID = customerModel.CustomerID;
 
-            customer.CustomerID = customerModel.CustomerID;
+                customer.Addresses.Clear();
 
-            customer.Addresses.Clear();
-
-            foreach (var address in customerModel.Addresses)
-            {
-                var a = _database.Addresses.Find(address.AddressID);
-
-                if (a == null)
+                foreach (var address in customerModel.Addresses)
                 {
-                    a = (Address)_factory.GetEntity<IAddress>();
+                    var a = (Address)_factory.GetEntity<IAddress>();
                     customer.Addresses.Add(a);
                     a.AddressLine1 = address.AddressLine1;
                     a.AddressLine2 = address.AddressLine2;
@@ -97,26 +94,11 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
                     //a.Customer = customer;
                     a.AddressID = address.AddressID;
                 }
-                else
-                {
-                    throw new Exception("Duplicate Address Fields,Address already exists");
-                }
-                
             }
-
-            if (customer.Addresses.Count > customerModel.Addresses.Count)
+            else
             {
-                var addIds_ = customerModel.Addresses.Select(a => a.AddressID).ToList();
-
-                foreach (var address in customer.Addresses)
-                {
-                    if (!addIds_.Contains(address.AddressID))
-                        _database.Addresses.Remove(address);
-                }
-
-                customer.Addresses.RemoveAll(a => !addIds_.Contains(a.AddressID));
+                throw new Exception(string.Format("Customer with username {0} already exits", customerModel.UserName));
             }
-
 
             return customer;
         }
@@ -167,7 +149,7 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
                    LandMark = a.LandMark,
                    PinCode = a.PinCode,
                    AddressID = a.AddressID,
-                   //CustomerID = a.Customer.CustomerID
+                   CustomerID = customer.CustomerID
                }));
 
             return customerModel;
