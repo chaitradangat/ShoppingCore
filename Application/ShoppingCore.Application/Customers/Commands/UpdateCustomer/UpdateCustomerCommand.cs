@@ -9,18 +9,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommand : IUpdateCustomerCommand
     {
-        protected readonly IDatabaseService _database;
+        protected readonly IPersistence<IEntity> _persistence;
 
         protected readonly IDomainFactory _factory;
 
-        public UpdateCustomerCommand(IDatabaseService database, IDomainFactory factory)
+        public UpdateCustomerCommand(IPersistence<IEntity> persistence, IDomainFactory factory)
         {
-            _database = database;
+            _persistence = persistence;
             _factory = factory;
         }
 
@@ -28,16 +29,25 @@ namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
         {
             var customer = ConvertToDomainModel(customerModel) as Customer;
 
-            _database.Customers.Update(customer);
+            _persistence.Customers.Update(customer);
 
-            _database.Save();
+            _persistence.Save();
 
             return customerModel;
         }
 
         private IEntity ConvertToDomainModel(CustomerModel customerModel)
         {
-            var customer = _database.Customers.Find(customerModel.CustomerID);
+            var customer = (Customer)_factory.GetEntity<Customer>();
+
+            customer.User = (User)_factory.GetEntity<User>();
+
+            customer.Addresses = new List<Address>();
+
+            //this code dosnt work for disconnected entities pls update later
+            
+
+
 
             customer.DateOfBirth = customerModel.DateOfBirth;
 
@@ -92,7 +102,7 @@ namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
                 foreach (var address in customer.Addresses)
                 {
                     if (!addIds_.Contains(address.AddressID))
-                        _database.Addresses.Remove(address);
+                        _persistence.Addresses.Delete(address);
                 }
 
                 customer.Addresses.RemoveAll(a => !addIds_.Contains(a.AddressID));

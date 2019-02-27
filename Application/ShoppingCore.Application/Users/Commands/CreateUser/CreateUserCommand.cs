@@ -4,26 +4,27 @@ using System.Text;
 
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
     public class CreateUserCommand :ICreateUserCommand
     {
-        private readonly IDatabaseService _database;
+        private readonly IPersistence<IEntity> _persistence;
         private readonly IUserFactory _factory;
 
 
-        public CreateUserCommand(IDatabaseService database,IUserFactory factory)
+        public CreateUserCommand(IPersistence<IEntity> persistence, IUserFactory factory)
         {
-            _database = database;
+            _persistence = persistence;
             _factory = factory;
         }
 
         public void Execute(CreateUserModel model)
         {
             var user = _factory.Create(model.UserName, model.Password);
-            _database.Users.Add(user);
-            _database.Save();
+
+            _persistence.Users.Add(user);
         }
     }
 }

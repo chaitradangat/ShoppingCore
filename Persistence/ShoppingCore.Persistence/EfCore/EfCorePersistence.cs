@@ -1,5 +1,5 @@
 ﻿using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
@@ -62,7 +62,6 @@ namespace ShoppingCore.Persistence.EfCore
             _users = new UserRepository(_efcoreDatabaseService);
             #endregion
         }
-
 
         public IRepository<Address> Addresses => _addresses;
 
