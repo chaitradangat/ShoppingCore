@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 
 namespace ShoppingCore.Persistence.EfCore.Products
@@ -22,11 +22,12 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        public void Add(ProductCategory productCategory)
+        public IEntity Add(ProductCategory productCategory)
         {
             try
             {
                 _efcoreDatabase.ProductCategories.Add(productCategory);
+                return productCategory;
             }
             catch (Exception)
             {
@@ -66,11 +67,12 @@ namespace ShoppingCore.Persistence.EfCore.Products
                 as IQueryable<ProductCategory>;
         }
 
-        public void Update(ProductCategory productCategory)
+        public IEntity Update(ProductCategory productCategory)
         {
             try
             {
                 _efcoreDatabase.ProductCategories.Attach(productCategory).State = EntityState.Modified;
+                return productCategory;
             }
             catch (Exception)
             {

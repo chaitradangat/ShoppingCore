@@ -9,7 +9,7 @@ using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
 
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 
 
@@ -24,11 +24,12 @@ namespace ShoppingCore.Persistence.EfCore.Products
             _efcoreDatabase = efcoreDatabase;
         }
 
-        public void Add(Category category)
+        public IEntity Add(Category category)
         {
             try
             {
                 _efcoreDatabase.Categories.Add(category);
+                return category;
             }
             catch (Exception)
             {
@@ -63,11 +64,12 @@ namespace ShoppingCore.Persistence.EfCore.Products
                      as IQueryable<Category>;
         }
 
-        public void Update(Category category)
+        public IEntity Update(Category category)
         {
             try
             {
                 _efcoreDatabase.Categories.Attach(category).State = EntityState.Modified;
+                return category;
             }
             catch (Exception)
             {

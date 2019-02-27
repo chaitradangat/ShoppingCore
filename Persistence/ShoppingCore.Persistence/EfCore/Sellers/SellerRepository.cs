@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 
 using System.Linq;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Common;
@@ -39,11 +39,12 @@ namespace ShoppingCore.Persistence.EfCore.Sellers
                 .Where(s => s.SellerID == sellerID).FirstOrDefault();
         }
 
-        public void Add(Seller seller)
+        public IEntity Add(Seller seller)
         {
             try
             {
                 _efcoredatabase.Sellers.Add(seller);
+                return seller;
             }
             catch (Exception)
             {
@@ -51,11 +52,12 @@ namespace ShoppingCore.Persistence.EfCore.Sellers
             }
         }
 
-        public void Update(Seller seller)
+        public IEntity Update(Seller seller)
         {
             try
             {
                 _efcoredatabase.Sellers.Attach(seller).State = EntityState.Modified;
+                return seller;
             }
             catch (Exception)
             {

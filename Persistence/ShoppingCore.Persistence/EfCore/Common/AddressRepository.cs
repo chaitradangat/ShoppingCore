@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 using System.Linq;
 using ShoppingCore.Domain.Interfaces;
 
@@ -49,11 +49,12 @@ namespace ShoppingCore.Persistence.EfCore.Common
                 .FirstOrDefault();
         }
 
-        public void Add(Address address)
+        public IEntity Add(Address address)
         {
             try
             {
                 _efcoreDatabase.Addresses.Add(address);
+                return address;
             }
             catch (Exception)
             {
@@ -61,11 +62,12 @@ namespace ShoppingCore.Persistence.EfCore.Common
             }
         }
 
-        public void Update(Address address)
+        public IEntity Update(Address address)
         {
             try
             {
                 _efcoreDatabase.Addresses.Attach(address).State = EntityState.Modified;
+                return address;
             }
             catch (Exception)
             {

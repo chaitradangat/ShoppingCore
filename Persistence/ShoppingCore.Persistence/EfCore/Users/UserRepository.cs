@@ -1,6 +1,6 @@
 ﻿using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Users;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 using ShoppingCore.Application.Interfaces;
 
 
@@ -35,16 +35,18 @@ namespace ShoppingCore.Persistence.EfCore.Users
                                         .FirstOrDefault();
         }
 
-        public void Add(User user)
+        public IEntity Add(User user)
         {
             _efcoredatabase.Users.Add(user);
+            return user;
         }
 
-        public void Update(User user)
+        public IEntity Update(User user)
         {
             try
             {
                 _efcoredatabase.Users.Attach(user).State = EntityState.Modified;
+                return user;
             }
             catch (Exception)
             {

@@ -4,13 +4,11 @@ using System.Text;
 
 using Microsoft.EntityFrameworkCore;
 
-
-using ShoppingCore.Persistence.EfCore.Interfaces;
-
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Common;
 using System.Linq;
 using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 namespace ShoppingCore.Persistence.EfCore.Customers
 {
@@ -23,11 +21,12 @@ namespace ShoppingCore.Persistence.EfCore.Customers
             _efcoreDatabase = efcoreDatabase;
         }
 
-        public void Add(Customer customer)
+        public IEntity Add(Customer customer)
         {
             try
             {
                 _efcoreDatabase.Customers.Add(customer);
+                return customer;
             }
             catch (Exception)
             {
@@ -62,11 +61,12 @@ namespace ShoppingCore.Persistence.EfCore.Customers
                                             as IQueryable<Customer>;
         }
 
-        public void Update(Customer customer)
+        public IEntity Update(Customer customer)
         {
             try
             {
                 _efcoreDatabase.Customers.Attach(customer).State = EntityState.Modified;
+                return customer;
             }
             catch (Exception)
             {
