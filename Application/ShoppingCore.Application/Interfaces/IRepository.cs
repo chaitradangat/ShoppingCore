@@ -13,9 +13,9 @@ namespace ShoppingCore.Application.Interfaces
 
         IEntity Find(int ID);
 
-        void Add(T entity);
+        IEntity Add(T entity);
 
-        void Update(T entity);
+        IEntity Update(T entity);
 
         void Delete(T entity);
     }
