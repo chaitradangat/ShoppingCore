@@ -19,7 +19,7 @@ using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 
 using ShoppingCore.Persistence;
 using ShoppingCore.Persistence.EfCore;
-using ShoppingCore.Persistence.EfCore.Interfaces;
+using ShoppingCore.Persistence.Interfaces;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -44,7 +44,7 @@ namespace ShoppingCore.DependencyInjection
 
             .AddDbContext<ShoppingCoreDbContext>()
             .AddSingleton<IDomainFactory, DomainFactory>()
-            .AddSingleton<IDatabaseService, ShoppingCoreDbContext>()
+            //.AddSingleton<IDatabaseService, ShoppingCoreDbContext>() removed dbservice to replace with generic repository
             .AddSingleton<IEfcoreDatabaseService, ShoppingCoreDbContext>()
 
             .AddSingleton<IUserFactory, UserFactory>()
