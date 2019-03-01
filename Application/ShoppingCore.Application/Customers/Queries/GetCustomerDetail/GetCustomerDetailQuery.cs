@@ -28,6 +28,15 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
             return ConvertToAppModel(customer);
         }
 
+        //this method will be later modified to return List<CustomerModel>
+        public IQueryable<Customer> Execute()
+        {
+            var customers = _persistence.Customers.List();
+            return customers;
+        }
+
+
+
         private IAppModel ConvertToAppModel(IEntity entity)
         {
             if (entity is Customer)
@@ -86,6 +95,5 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
                 return null;
             }
         }
-
     }
 }
