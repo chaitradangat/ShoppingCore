@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ShoppingCore.Application.ApplicationModels;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
     public interface ICreateUserCommand
     {
-        void Execute(CreateUserModel model);
+        IEntity Execute(UserModel model);
     }
 }
