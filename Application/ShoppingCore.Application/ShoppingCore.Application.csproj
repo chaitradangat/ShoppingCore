@@ -19,18 +19,13 @@
     <Folder Include="Sellers\Commands\" />
     <Folder Include="Sellers\Non_Standard\" />
     <Folder Include="Sellers\Queries\" />
+    <Folder Include="Users\Non_Standard\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
     <ProjectReference Include="..\..\Research\ShoppingCore.Service\ShoppingCore.Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
