@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Application.Users.Commands.CreateUser;
-using ShoppingCore.Application.Users.Commands.CreateUser.Factory;
+
 using ShoppingCore.Provider.EfCore;
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 using ShoppingCore.Domain.Interfaces;
@@ -47,7 +47,8 @@ namespace ShoppingCore.DependencyInjection
             //.AddSingleton<IDatabaseService, ShoppingCoreDbContext>() removed dbservice to replace with generic repository
             .AddSingleton<IEfcoreDatabaseService, ShoppingCoreDbContext>()
 
-            .AddSingleton<IUserFactory, UserFactory>()
+
+            .AddScoped<ICreateUserCommand,CreateUserCommand>()
             .AddSingleton<ICreateUserCommand, CreateUserCommand>()
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
             .AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>()
