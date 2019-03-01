@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 
+//usings for dependency injection
 using Microsoft.Extensions.DependencyInjection;
 using ShoppingCore.DependencyInjection;
+
+//usings for application commands
+using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
-
-
+using ShoppingCore.Application.Users.Commands.CreateUser;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -17,11 +18,29 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
-            var customerDetailsQuery = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+            //var customerDetailsQuery = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
 
-            var customerDetails = customerDetailsQuery.Execute(1);
+            //var customerDetails = customerDetailsQuery.Execute(1);
+
+            var query = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+
+            var customers = query.Execute().ToList();
 
 
+
+
+
+
+            try
+            {
+                var createUserCommand = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
+
+                createUserCommand.Execute(new UserModel() { UserName = "lisa" });
+            }
+            catch (Exception ex)
+            {
+
+            }
 
 
 
