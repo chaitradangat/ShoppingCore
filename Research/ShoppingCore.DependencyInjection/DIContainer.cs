@@ -20,6 +20,7 @@ using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 using ShoppingCore.Persistence;
 using ShoppingCore.Persistence.EfCore;
 using ShoppingCore.Persistence.Interfaces;
+using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -58,6 +59,8 @@ namespace ShoppingCore.DependencyInjection
             .AddScoped<IPersistence<IEntity>,EfCorePersistence>()
 
             .AddScoped<IGetCustomerDetailQuery,GetCustomerDetailQuery>()
+
+            .AddScoped<IGetAllCustomers,GetAllCustomers>()
 
             .BuildServiceProvider();
         }
