@@ -25,7 +25,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             var results = query.Execute();
 
-
+            //# todo: add multiple customers and check performance of yield return in above
 
 
             Console.WriteLine("Hello World!");
