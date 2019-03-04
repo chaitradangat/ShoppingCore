@@ -10,6 +10,9 @@ using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 using ShoppingCore.Application.Users.Commands.CreateUser;
 
+using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
+
+
 namespace ShoppingCore.Presentation.ConsoleUI
 {
     class Program
@@ -18,29 +21,9 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
-            //var customerDetailsQuery = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+            var query = DIContainer.Serviceprovider.GetService<IGetAllCustomers>();
 
-            //var customerDetails = customerDetailsQuery.Execute(1);
-
-            var query = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
-
-            var customers = query.Execute().ToList();
-
-
-
-
-
-
-            try
-            {
-                var createUserCommand = DIContainer.Serviceprovider.GetService<ICreateUserCommand>();
-
-                createUserCommand.Execute(new UserModel() { UserName = "lisa" });
-            }
-            catch (Exception ex)
-            {
-
-            }
+            var results = query.Execute();
 
 
 
