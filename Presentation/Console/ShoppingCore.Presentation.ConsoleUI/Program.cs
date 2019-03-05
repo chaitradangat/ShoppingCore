@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 
+using System.Collections.Generic;
+
 //usings for dependency injection
 using Microsoft.Extensions.DependencyInjection;
 using ShoppingCore.DependencyInjection;
@@ -23,9 +25,19 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             var query = DIContainer.Serviceprovider.GetService<IGetAllCustomers>();
 
-            var results = query.Execute();
+            //var results = query.Execute() as IEnumerable<CustomerModel>;
 
             //# todo: add multiple customers and check performance of yield return in above
+            //# todo: return IQueryable from CRQS IGetallCustomers
+            //# todo: check IQueryable in yield
+
+
+            var results = query.Execute<CustomerModel>().Where(c=>c.UserID > 0);
+
+
+
+
+
 
 
             Console.WriteLine("Hello World!");
