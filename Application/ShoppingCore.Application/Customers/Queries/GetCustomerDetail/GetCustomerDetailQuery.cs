@@ -3,6 +3,7 @@ using ShoppingCore.Domain.Customers;
 
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Application.ApplicationModels;
+using ShoppingCore.Application.ApplicationModelsMapper;
 
 
 using System;
@@ -16,27 +17,36 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
     {
         private readonly IPersistence<IEntity> _persistence;
 
-
         public GetCustomerDetailQuery(IPersistence<IEntity> persistence)
         {
             _persistence = persistence;
         }
 
-        public IAppModel Execute(int CustomerID)
+        public IQueryable<CustomerModel> Execute()
         {
-            var customer = _persistence.Customers.Find(CustomerID) as Customer;
-            return ConvertToAppModel(customer);
+            return _persistence.Customers.List().MapCustomerModel();
         }
+
+        #region -old code-
+        //this code was removed as same operation can be achived now in new method with more flexibility
+        //public IAppModel Execute(int CustomerID)
+        //{
+        //    var customer = _persistence.Customers.Find(CustomerID) as Customer;
+        //    return ConvertToAppModel(customer);
+        //}
+        #endregion
 
         //this method will be later modified to return List<CustomerModel>
-        public IQueryable<Customer> Execute()
-        {
-            var customers = _persistence.Customers.List();
-            return customers;
-        }
+        #region -old code-
+        //public IQueryable<Customer> Execute()
+        //{
+        //    var customers = _persistence.Customers.List();
 
+        //    return customers;
+        //}
+        #endregion
 
-
+        //try avoiding this method below
         private IAppModel ConvertToAppModel(IEntity entity)
         {
             if (entity is Customer)

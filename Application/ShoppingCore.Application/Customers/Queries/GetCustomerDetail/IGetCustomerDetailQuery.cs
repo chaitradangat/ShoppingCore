@@ -1,4 +1,5 @@
-﻿using ShoppingCore.Application.Interfaces;
+﻿using ShoppingCore.Application.ApplicationModels;
+using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
 using System;
@@ -10,9 +11,11 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
 {
     public interface IGetCustomerDetailQuery
     {
-        IAppModel Execute(int CustomerID);
+        //IAppModel Execute(int CustomerID); #removed
 
         //this property will be later generalized to CustomerModel or better IAppModel
-        IQueryable<Customer> Execute();
+        //IQueryable<Customer> Execute();
+
+        IQueryable<CustomerModel> Execute();
     }
 }
