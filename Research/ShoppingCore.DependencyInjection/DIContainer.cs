@@ -40,7 +40,7 @@ namespace ShoppingCore.DependencyInjection
             .AddTransient<ISeller, Seller>()
             .AddTransient<IProductImage, ProductImage>()
             .AddTransient<IGetCustomerDetailQuery, GetCustomerDetailQuery>()
-
+            .AddTransient<IGetAllCustomers,GetAllCustomers>()
 
 
             .AddDbContext<ShoppingCoreDbContext>()
