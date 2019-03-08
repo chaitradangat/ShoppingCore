@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using ShoppingCore.Application.ApplicationModels;
+
+using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Customers;
+using ShoppingCore.Domain.Products;
+using ShoppingCore.Application.ApplicationModels;
 
 
 
@@ -61,7 +64,80 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
             return _customers;
         }
 
+        public static IQueryable<AddressModel> MapAddressModel(this IQueryable<Address> addresses)
+        {
+            var _addresses = addresses.Select(address => new AddressModel() {
 
+                AddressLine1 = address.AddressLine1,
+                AddressLine2 = address.AddressLine2,
+                AddressLine3 = address.AddressLine3,
+                AddressLine4 = address.AddressLine4,
+                AddressLine5 = address.AddressLine5,
+                AddressType = address.AddressType,
+                City = address.City,
+                Country = address.Country,
+                District = address.District,
+                LandMark = address.LandMark,
+                PinCode = address.PinCode,
+                AddressID = address.AddressID,
+                CustomerID = address.CustomerID,
+                ProductID = address.ProductID
+            });
+
+            return _addresses;        
+        }
+
+        public static IQueryable<ProductModel> MapProductModel(this IQueryable<Product> products)
+        {
+            var _products = products.Select(product=> new ProductModel() {
+
+                ProductID = product.ProductID,
+                Name = product.Name,
+                ProductDescription = product.ProductDescription,
+                ProductTitle = product.ProductTitle,
+                UnitPrice = product.UnitPrice,
+                Currency = product.Currency,
+                Seller = new SellerModel() {
+                    SellerID = product.Seller.SellerID,
+                    UserID = product.Seller.User.UserID,
+                    FirstName = product.Seller.FirstName,
+                    MiddleName = product.Seller.MiddleName,
+                    LastName = product.Seller.LastName,
+                    BusinessName = product.Seller.BusinessName,
+                    DateOfBirth = product.Seller.DateOfBirth,
+                    Gender = product.Seller.Gender,
+                    Products = new List<ProductModel>(product.Seller.Products.Select(_product=> new ProductModel() {
+                        ProductID = _product.ProductID,
+                        Name = _product.Name,
+                        ProductDescription = _product.ProductDescription,
+                        ProductTitle = _product.ProductTitle,
+                        UnitPrice = _product.UnitPrice,
+                        Currency = _product.Currency,
+                        Unit = _product.Unit,
+                        //#pending all properties to be mapped in subproducts on seller,some complicated one's can be ignored
+                    }))
+                },
+                Unit = product.Unit,
+                ProductCategories = new List<ProductCategoryModel>(product.ProductCategories.Select(pc=>new ProductCategoryModel() {
+                    CategoryModel = new CategoryModel() {
+                        CategoryID = pc.Category.CategoryID,
+                        CategoryName = pc.Category.CategoryName,
+                        SubCategory = new CategoryModel() {
+                            CategoryID = pc.Category.SubCategory.CategoryID,
+                            CategoryName = pc.Category.SubCategory.CategoryName,
+                            //# find efficient way to populate the sub-members skipped for time being
+                        }
+                    }
+                })),
+                ProductImages = new List<ProductImageModel>(product.ProductImages.Select(pi=> new ProductImageModel(){
+                    ImageUrl = pi.ImageUrl,
+                    ProductID = pi.ProductID,
+                    ProductImageID = pi.ProductImageID
+                })),
+            });
+
+            return _products;
+        }
 
 
     }
