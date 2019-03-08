@@ -1,7 +1,10 @@
-﻿using ShoppingCore.Application.ApplicationModels;
+﻿using ShoppingCore.Application.ApplicationModelsMapper;
+using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Common;
+
+
 
 using System;
 using System.Collections.Generic;
@@ -20,26 +23,35 @@ namespace ShoppingCore.Application.Customers.Queries.GetAllCustomers
             _persistence = persistence;
         }
 
-        public IEnumerable<IAppModel> Execute()
+        #region -good Ol'code-
+        //public IEnumerable<IAppModel> Execute()
+        //{
+        //    var allCustomers = _persistence.Customers.List();
+
+        //    foreach (var customer in allCustomers)
+        //    {
+        //        yield return ConvertToAppModel(customer);
+        //    }
+        //}
+
+        //public IEnumerable<T> Execute<T>() where T:IAppModel
+        //{
+        //    var allCustomers = _persistence.Customers.List();
+
+        //    foreach (var customer in allCustomers)
+        //    {
+        //        yield return ConvertToAppModel<T>(customer);
+        //    }
+        //}
+        #endregion
+
+
+        public IQueryable<CustomerModel> Execute()
         {
-            var allCustomers = _persistence.Customers.List();//.ToList();
+            var customers = _persistence.Customers.List().MapCustomerModel();
 
-            foreach (var customer in allCustomers)
-            {
-                yield return ConvertToAppModel(customer);
-            }
+            return customers;
         }
-
-        public IEnumerable<T> Execute<T>() where T:IAppModel
-        {
-            var allCustomers = _persistence.Customers.List();
-
-            foreach (var customer in allCustomers)
-            {
-                yield return ConvertToAppModel<T>(customer);
-            }
-        }
-
 
 
 
