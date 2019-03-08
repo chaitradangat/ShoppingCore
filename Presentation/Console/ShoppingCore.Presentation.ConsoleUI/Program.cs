@@ -23,22 +23,23 @@ namespace ShoppingCore.Presentation.ConsoleUI
         {
             DIContainer.InjectDependencies();
 
+
+            #region customer-details-query
+            //#testing customer details query
+            //var query = DIContainer.Serviceprovider.GetService<IGetCustomerDetailQuery>();
+
+            //var results = query.Execute().Where(cm => cm.UserID == -1);
+
+            //var _results = results.ToList();
+            #endregion
+
             var query = DIContainer.Serviceprovider.GetService<IGetAllCustomers>();
 
-            //var results = query.Execute() as IEnumerable<CustomerModel>;
+            var results = query.Execute().Where(c => c.LastName.Length > 0);
 
-            //# todo: add multiple customers and check performance of yield return in above
-            //# todo: return IQueryable from CRQS IGetallCustomers
-            //# todo: check IQueryable in yield
+            var _results = results.ToList();
 
-
-            var results = query.Execute<CustomerModel>().Where(c=>c.UserID > 0);
-
-
-
-
-
-
+            //#todo: use IQueryable in domain models instead of List for navigation properties
 
             Console.WriteLine("Hello World!");
             Console.ReadLine();
