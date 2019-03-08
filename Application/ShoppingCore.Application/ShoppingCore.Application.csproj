@@ -15,7 +15,6 @@
     <Folder Include="Customers\Non_Standard\" />
     <Folder Include="Products\Commands\" />
     <Folder Include="Products\Non_Standard\" />
-    <Folder Include="Products\Queries\" />
     <Folder Include="Sellers\Commands\" />
     <Folder Include="Sellers\Non_Standard\" />
     <Folder Include="Sellers\Queries\" />
