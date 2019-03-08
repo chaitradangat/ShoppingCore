@@ -8,7 +8,7 @@ namespace ShoppingCore.Application.ApplicationModels
 {
     public class ProductModel : IAppModel
     {
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
 
         public string Name { get; set; }
 
