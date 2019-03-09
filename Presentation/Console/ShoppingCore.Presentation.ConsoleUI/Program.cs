@@ -14,6 +14,9 @@ using ShoppingCore.Application.Users.Commands.CreateUser;
 
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
 
+//testing namespaces
+using ShoppingCore.Domain.Common;
+using ShoppingCore.Application.Interfaces;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -33,11 +36,26 @@ namespace ShoppingCore.Presentation.ConsoleUI
             //var _results = results.ToList();
             #endregion
 
-            var query = DIContainer.Serviceprovider.GetService<IGetAllCustomers>();
 
-            var results = query.Execute().Where(c => c.LastName.Length > 0);
+            #region customer-get-all
+            //var query = DIContainer.Serviceprovider.GetService<IGetAllCustomers>();
 
-            var _results = results.ToList();
+            //var results = query.Execute().Where(c => c.LastName.Length > 0);
+
+            //var _results = results.ToList();
+            #endregion
+
+
+            //testing code after removing navigational properties
+            var persistence = DIContainer.Serviceprovider.GetService <IPersistence<IEntity>>();
+
+            var users = persistence.Users.List();
+
+            var _users = users.ToList();
+
+
+
+
 
             //#todo: use IQueryable in domain models instead of List for navigation properties
 
