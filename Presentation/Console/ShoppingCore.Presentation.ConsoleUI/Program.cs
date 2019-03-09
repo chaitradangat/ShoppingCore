@@ -42,6 +42,7 @@ namespace ShoppingCore.Presentation.ConsoleUI
             //#todo: use IQueryable in domain models instead of List for navigation properties
 
             Console.WriteLine("Hello World!");
+
             Console.ReadLine();
         }
 
