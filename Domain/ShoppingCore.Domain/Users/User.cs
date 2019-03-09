@@ -28,9 +28,9 @@ namespace ShoppingCore.Domain.Users
         //marked as nullable int as customer can be null
         public int? CustomerID { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        //public virtual Customer Customer { get; set; }
 
-        public virtual Seller Seller { get; set; }
+        //public virtual Seller Seller { get; set; }
 
         public User()
         {
