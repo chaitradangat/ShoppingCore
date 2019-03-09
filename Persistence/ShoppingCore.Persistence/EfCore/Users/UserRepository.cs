@@ -24,13 +24,13 @@ namespace ShoppingCore.Persistence.EfCore.Users
         public IQueryable<User> List()
         {
             return
-            _efcoredatabase.Users.Include(u => u.Customer).Include(u => u.Seller) as IQueryable<User>;
+            _efcoredatabase.Users as IQueryable<User>;//.Include(u => u.Customer).Include(u => u.Seller) as IQueryable<User>;
         }
 
         public IEntity Find(int UserID)
         {
-            return _efcoredatabase.Users.Include(u => u.Customer)
-                                        .Include(u => u.Seller)
+            return _efcoredatabase.Users//.Include(u => u.Customer)
+                                        //.Include(u => u.Seller)
                                         .Where(u => u.UserID == UserID)
                                         .FirstOrDefault();
         }
