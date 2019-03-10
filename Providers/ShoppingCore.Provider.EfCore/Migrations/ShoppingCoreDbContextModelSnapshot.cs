@@ -41,19 +41,13 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<int?>("CustomerID");
-
                     b.Property<string>("District");
 
                     b.Property<string>("LandMark");
 
                     b.Property<string>("PinCode");
 
-                    b.Property<int?>("ProductID");
-
                     b.HasKey("AddressID");
-
-                    b.HasIndex("CustomerID");
 
                     b.ToTable("Addresses");
 
@@ -86,8 +80,7 @@ namespace ShoppingCore.Provider.EfCore.Migrations
                             Country = "ProductCountry",
                             District = "ProductDistrict",
                             LandMark = "ProductLandmark",
-                            PinCode = "ProductPincode",
-                            ProductID = 1
+                            PinCode = "ProductPincode"
                         });
                 });
 
@@ -135,7 +128,8 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
                     b.HasKey("CustomerAddressID");
 
-                    b.HasIndex("AddressID");
+                    b.HasIndex("AddressID")
+                        .IsUnique();
 
                     b.HasIndex("CustomerID");
 
@@ -182,8 +176,6 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
                     b.Property<int?>("AddressID");
 
-                    b.Property<int?>("AddressID1");
-
                     b.Property<string>("Currency");
 
                     b.Property<string>("Name");
@@ -200,7 +192,7 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
                     b.HasKey("ProductID");
 
-                    b.HasIndex("AddressID1");
+                    b.HasIndex("AddressID");
 
                     b.HasIndex("SellerID");
 
@@ -362,22 +354,15 @@ namespace ShoppingCore.Provider.EfCore.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShoppingCore.Domain.Common.Address", b =>
-                {
-                    b.HasOne("ShoppingCore.Domain.Customers.Customer", "Customer")
-                        .WithMany("Addresses")
-                        .HasForeignKey("CustomerID");
-                });
-
             modelBuilder.Entity("ShoppingCore.Domain.Customers.CustomerAddress", b =>
                 {
                     b.HasOne("ShoppingCore.Domain.Common.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
+                        .WithOne("CustomerAddress")
+                        .HasForeignKey("ShoppingCore.Domain.Customers.CustomerAddress", "AddressID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ShoppingCore.Domain.Customers.Customer", "Customer")
-                        .WithMany("CustomerAddresses")
+                        .WithMany("Addresses")
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -393,7 +378,7 @@ namespace ShoppingCore.Provider.EfCore.Migrations
                 {
                     b.HasOne("ShoppingCore.Domain.Common.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressID1");
+                        .HasForeignKey("AddressID");
 
                     b.HasOne("ShoppingCore.Domain.Sellers.Seller", "Seller")
                         .WithMany("Products")
