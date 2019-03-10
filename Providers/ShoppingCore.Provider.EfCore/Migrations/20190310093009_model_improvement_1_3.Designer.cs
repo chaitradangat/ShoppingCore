@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCore.Provider.EfCore;
 
 namespace ShoppingCore.Provider.EfCore.Migrations
 {
     [DbContext(typeof(ShoppingCoreDbContext))]
-    partial class ShoppingCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190310093009_model_improvement_1_3")]
+    partial class model_improvement_1_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,9 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
             modelBuilder.Entity("ShoppingCore.Domain.Common.Address", b =>
                 {
-                    b.Property<int>("AddressID");
+                    b.Property<int>("AddressID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AddressLine1");
 
@@ -52,6 +56,10 @@ namespace ShoppingCore.Provider.EfCore.Migrations
                     b.HasKey("AddressID");
 
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("ProductID")
+                        .IsUnique()
+                        .HasFilter("[ProductID] IS NOT NULL");
 
                     b.ToTable("Addresses");
 
@@ -151,8 +159,6 @@ namespace ShoppingCore.Provider.EfCore.Migrations
                     b.Property<int?>("ProductID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AddressID");
 
                     b.Property<string>("Currency");
 
@@ -331,14 +337,14 @@ namespace ShoppingCore.Provider.EfCore.Migrations
 
             modelBuilder.Entity("ShoppingCore.Domain.Common.Address", b =>
                 {
-                    b.HasOne("ShoppingCore.Domain.Products.Product", "Product")
-                        .WithOne("Address")
-                        .HasForeignKey("ShoppingCore.Domain.Common.Address", "AddressID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("ShoppingCore.Domain.Customers.Customer", "Customer")
                         .WithMany("Addresses")
                         .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ShoppingCore.Domain.Products.Product", "Product")
+                        .WithOne("Address")
+                        .HasForeignKey("ShoppingCore.Domain.Common.Address", "ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
