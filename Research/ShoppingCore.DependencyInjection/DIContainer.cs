@@ -54,7 +54,7 @@ namespace ShoppingCore.DependencyInjection
             .AddSingleton<ICreateCustomerCommand, CreateCustomerCommand>()
             .AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>()
 
-            .AddSingleton<IEfcoreDatabaseService,ShoppingCoreDbContext>()
+            
 
             .AddScoped<IPersistence<IEntity>,EfCorePersistence>()
 
