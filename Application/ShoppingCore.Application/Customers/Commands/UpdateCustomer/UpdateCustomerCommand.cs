@@ -42,7 +42,7 @@ namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
 
             customer.User = (User)_factory.GetEntity<User>();
 
-            customer.Addresses = new List<Address>();
+            //customer.Addresses = new List<Address>(); #dirty fix
 
             //this code dosnt work for disconnected entities pls update later
             
@@ -69,44 +69,44 @@ namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer
 
             customer.User.AutheticationType = customerModel.AutheticationType;
 
-            foreach (var address in customerModel.Addresses)
-            {
-                var a = customer.Addresses.Find(a_ => a_.AddressID == address.AddressID);
+            //foreach (var address in customerModel.Addresses)
+            //{
+            //    var a = customer.Addresses.Find(a_ => a_.AddressID == address.AddressID);
 
-                if (a == null)
-                {
-                    a = (Address)_factory.GetEntity<IAddress>();
-                    customer.Addresses.Add(a);
-                }
+            //    if (a == null)
+            //    {
+            //        a = (Address)_factory.GetEntity<IAddress>();
+            //        customer.Addresses.Add(a);
+            //    }
 
-                a.AddressLine1 = address.AddressLine1;
-                a.AddressLine2 = address.AddressLine2;
-                a.AddressLine3 = address.AddressLine3;
-                a.AddressLine4 = address.AddressLine4;
-                a.AddressLine5 = address.AddressLine5;
-                a.AddressType = address.AddressType;
-                a.City = address.City;
-                a.Country = address.Country;
-                a.District = address.District;
-                a.LandMark = address.LandMark;
-                a.PinCode = address.PinCode;
-                //a.Product = null;
-                //a.Customer = customer;
-                a.AddressID = address.AddressID;
-            }
+            //    a.AddressLine1 = address.AddressLine1;
+            //    a.AddressLine2 = address.AddressLine2;
+            //    a.AddressLine3 = address.AddressLine3;
+            //    a.AddressLine4 = address.AddressLine4;
+            //    a.AddressLine5 = address.AddressLine5;
+            //    a.AddressType = address.AddressType;
+            //    a.City = address.City;
+            //    a.Country = address.Country;
+            //    a.District = address.District;
+            //    a.LandMark = address.LandMark;
+            //    a.PinCode = address.PinCode;
+            //    //a.Product = null;
+            //    //a.Customer = customer;
+            //    a.AddressID = address.AddressID;
+            //}
 
-            if (customer.Addresses.Count > customerModel.Addresses.Count)
-            {
-                var addIds_ = customerModel.Addresses.Select(a => a.AddressID).ToList();
+            //if (customer.Addresses.Count > customerModel.Addresses.Count)
+            //{
+            //    var addIds_ = customerModel.Addresses.Select(a => a.AddressID).ToList();
 
-                foreach (var address in customer.Addresses)
-                {
-                    if (!addIds_.Contains(address.AddressID))
-                        _persistence.Addresses.Delete(address);
-                }
+            //    foreach (var address in customer.Addresses)
+            //    {
+            //        if (!addIds_.Contains(address.AddressID))
+            //            _persistence.Addresses.Delete(address);
+            //    }
 
-                customer.Addresses.RemoveAll(a => !addIds_.Contains(a.AddressID));
-            }
+            //    customer.Addresses.RemoveAll(a => !addIds_.Contains(a.AddressID));
+            //}
 
             return customer;
         }

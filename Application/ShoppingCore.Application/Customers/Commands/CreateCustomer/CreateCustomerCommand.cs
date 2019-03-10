@@ -73,12 +73,12 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 
                 customer.CustomerID = customerModel.CustomerID;
 
-                customer.Addresses.Clear();
+                //customer.Addresses.Clear(); #dirty patches
 
                 foreach (var address in customerModel.Addresses)
                 {
                     var a = (Address)_factory.GetEntity<IAddress>();
-                    customer.Addresses.Add(a);
+                    //customer.Addresses.Add(a); #dirty patches
                     a.AddressLine1 = address.AddressLine1;
                     a.AddressLine2 = address.AddressLine2;
                     a.AddressLine3 = address.AddressLine3;
@@ -134,23 +134,24 @@ namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
                 DateOfBirth = customer.DateOfBirth
             };
 
-            customer.Addresses.ForEach(a => customerModel.Addresses.Add(
-               new AddressModel()
-               {
-                   AddressLine1 = a.AddressLine1,
-                   AddressLine2 = a.AddressLine2,
-                   AddressLine3 = a.AddressLine3,
-                   AddressLine4 = a.AddressLine4,
-                   AddressLine5 = a.AddressLine5,
-                   AddressType = a.AddressType,
-                   City = a.City,
-                   Country = a.Country,
-                   District = a.District,
-                   LandMark = a.LandMark,
-                   PinCode = a.PinCode,
-                   AddressID = a.AddressID,
-                   CustomerID = customer.CustomerID
-               }));
+            customerModel.Addresses = customer.Addresses.Select(
+                a => new CustomerAddressModel()
+                {
+                    CustomerAddressID = a.CustomerAddressID,
+                    CustomerID = a.CustomerID,
+                    AddressID = a.AddressID,
+                    AddressLine1 = a.Address.AddressLine1,
+                    AddressLine2 = a.Address.AddressLine2,
+                    AddressLine3 = a.Address.AddressLine3,
+                    AddressLine4 = a.Address.AddressLine4,
+                    AddressLine5 = a.Address.AddressLine5,
+                    AddressType = a.Address.AddressType,
+                    City = a.Address.City,
+                    Country = a.Address.Country,
+                    District = a.Address.District,
+                    LandMark = a.Address.LandMark,
+                    PinCode = a.Address.PinCode,
+                }) as ICollection<CustomerAddressModel>;
 
             return customerModel;
         }

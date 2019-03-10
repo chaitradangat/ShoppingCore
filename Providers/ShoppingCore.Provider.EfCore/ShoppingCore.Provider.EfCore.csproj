@@ -60,6 +60,18 @@
     <Compile Remove="Migrations\20190220174426_database-fked-1.cs" />
     <Compile Remove="Migrations\20190220174426_database-fked-1.Designer.cs" />
     <Compile Remove="Migrations\20190224140012_virtual-address.cs" />
+    <Compile Remove="Migrations\20190310100145_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310100345_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310101417_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310101607_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310101733_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310102028_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310102314_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310102500_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310111459_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310111822_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310111942_model_improvement_1_5.cs" />
+    <Compile Remove="Migrations\20190310133407_model_improvement_1_5.cs" />
   </ItemGroup>
 
   <ItemGroup>

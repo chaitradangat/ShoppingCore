@@ -29,22 +29,22 @@ namespace ShoppingCore.Persistence.EfCore.Common
         public IQueryable<Address> List()
         {
             return _efcoreDatabase.Addresses
-                .Include(a => a.Customer)
-                .Include(a => a.Product)
-                .Include(a => a.Customer.User)
-                .Include(a => a.Product.Seller)
-                .Include(a=>a.Product.Seller.User)
+                //.Include(a => a.Customer)
+                //.Include(a => a.Product)
+                //.Include(a => a.Customer.User)
+                //.Include(a => a.Product.Seller)
+                //.Include(a=>a.Product.Seller.User)
                 as IQueryable<Address>;
         }
 
         public IEntity Find(int AddressID)
         {
             return _efcoreDatabase.Addresses
-                .Include(a => a.Customer)
-                .Include(a => a.Product)
-                .Include(a => a.Customer.User)
-                .Include(a => a.Product.Seller)
-                .Include(a => a.Product.Seller.User)
+                //.Include(a => a.Customer)
+                //.Include(a => a.Product)
+                //.Include(a => a.Customer.User)
+                //.Include(a => a.Product.Seller)
+                //.Include(a => a.Product.Seller.User)
                 .Where(a => a.AddressID == AddressID)
                 .FirstOrDefault();
         }

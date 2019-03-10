@@ -44,21 +44,23 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
 
                 DateOfBirth = customer.DateOfBirth,
 
-                Addresses = new List<AddressModel>(customer.Addresses.Select(a => new AddressModel()
+                Addresses = customer.Addresses.Select(a => new CustomerAddressModel()
                 {
-                    AddressLine1 = a.AddressLine1,
-                    AddressLine2 = a.AddressLine2,
-                    AddressLine3 = a.AddressLine3,
-                    AddressLine4 = a.AddressLine4,
-                    AddressLine5 = a.AddressLine5,
-                    AddressType = a.AddressType,
-                    City = a.City,
-                    Country = a.Country,
-                    District = a.District,
-                    LandMark = a.LandMark,
-                    PinCode = a.PinCode,
+                    AddressLine1 = a.Address.AddressLine1,
+                    AddressLine2 = a.Address.AddressLine2,
+                    AddressLine3 = a.Address.AddressLine3,
+                    AddressLine4 = a.Address.AddressLine4,
+                    AddressLine5 = a.Address.AddressLine5,
+                    AddressType = a.Address.AddressType,
+                    City = a.Address.City,
+                    Country = a.Address.Country,
+                    District = a.Address.District,
+                    LandMark = a.Address.LandMark,
+                    PinCode = a.Address.PinCode,
+                    CustomerAddressID = a.CustomerAddressID,
                     AddressID = a.AddressID,
-                }))
+                    CustomerID = a.CustomerID
+                }) as ICollection<CustomerAddressModel>
             });
 
             return _customers;
@@ -80,8 +82,6 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                 LandMark = address.LandMark,
                 PinCode = address.PinCode,
                 AddressID = address.AddressID,
-                CustomerID = address.CustomerID,
-                ProductID = address.ProductID
             });
 
             return _addresses;        

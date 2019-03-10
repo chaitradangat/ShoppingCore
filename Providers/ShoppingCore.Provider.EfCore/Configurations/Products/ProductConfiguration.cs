@@ -22,7 +22,6 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Products
                 .HasForeignKey(pc => pc.ProductID);
 
             builder.HasOne(p => p.Address);
-
         }
     }
 }

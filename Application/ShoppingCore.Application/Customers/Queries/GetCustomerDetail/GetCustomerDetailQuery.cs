@@ -80,23 +80,23 @@ namespace ShoppingCore.Application.Customers.Queries.GetCustomerDetail
                     DateOfBirth = customer.DateOfBirth
                 };
 
-                customer.Addresses.ForEach(a => customerModel.Addresses.Add(
-                   new AddressModel()
-                   {
-                       AddressLine1 = a.AddressLine1,
-                       AddressLine2 = a.AddressLine2,
-                       AddressLine3 = a.AddressLine3,
-                       AddressLine4 = a.AddressLine4,
-                       AddressLine5 = a.AddressLine5,
-                       AddressType = a.AddressType,
-                       City = a.City,
-                       Country = a.Country,
-                       District = a.District,
-                       LandMark = a.LandMark,
-                       PinCode = a.PinCode,
-                       AddressID = a.AddressID,
-                       //CustomerID = a.Customer.CustomerID
-                   }));
+                //customer.Addresses.ForEach(a => customerModel.Addresses.Add(
+                //   new AddressModel()
+                //   {
+                //       AddressLine1 = a.AddressLine1,
+                //       AddressLine2 = a.AddressLine2,
+                //       AddressLine3 = a.AddressLine3,
+                //       AddressLine4 = a.AddressLine4,
+                //       AddressLine5 = a.AddressLine5,
+                //       AddressType = a.AddressType,
+                //       City = a.City,
+                //       Country = a.Country,
+                //       District = a.District,
+                //       LandMark = a.LandMark,
+                //       PinCode = a.PinCode,
+                //       AddressID = a.AddressID,
+                //       //CustomerID = a.Customer.CustomerID
+                //   }));
 
                 return customerModel;
             }

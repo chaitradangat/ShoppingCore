@@ -11,6 +11,10 @@ namespace ShoppingCore.Domain.Products
     {
         public int? ProductID { get; set; }
 
+        public int? AddressID { get; set; }
+
+        public int SellerID { get; set; }
+
         public string Name { get; set; }
 
         public string ProductTitle { get; set; }
@@ -32,13 +36,12 @@ namespace ShoppingCore.Domain.Products
 
         public virtual Seller Seller { get; set;}
 
-        public int SellerID { get; set; }
 
-        
         public Product()
         {
             ProductCategories = new List<ProductCategory>();
             ProductImages = new List<ProductImage>();
+            Address = new Address();
         }
     }
 }
