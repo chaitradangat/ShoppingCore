@@ -18,9 +18,11 @@ namespace ShoppingCore.Provider.EfCore
 
             SeedSellers(modelBuilder);
 
+            SeedAddresses(modelBuilder);
+
             SeedCustomers(modelBuilder);
 
-            SeedAddresses(modelBuilder);
+            SeedCustomerAddresses(modelBuilder);
 
             SeedProducts(modelBuilder);
 
@@ -45,7 +47,7 @@ namespace ShoppingCore.Provider.EfCore
         {
             modelBuilder.Entity<Seller>().HasData(
 
-                new
+                new Seller
                 {
                     SellerID = 1,
                     BusinessName = "SamuelSales",
@@ -53,7 +55,7 @@ namespace ShoppingCore.Provider.EfCore
                     MiddleName = "L",
                     LastName = "Jackson",
                     Gender = "Male",
-                    DateOfBirth = DateTime.Parse("1969-01-05")
+                    DateOfBirth = DateTime.Parse("1969-01-05"),
                 }
 
                 );
@@ -70,59 +72,18 @@ namespace ShoppingCore.Provider.EfCore
                     MiddleName = "M",
                     LastName = "Taylor",
                     Gender = "Female",
-                    DateOfBirth = DateTime.Parse("1969-04-05")
+                    DateOfBirth = DateTime.Parse("1969-04-05"),
                 }
                 );
         }
 
-        //next the addresses are seeded
-        public static void SeedAddresses(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Address>().HasData(
-                new
-                {
-                    AddressID = 1,
-                    AddressLine1 = "Line1",
-                    AddressLine2 = "Line2",
-                    AddressLine3 = "Line3",
-                    AddressLine4 = "Line4",
-                    AddressLine5 = "Line5",
-                    AddressType = AddressTypeEnum.Residential,
-                    City = "CustomerCity",
-                    Country = "CustomerCountry",
-                    District = "CustomerDistrict",
-                    LandMark = "CustomerLandmark",
-                    PinCode = "CustomerPincode",
-                    ProductID = (int?)null,
-                    CustomerID = 1
-                    
-                },
-                new
-                {
-                    AddressID = 2,
-                    AddressLine1 = "Line1",
-                    AddressLine2 = "Line2",
-                    AddressLine3 = "Line3",
-                    AddressLine4 = "Line4",
-                    AddressLine5 = "Line5",
-                    AddressType = AddressTypeEnum.Residential,
-                    City = "ProductCity",
-                    Country = "ProductCountry",
-                    District = "ProductDistrict",
-                    LandMark = "ProductLandmark",
-                    PinCode = "ProductPincode",
-                    ProductID = 1,
-                    CustomerID = (int?)null
-                }
-                );
-        }
 
         //next the product is seeded
         public static void SeedProducts(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
 
-                new
+                new //Product
                 {
                     ProductID = 1,
                     SellerID = 1,
@@ -132,9 +93,64 @@ namespace ShoppingCore.Provider.EfCore
                     Unit = Units.Nos,
                     UnitPrice = 1200f,
                     Currency = "USD",
+                    AddressID = 2,
                 }
                 );
         }
+
+
+        //next the addresses are seeded
+        public static void SeedAddresses(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Address>().HasData(
+                new //Address
+                {
+                    AddressID = 1,
+                    AddressLine1 = "Line1",
+                    AddressLine2 = "Line2",
+                    AddressLine3 = "Line3",
+                    AddressLine4 = "Line4",
+                    AddressLine5 = "Line5",
+                    AddressType = AddressTypeEnum.CustomerAddress,
+                    City = "CustomerCity",
+                    Country = "CustomerCountry",
+                    District = "CustomerDistrict",
+                    LandMark = "CustomerLandmark",
+                    PinCode = "CustomerPincode",
+                },
+                new //Address
+                {
+                    AddressID = 2,
+                    AddressLine1 = "Line1",
+                    AddressLine2 = "Line2",
+                    AddressLine3 = "Line3",
+                    AddressLine4 = "Line4",
+                    AddressLine5 = "Line5",
+                    AddressType = AddressTypeEnum.ProductAddress,
+                    City = "ProductCity",
+                    Country = "ProductCountry",
+                    District = "ProductDistrict",
+                    LandMark = "ProductLandmark",
+                    PinCode = "ProductPincode",
+                    ProductID = 1,
+                    CustomerID = (int?)null,
+                }
+                );
+        }
+
+        public static void SeedCustomerAddresses(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CustomerAddress>().HasData(
+                new CustomerAddress
+                {
+                    CustomerAddressID = 1,
+                    AddressID = 1,
+                    CustomerID = 1,
+                }
+                );
+        }
+
+
 
         //next the category is seeded
         public static void SeedCategories(this ModelBuilder modelBuilder)

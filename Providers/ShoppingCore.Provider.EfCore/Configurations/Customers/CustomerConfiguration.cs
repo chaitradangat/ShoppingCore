@@ -14,9 +14,14 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Customers
         {
             builder.HasKey(c => c.CustomerID);
 
-            builder.HasOne(c => c.User);
+            builder.HasOne(c => c.User)
+                   .WithOne(u => u.Customer)
+                   .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(c => c.Addresses);
+            builder.HasMany(c => c.Addresses)
+                .WithOne(ca => ca.Customer)
+                .HasForeignKey(ca => ca.CustomerID)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

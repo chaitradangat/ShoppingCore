@@ -5,6 +5,7 @@ using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Users;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
@@ -25,7 +26,8 @@ namespace ShoppingCore.Application.ApplicationModels
 
         public DateTime? DateOfBirth { get; set; }
 
-        public List<AddressModel> Addresses { get; set; }
+        public ICollection<CustomerAddressModel> Addresses { get; set; }
+
         #endregion
 
         #region -Properties required for new user creation-
@@ -44,7 +46,7 @@ namespace ShoppingCore.Application.ApplicationModels
 
         public CustomerModel()
         {
-            Addresses = new List<AddressModel>();
+            Addresses = new HashSet<CustomerAddressModel>();
 
             UserRole = UserRole.Customer;
         }

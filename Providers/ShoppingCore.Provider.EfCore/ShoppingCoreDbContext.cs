@@ -21,6 +21,11 @@ namespace ShoppingCore.Provider.EfCore
 {
     public class ShoppingCoreDbContext : DbContext,IEfcoreDatabaseService
     {
+        public ShoppingCoreDbContext()
+        {
+            //this ctor requires no arguments..can be used for testing the DbContext directly.
+        }
+
         public ShoppingCoreDbContext(DbContextOptions<ShoppingCoreDbContext> options) : base(options)
         {
             
@@ -52,11 +57,15 @@ namespace ShoppingCore.Provider.EfCore
 
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+
+
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<ProductCategory> ProductCategories { get; set; }
+
 
         public DbSet<Seller> Sellers { get; set; }
 

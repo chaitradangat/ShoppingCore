@@ -1,15 +1,23 @@
-﻿using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Products;
-using ShoppingCore.Domain.Interfaces;
+﻿using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShoppingCore.Domain.Common
+namespace ShoppingCore.Application.ApplicationModels
 {
-    public class Address : IEntity,IAddress
+    public class CustomerAddressModel : IAppModel
     {
+        public CustomerAddressModel()
+        {
+
+        }
+
+        public int CustomerAddressID { get; set; }
+
         public int AddressID { get; set; }
+
+        public int CustomerID { get; set; }
 
         public string AddressLine1 { get; set; }
 
@@ -32,7 +40,5 @@ namespace ShoppingCore.Domain.Common
         public string PinCode { get; set; }
 
         public AddressTypeEnum AddressType { get; set; }
-
-        public CustomerAddress CustomerAddress { get; set; }
     }
 }

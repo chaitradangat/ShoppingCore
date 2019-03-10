@@ -30,10 +30,6 @@ namespace ShoppingCore.Application.ApplicationModels
 
         public AddressTypeEnum AddressType { get; set; }
 
-        public int? ProductID { get; set; }
-
-        public int? CustomerID { get; set; }
-
         public AddressModel()
         {
 

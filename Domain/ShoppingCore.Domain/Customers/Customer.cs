@@ -6,7 +6,7 @@ using ShoppingCore.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
 
 namespace ShoppingCore.Domain.Customers
 {
@@ -26,11 +26,11 @@ namespace ShoppingCore.Domain.Customers
 
         public virtual User User { get; set; }
 
-        public virtual List<Address> Addresses { get; set; }
+        public virtual ICollection<CustomerAddress> Addresses { get; set; } 
 
         public Customer()
         {
-            Addresses = new List<Address>();
+            Addresses = new HashSet<CustomerAddress>();
         }
     }
 }

@@ -23,7 +23,5 @@ namespace ShoppingCore.Domain.Interfaces
         string Gender { get; set; }
 
         DateTime? DateOfBirth { get; set; }
-
-        List<Address> Addresses { get; set; }
     }
 }
