@@ -15,8 +15,12 @@ using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
 
 //testing namespaces
+using Microsoft.EntityFrameworkCore;
 using ShoppingCore.Domain.Common;
 using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Provider.EfCore;
+using ShoppingCore.Domain.Users;
+using ShoppingCore.Domain.Customers;
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -46,12 +50,41 @@ namespace ShoppingCore.Presentation.ConsoleUI
             #endregion
 
 
-            //testing code after removing navigational properties
-            var persistence = DIContainer.Serviceprovider.GetService <IPersistence<IEntity>>();
+            #region testing code after removing navigational properties
+            //var persistence = DIContainer.Serviceprovider.GetService<IPersistence<IEntity>>();
 
-            var users = persistence.Users.List();
+            //var users = persistence.Users.List();
 
-            var _users = users.ToList();
+            //var _users = users.ToList();
+            #endregion
+
+
+            #region testing the dbcontext
+            //using (var db = new ShoppingCoreDbContext())
+            //{
+            //    var users = db.Users;
+
+            //    var _users = db.Users as IQueryable<User>;
+
+            //    var result = _users.Where(u => u.UserID > 0).ToList();
+            //}
+            #endregion
+
+
+            //testing cascade delete
+            using (var db = new ShoppingCoreDbContext())
+            {
+                var customers = db.Customers.Include(c => c.User)
+                    .Include(c => c.Addresses)
+                    .ThenInclude(ca => ca.Address)
+                    as IQueryable<Customer>;
+
+                var customer = customers.Where(c => c.Addresses.Where(a => a.Address.City != "").Count() > 0).SingleOrDefault();
+
+                db.Customers.Remove(customer);
+
+                db.Save();
+            }
 
 
 
