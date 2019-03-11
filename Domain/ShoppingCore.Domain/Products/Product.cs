@@ -7,11 +7,11 @@ using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Domain.Products
 {
-   public class Product : IEntity,IProduct
+    public class Product : IEntity, IProduct
     {
         public int? ProductID { get; set; }
 
-        public int? AddressID { get; set; }
+        public int ProductAddressID { get; set; }
 
         public int SellerID { get; set; }
 
@@ -21,27 +21,26 @@ namespace ShoppingCore.Domain.Products
 
         public string ProductDescription { get; set; }
 
-        public Units Unit {get;set;}
+        public Units Unit { get; set; }
 
         public string Currency { get; set; }
 
         public float UnitPrice { get; set; }
 
-
         public virtual List<ProductCategory> ProductCategories { get; set; }
 
         public virtual List<ProductImage> ProductImages { get; set; }
 
-        public virtual Address Address { get; set; }
+        public virtual ProductAddress ProductAddress { get; set; }
 
-        public virtual Seller Seller { get; set;}
+        public virtual Seller Seller { get; set; }
 
 
         public Product()
         {
             ProductCategories = new List<ProductCategory>();
+
             ProductImages = new List<ProductImage>();
-            Address = new Address();
         }
     }
 }
