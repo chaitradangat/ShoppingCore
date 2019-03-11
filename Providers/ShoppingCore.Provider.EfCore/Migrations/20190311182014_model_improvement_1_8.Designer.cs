@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCore.Provider.EfCore;
 
 namespace ShoppingCore.Provider.EfCore.Migrations
 {
     [DbContext(typeof(ShoppingCoreDbContext))]
-    partial class ShoppingCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190311182014_model_improvement_1_8")]
+    partial class model_improvement_1_8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
