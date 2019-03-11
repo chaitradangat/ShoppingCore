@@ -50,7 +50,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
         public IEntity Find(int ProductID)
         {
             return
-            _efcoreDatabase.Products.Include(p => p.Address)
+            _efcoreDatabase.Products.Include(p => p.ProductAddress)
                 .Include(p => p.ProductCategories)
                 .Include(p => p.ProductImages)
                 .Include(p => p.Seller)
@@ -62,7 +62,7 @@ namespace ShoppingCore.Persistence.EfCore.Products
         public IQueryable<Product> List()
         {
             return
-               _efcoreDatabase.Products.Include(p => p.Address)
+               _efcoreDatabase.Products.Include(p => p.ProductAddress)
                 .Include(p => p.ProductCategories)
                 .Include(p => p.ProductImages)
                 .Include(p => p.Seller)
