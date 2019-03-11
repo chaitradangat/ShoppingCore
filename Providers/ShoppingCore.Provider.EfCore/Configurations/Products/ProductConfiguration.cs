@@ -21,7 +21,10 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Products
                 .WithOne(pc => pc.Product)
                 .HasForeignKey(pc => pc.ProductID);
 
-            builder.HasOne(p => p.Address);
+            builder.HasOne(p => p.ProductAddress)
+                .WithOne(pa => pa.Product)
+                .HasForeignKey<ProductAddress>(pa=>pa.ProductAddressID)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
