@@ -24,6 +24,8 @@ namespace ShoppingCore.Provider.EfCore
 
             SeedCustomerAddresses(modelBuilder);
 
+            SeedProductAddresses(modelBuilder);
+
             SeedProducts(modelBuilder);
 
             SeedCategories(modelBuilder);
@@ -77,13 +79,12 @@ namespace ShoppingCore.Provider.EfCore
                 );
         }
 
-
         //next the product is seeded
         public static void SeedProducts(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
 
-                new //Product
+                new Product
                 {
                     ProductID = 1,
                     SellerID = 1,
@@ -93,7 +94,20 @@ namespace ShoppingCore.Provider.EfCore
                     Unit = Units.Nos,
                     UnitPrice = 1200f,
                     Currency = "USD",
+                    ProductAddressID = 1
+                }
+                );
+        }
+
+        //next the product addresses are seeded
+        public static void SeedProductAddresses(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductAddress>().HasData(
+                new ProductAddress
+                {
+                    ProductAddressID = 1,
                     AddressID = 2,
+                    ProductID = 1
                 }
                 );
         }
@@ -138,6 +152,7 @@ namespace ShoppingCore.Provider.EfCore
                 );
         }
 
+        //next the customer addresses are seeded
         public static void SeedCustomerAddresses(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CustomerAddress>().HasData(
@@ -150,6 +165,7 @@ namespace ShoppingCore.Provider.EfCore
                 );
         }
 
+        
 
 
         //next the category is seeded
