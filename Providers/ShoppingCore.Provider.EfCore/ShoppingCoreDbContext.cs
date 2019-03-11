@@ -62,6 +62,8 @@ namespace ShoppingCore.Provider.EfCore
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<ProductAddress> ProductAddresses { get; set; }
+
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<ProductCategory> ProductCategories { get; set; }
