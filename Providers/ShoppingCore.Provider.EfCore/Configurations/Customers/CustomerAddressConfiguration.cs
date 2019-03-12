@@ -13,9 +13,11 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Customers
     {
         public void Configure(EntityTypeBuilder<CustomerAddress> builder)
         {
-            builder.HasKey(ca => ca.CustomerAddressID); 
+            builder.HasKey(ca => ca.CustomerAddressID);
 
-            builder.HasOne(ca => ca.Address); //#todo delete cascade to address table
+            builder.HasOne(ca => ca.Address);//#todo delete cascade to address table 
+                //.WithOne(a=>a.CustomerAddress)
+                //.OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

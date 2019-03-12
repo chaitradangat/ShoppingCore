@@ -32,5 +32,7 @@ namespace ShoppingCore.Domain.Common
         public string PinCode { get; set; }
 
         public AddressTypeEnum AddressType { get; set; }
+
+        //public CustomerAddress CustomerAddress { get; set; } #delete cascade not working!
     }
 }
