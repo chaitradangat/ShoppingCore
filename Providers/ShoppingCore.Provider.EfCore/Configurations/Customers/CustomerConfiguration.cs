@@ -20,7 +20,7 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Customers
 
             builder.HasMany(c => c.Addresses)
                 .WithOne(ca => ca.Customer)
-                .HasForeignKey(ca => ca.CustomerID)
+                .HasForeignKey(ca => ca.CustomerID) //#todo:check which key to use here!
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
