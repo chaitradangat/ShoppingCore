@@ -28,9 +28,15 @@ namespace ShoppingCore.Domain.Sellers
 
         public virtual List<Product> Products { get; set; }
 
+        public virtual ICollection<SellerInformation> SellerInformation { get; set; }
+
+
+
         public Seller()
         {
             Products = new List<Product>();
+
+            SellerInformation = new HashSet<SellerInformation>();
         }
     }
 }
