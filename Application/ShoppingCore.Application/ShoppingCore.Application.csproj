@@ -19,7 +19,6 @@
     <Folder Include="Sellers\Non_Standard\" />
     <Folder Include="Sellers\Queries\" />
     <Folder Include="Users\Non_Standard\" />
-    <Folder Include="Users\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
