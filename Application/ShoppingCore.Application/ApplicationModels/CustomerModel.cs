@@ -14,8 +14,6 @@ namespace ShoppingCore.Application.ApplicationModels
         #region -Properties required for new customer creation-
         public int? CustomerID { get; set; }
 
-        public int UserID { get; set; }
-
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -31,6 +29,8 @@ namespace ShoppingCore.Application.ApplicationModels
         #endregion
 
         #region -Properties required for new user creation-
+
+        public int UserID { get; set; }
 
         public string UserName { get; set; }
 
