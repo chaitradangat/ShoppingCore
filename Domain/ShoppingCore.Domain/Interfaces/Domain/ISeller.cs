@@ -8,7 +8,7 @@ namespace ShoppingCore.Domain.Interfaces
 {
     public interface ISeller
     {
-         int SellerID { get; set; }
+         int? SellerID { get; set; }
 
          //int UserID { get; set; }
 

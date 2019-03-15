@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
 

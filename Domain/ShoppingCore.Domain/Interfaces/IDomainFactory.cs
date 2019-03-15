@@ -1,4 +1,4 @@
-﻿using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Interfaces;
 using System;
 
 namespace ShoppingCore.Domain.Interfaces

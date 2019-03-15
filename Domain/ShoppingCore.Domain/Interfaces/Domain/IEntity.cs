@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShoppingCore.Domain.Common
+namespace ShoppingCore.Domain.Interfaces
 {
     public interface IEntity
     {

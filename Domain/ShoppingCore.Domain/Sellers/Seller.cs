@@ -1,16 +1,15 @@
-﻿using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Domain.Sellers
 {
     public class Seller : IEntity,ISeller
     {
-        public int SellerID { get; set; }
+        public int? SellerID { get; set; }
 
         public string BusinessName { get; set; }
 

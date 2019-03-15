@@ -5,7 +5,6 @@ using System.Text;
 using System.Linq;
 
 using ShoppingCore.Domain.Users;
-using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Interfaces;
 
 using ShoppingCore.Application.Interfaces;

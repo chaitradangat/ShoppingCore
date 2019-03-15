@@ -1,5 +1,5 @@
 ﻿using ShoppingCore.Application.ApplicationModels;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.Users.Commands.CreateUser
 {
