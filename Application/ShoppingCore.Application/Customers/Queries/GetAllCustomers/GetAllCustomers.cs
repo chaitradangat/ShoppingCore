@@ -2,7 +2,7 @@
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 
 

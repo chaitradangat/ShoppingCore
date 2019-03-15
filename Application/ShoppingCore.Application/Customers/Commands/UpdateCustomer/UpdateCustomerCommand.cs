@@ -1,14 +1,13 @@
 ﻿using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Application.Customers.Commands.UpdateCustomer

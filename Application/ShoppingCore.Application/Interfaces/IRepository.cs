@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.Interfaces
 {

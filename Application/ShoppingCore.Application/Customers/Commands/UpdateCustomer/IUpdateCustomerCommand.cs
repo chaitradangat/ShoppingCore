@@ -1,6 +1,6 @@
 ﻿using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

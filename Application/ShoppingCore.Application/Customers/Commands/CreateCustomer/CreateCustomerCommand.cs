@@ -5,9 +5,8 @@ using System.Text;
 
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Common;
-using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.XDomainFactory;
 
