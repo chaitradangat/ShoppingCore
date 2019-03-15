@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
