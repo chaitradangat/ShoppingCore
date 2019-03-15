@@ -1,4 +1,4 @@
-﻿using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

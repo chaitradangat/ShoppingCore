@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.EntityFrameworkCore;
 using ShoppingCore.Domain.Users;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Products;

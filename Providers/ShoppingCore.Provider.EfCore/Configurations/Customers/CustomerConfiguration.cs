@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Users;
 
 

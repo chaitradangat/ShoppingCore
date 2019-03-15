@@ -1,7 +1,7 @@
 ﻿using ShoppingCore.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Provider.EfCore.Configurations.Products
 {
