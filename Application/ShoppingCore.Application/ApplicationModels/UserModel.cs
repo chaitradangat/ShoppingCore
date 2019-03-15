@@ -1,5 +1,4 @@
 ﻿using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Interfaces;
 
 namespace ShoppingCore.Application.ApplicationModels
@@ -17,5 +16,9 @@ namespace ShoppingCore.Application.ApplicationModels
         public AutheticationType AutheticationType { get; set; }
 
         public UserRole UserRole { get; set; }
+
+        public int? CustomerID { get; set; }
+
+        public int? SellerID { get; set; }
     }
 }
