@@ -1,4 +1,4 @@
-﻿using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Persistence.Interfaces;
 using ShoppingCore.Application.Interfaces;
@@ -24,15 +24,18 @@ namespace ShoppingCore.Persistence.EfCore.Users
         public IQueryable<User> List()
         {
             return
-            _efcoredatabase.Users as IQueryable<User>;//.Include(u => u.Customer).Include(u => u.Seller) as IQueryable<User>;
+            _efcoredatabase.Users.Include(u => u.Customer).Include(u => u.Seller) as IQueryable<User>;
         }
 
         public IEntity Find(int UserID)
         {
+            //#todo:this method will hit database find better way without querying
+
             return _efcoredatabase.Users//.Include(u => u.Customer)
-                                        //.Include(u => u.Seller)
+                                        //.Include(u => u.Seller) #will fail  #wip domain
                                         .Where(u => u.UserID == UserID)
-                                        .FirstOrDefault();
+                                        .Single();
+                                        
         }
 
         public IEntity Add(User user)

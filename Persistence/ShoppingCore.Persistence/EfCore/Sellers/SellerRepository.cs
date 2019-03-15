@@ -8,7 +8,7 @@ using System.Linq;
 using ShoppingCore.Persistence.Interfaces;
 
 using ShoppingCore.Domain.Sellers;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Application.Interfaces;
 
 namespace ShoppingCore.Persistence.EfCore.Sellers

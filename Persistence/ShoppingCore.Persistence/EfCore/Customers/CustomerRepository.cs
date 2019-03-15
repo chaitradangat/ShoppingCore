@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 
 using ShoppingCore.Domain.Customers;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using System.Linq;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Persistence.Interfaces;

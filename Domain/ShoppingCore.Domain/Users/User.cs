@@ -1,8 +1,7 @@
-﻿using ShoppingCore.Domain.Common;
+﻿using ShoppingCore.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Customers;
 

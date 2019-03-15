@@ -6,12 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
 
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Persistence.Interfaces;
 using System.Linq;
-using ShoppingCore.Domain.Interfaces;
 
 using ShoppingCore.Application.Interfaces;
 

@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 
 using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Persistence.Interfaces;
 
