@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
     <ProjectReference Include="..\..\Research\ShoppingCore.Service\ShoppingCore.Service.csproj" />
+    <ProjectReference Include="..\..\Utilities\ShoppingCore.Utilities\ShoppingCore.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
