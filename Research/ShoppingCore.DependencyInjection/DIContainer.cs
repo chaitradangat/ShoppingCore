@@ -9,7 +9,6 @@ using ShoppingCore.Provider.EfCore;
 using ShoppingCore.Application.Customers.Commands.CreateCustomer;
 using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.XDomainFactory;
-using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Customers;
@@ -21,6 +20,8 @@ using ShoppingCore.Persistence;
 using ShoppingCore.Persistence.EfCore;
 using ShoppingCore.Persistence.Interfaces;
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
+
+using ShoppingCore.Application.Users.Queries.GetUser;
 
 namespace ShoppingCore.DependencyInjection
 {
@@ -42,6 +43,7 @@ namespace ShoppingCore.DependencyInjection
             .AddTransient<IGetCustomerDetailQuery, GetCustomerDetailQuery>()
             .AddTransient<IGetAllCustomers,GetAllCustomers>()
 
+            .AddTransient<IGetUserQuery,GetUserQuery>()
 
             .AddDbContext<ShoppingCoreDbContext>()
             .AddSingleton<IDomainFactory, DomainFactory>()
