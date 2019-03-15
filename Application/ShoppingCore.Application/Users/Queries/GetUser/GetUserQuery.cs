@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
+using ShoppingCore.Utilities.Encryption;
+using ShoppingCore.Application.ApplicationModelsMapper;
 using ShoppingCore.Application.Interfaces;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
+
+
+
 
 namespace ShoppingCore.Application.Users.Queries.GetUser
 {
@@ -18,16 +23,20 @@ namespace ShoppingCore.Application.Users.Queries.GetUser
 
         public IAppModel Execute(string UserName, string Password)
         {
-            throw new NotImplementedException();
+            return
+            _persistence.Users.List().MapUserModel()
+                .Where(u => u.UserName == UserName && u.Password == new Encryption().EncryptString(Password))
+                .SingleOrDefault();
         }
 
         public IAppModel Execute(int UserID)
         {
-            throw new NotImplementedException();
+            return _persistence.Users.Find(UserID).MapEntityToAppModel();
         }
 
         public IAppModel Execute()
         {
+            //dunno what this moethod is doing here :/
             throw new NotImplementedException();
         }
 
