@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Users;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Application.ApplicationModels;
+using ShoppingCore.Application.Interfaces;
 
 
 
@@ -68,7 +69,8 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
 
         public static IQueryable<AddressModel> MapAddressModel(this IQueryable<Address> addresses)
         {
-            var _addresses = addresses.Select(address => new AddressModel() {
+            var _addresses = addresses.Select(address => new AddressModel()
+            {
 
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,
@@ -84,12 +86,13 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                 AddressID = address.AddressID,
             });
 
-            return _addresses;        
+            return _addresses;
         }
 
         public static IQueryable<ProductModel> MapProductModel(this IQueryable<Product> products)
         {
-            var _products = products.Select(product=> new ProductModel() {
+            var _products = products.Select(product => new ProductModel()
+            {
 
                 ProductID = product.ProductID,
                 Name = product.Name,
@@ -97,7 +100,8 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                 ProductTitle = product.ProductTitle,
                 UnitPrice = product.UnitPrice,
                 Currency = product.Currency,
-                Seller = new SellerModel() {
+                Seller = new SellerModel()
+                {
                     SellerID = product.Seller.SellerID,
                     UserID = product.Seller.User.UserID,
                     FirstName = product.Seller.FirstName,
@@ -106,7 +110,8 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                     BusinessName = product.Seller.BusinessName,
                     DateOfBirth = product.Seller.DateOfBirth,
                     Gender = product.Seller.Gender,
-                    Products = new List<ProductModel>(product.Seller.Products.Select(_product=> new ProductModel() {
+                    Products = new List<ProductModel>(product.Seller.Products.Select(_product => new ProductModel()
+                    {
                         ProductID = _product.ProductID,
                         Name = _product.Name,
                         ProductDescription = _product.ProductDescription,
@@ -118,18 +123,22 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                     }))
                 },
                 Unit = product.Unit,
-                ProductCategories = new List<ProductCategoryModel>(product.ProductCategories.Select(pc=>new ProductCategoryModel() {
-                    CategoryModel = new CategoryModel() {
+                ProductCategories = new List<ProductCategoryModel>(product.ProductCategories.Select(pc => new ProductCategoryModel()
+                {
+                    CategoryModel = new CategoryModel()
+                    {
                         CategoryID = pc.Category.CategoryID,
                         CategoryName = pc.Category.CategoryName,
-                        SubCategory = new CategoryModel() {
+                        SubCategory = new CategoryModel()
+                        {
                             CategoryID = pc.Category.SubCategory.CategoryID,
                             CategoryName = pc.Category.SubCategory.CategoryName,
                             //# find efficient way to populate the sub-members skipped for time being
                         }
                     }
                 })),
-                ProductImages = new List<ProductImageModel>(product.ProductImages.Select(pi=> new ProductImageModel(){
+                ProductImages = new List<ProductImageModel>(product.ProductImages.Select(pi => new ProductImageModel()
+                {
                     ImageUrl = pi.ImageUrl,
                     ProductID = pi.ProductID,
                     ProductImageID = pi.ProductImageID
@@ -139,6 +148,77 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
             return _products;
         }
 
+        public static IQueryable<UserModel> MapUserModel(this IQueryable<User> users)
+        {
+            return
+            users.Select(u => new UserModel{
+
+                UserID = u.UserID,
+
+                CustomerID = u.CustomerID,
+
+                SellerID = u.SellerID,
+
+                UserName = u.UserName,
+
+                Password = u.Password,
+
+                UserRole = u.UserRole,
+
+                AutheticationType = u.AutheticationType,
+            });
+
+        }
+
+
+        public static IAppModel MapEntityToAppModel(this IEntity entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            //for mapping user domain entity
+            if (entity.GetType() == typeof(User))
+            {
+                var u = entity as User;
+
+                var appModel = new UserModel
+                {
+
+                    UserID = u.UserID,
+
+                    CustomerID = u.CustomerID,
+
+                    SellerID = u.SellerID,
+
+                    UserName = u.UserName,
+
+                    Password = u.Password,
+
+                    AutheticationType = u.AutheticationType,
+
+                    UserRole = u.UserRole,
+
+                    IsAutheticated = u.IsAutheticated,
+
+                    /*
+                     #pitfall: this mapping does not map the navigation property 
+                     as the appmodel does not have a navigation property to avoid 
+                     complicated un-natural code,extra db call required for
+                     fetching Customer/Seller Entity
+                     */
+                };
+
+                return appModel;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+
+        }
 
     }
 }
