@@ -11,12 +11,13 @@ using ShoppingCore.DependencyInjection;
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 using ShoppingCore.Application.Users.Commands.CreateUser;
-
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
+using ShoppingCore.Application.Users.Queries.GetUser;
+
 
 //testing namespaces
 using Microsoft.EntityFrameworkCore;
-using ShoppingCore.Domain.Common;
+using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Provider.EfCore;
 using ShoppingCore.Domain.Users;
@@ -71,26 +72,35 @@ namespace ShoppingCore.Presentation.ConsoleUI
             #endregion
 
 
-            //testing cascade delete
-            using (var db = new ShoppingCoreDbContext())
-            {
-                var customers = db.Customers.Include(c => c.User)
-                    .Include(c => c.Addresses)
-                    .ThenInclude(ca => ca.Address)
-                    as IQueryable<Customer>;
+            #region testing cascade delete
+            //using (var db = new ShoppingCoreDbContext())
+            //{
+            //    var customers = db.Customers.Include(c => c.User)
+            //        .Include(c => c.Addresses)
+            //        .ThenInclude(ca => ca.Address)
+            //        as IQueryable<Customer>;
 
-                var customer = customers.Where(c => c.Addresses.Where(a => a.Address.City != "").Count() > 0).SingleOrDefault();
+            //    var customer = customers.Where(c => c.Addresses.Where(a => a.Address.City != "").Count() > 0).SingleOrDefault();
 
-                db.Customers.Remove(customer);
+            //    db.Customers.Remove(customer);
 
-                db.Save();
-            }
+            //    db.Save();
+            //}
+            #endregion
 
-
-
-
-
+            //#todo: complete the seller 
             //#todo: use IQueryable in domain models instead of List for navigation properties
+
+            #region testing userquery 
+
+            var query = DIContainer.Serviceprovider.GetService<IGetUserQuery>();
+
+            var user = query.Execute(1);
+
+            #endregion
+
+
+            
 
             Console.WriteLine("Hello World!");
 
