@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using ShoppingCore.Domain.Interfaces;
-using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.ApplicationModels
 {

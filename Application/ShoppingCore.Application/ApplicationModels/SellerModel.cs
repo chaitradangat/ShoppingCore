@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using ShoppingCore.Domain.Interfaces;
-using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.ApplicationModels
 {
     public class SellerModel : IAppModel
     {
-        public int SellerID { get; set; }
+        public int? SellerID { get; set; }
 
         public int UserID { get; set; }
 
@@ -25,6 +24,5 @@ namespace ShoppingCore.Application.ApplicationModels
         public DateTime DateOfBirth { get; set; }
 
         public List<ProductModel> Products { get; set; }
-
     }
 }
