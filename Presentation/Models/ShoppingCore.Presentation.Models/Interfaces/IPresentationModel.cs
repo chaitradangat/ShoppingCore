@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShoppingCore.Presentation.Models.Interfaces
+namespace ShoppingCore.Presentation.Models
 {
     public interface IPresentationModel
     {

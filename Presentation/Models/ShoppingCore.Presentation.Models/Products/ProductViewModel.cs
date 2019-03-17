@@ -1,4 +1,4 @@
-﻿using ShoppingCore.Presentation.Models.Interfaces;
+﻿using ShoppingCore.Presentation.Models;
 
 using System;
 using System.Collections.Generic;
