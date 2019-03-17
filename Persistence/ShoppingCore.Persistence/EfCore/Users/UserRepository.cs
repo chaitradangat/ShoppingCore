@@ -33,7 +33,7 @@ namespace ShoppingCore.Persistence.EfCore.Users
 
             return _efcoredatabase.Users//.Include(u => u.Customer)
                                         //.Include(u => u.Seller) #will fail  #wip domain
-                                        .Where(u => u.UserID == UserID)
+                                        //.Where(u => u.UserID == UserID)
                                         .Single();
                                         
         }
