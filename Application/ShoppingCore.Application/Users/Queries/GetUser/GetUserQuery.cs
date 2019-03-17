@@ -8,8 +8,6 @@ using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Domain.Interfaces;
 
 
-
-
 namespace ShoppingCore.Application.Users.Queries.GetUser
 {
     public class GetUserQuery : IGetUserQuery
