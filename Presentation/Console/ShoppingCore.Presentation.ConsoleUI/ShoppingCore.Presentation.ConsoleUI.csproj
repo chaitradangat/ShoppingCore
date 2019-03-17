@@ -13,6 +13,7 @@
     <ProjectReference Include="..\..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
     <ProjectReference Include="..\..\..\Providers\ShoppingCore.Provider.EfCore\ShoppingCore.Provider.EfCore.csproj" />
     <ProjectReference Include="..\..\..\Research\ShoppingCore.DependencyInjection\ShoppingCore.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\Models\ShoppingCore.Presentation.Models\ShoppingCore.Presentation.Models.csproj" />
   </ItemGroup>
 
 </Project>
