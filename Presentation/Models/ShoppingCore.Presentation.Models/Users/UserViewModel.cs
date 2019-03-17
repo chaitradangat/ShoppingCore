@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Domain.Interfaces;
@@ -39,6 +40,13 @@ namespace ShoppingCore.Presentation.Models.Users
 
             }; 
         }
+
+        //https://github.com/dotnet/roslyn/issues/30824
+
+        //public static implicit operator IQueryable<UserViewModel>(IQueryable<UserModel> users)
+        //{
+        //    return null;
+        //}
 
     }
 }
