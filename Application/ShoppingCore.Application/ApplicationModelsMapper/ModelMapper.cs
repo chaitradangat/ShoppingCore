@@ -170,7 +170,6 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
 
         }
 
-
         public static IAppModel MapEntityToAppModel(this IEntity entity)
         {
             if (entity is null)
@@ -219,6 +218,5 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
 
 
         }
-
     }
 }
