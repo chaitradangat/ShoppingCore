@@ -28,7 +28,6 @@ namespace ShoppingCore.Domain.Sellers
 
         public virtual SellerAddress SellerAddress { get; set; }
 
-
         public SellerInformation()
         {
             Users = new HashSet<User>();
