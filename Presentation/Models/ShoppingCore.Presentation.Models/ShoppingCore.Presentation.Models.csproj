@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\ShoppingCore.Application\ShoppingCore.Application.csproj" />
     <ProjectReference Include="..\..\..\Domain\ShoppingCore.Domain\ShoppingCore.Domain.csproj" />
   </ItemGroup>
 
