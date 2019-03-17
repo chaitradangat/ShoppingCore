@@ -15,12 +15,9 @@ namespace ShoppingCore.Domain.Sellers
 
         public int SellerID { get; set; }
 
-
         public SellerInformation SellerInformation { get; set; }
 
         public Address Address { get; set; }
-
-
 
     }
 }
