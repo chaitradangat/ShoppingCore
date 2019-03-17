@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Domain.Interfaces;
-using ShoppingCore.Presentation.Models.Interfaces;
+//using ShoppingCore.Presentation.Models;
 
 namespace ShoppingCore.Presentation.Models.Users
 {
@@ -20,34 +21,24 @@ namespace ShoppingCore.Presentation.Models.Users
 
         public UserRole UserRole { get; set; }
 
-        //testing properties
-        private int propTest;
-
-        public int PropTest
-        {
-            get
-            {
-                if (propTest > 0)
-                {
-                    return propTest;
-                }
-                else
-                {
-                    return -1;
-                }
-            }
-            private set
-            {
-                propTest = value;
-            }
-
-        }
-
         public UserViewModel()
         {
-            PropTest = 10;
 
-            dynamic x = PropTest;
         }
+
+        public static implicit operator UserViewModel(UserModel user)
+        {
+            return new UserViewModel {
+
+                UserID = user.UserID,
+                UserName = user.UserName,
+                Password = user.Password,
+                AutheticationType = user.AutheticationType,
+                UserRole = user.UserRole,
+                IsAutheticated = user.IsAutheticated
+
+            }; 
+        }
+
     }
 }
