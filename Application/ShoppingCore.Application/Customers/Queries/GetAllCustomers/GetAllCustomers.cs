@@ -54,8 +54,6 @@ namespace ShoppingCore.Application.Customers.Queries.GetAllCustomers
         }
 
 
-
-
         //possible duplication of code
         private IAppModel ConvertToAppModel(IEntity entity)
         {
