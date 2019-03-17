@@ -13,6 +13,8 @@ using ShoppingCore.Application.Customers.Queries.GetCustomerDetail;
 using ShoppingCore.Application.Users.Commands.CreateUser;
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
 using ShoppingCore.Application.Users.Queries.GetUser;
+using ShoppingCore.Application.ApplicationModelsMapper;
+
 
 
 //testing namespaces
@@ -22,6 +24,11 @@ using ShoppingCore.Application.Interfaces;
 using ShoppingCore.Provider.EfCore;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.Customers;
+
+using ShoppingCore.Presentation.Models;
+using ShoppingCore.Presentation.Models.PresentationModelMapper;
+using ShoppingCore.Presentation.Models.Users;
+
 
 namespace ShoppingCore.Presentation.ConsoleUI
 {
@@ -90,17 +97,44 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
             //#todo: complete the seller 
             //#todo: use IQueryable in domain models instead of List for navigation properties
+            #region testing userquery  
 
-            #region testing userquery 
+            //var query = DIContainer.Serviceprovider.GetService<IGetUserQuery>();
 
-            var query = DIContainer.Serviceprovider.GetService<IGetUserQuery>();
+            //var user = query.Execute(1);
 
-            var user = query.Execute(1);
+            //var user = query.Execute("Hello", "World");
 
             #endregion
 
 
-            
+            #region Testing View Models
+            //testing view models
+            var query = DIContainer.Serviceprovider.GetService<IGetUserQuery>();
+
+            var user = query.Execute(-1) as UserModel;
+
+            var _user = user.MapToUserViewModel(); //#this way uses extension methods
+
+            UserViewModel user_ = user; //#this uses implicit conversion, but violates the "neat "separation of concerns
+            #endregion
+
+
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
 
             Console.WriteLine("Hello World!");
 
