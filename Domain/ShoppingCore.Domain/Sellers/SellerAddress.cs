@@ -11,13 +11,10 @@ namespace ShoppingCore.Domain.Sellers
 
         public int AddressID { get; set; }
 
-        public int SellerInformationID { get; set; }
-
         public int SellerID { get; set; }
-
-        public SellerInformation SellerInformation { get; set; }
 
         public Address Address { get; set; }
 
+        public Seller Seller { get; set; }
     }
 }
