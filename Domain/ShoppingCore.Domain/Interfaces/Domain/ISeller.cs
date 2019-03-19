@@ -14,7 +14,7 @@ namespace ShoppingCore.Domain.Interfaces
 
          User User { get; set; }
 
-         string BusinessName { get; set; }
+         //string BusinessName { get; set; }
 
          string FirstName { get; set; }
 
@@ -26,6 +26,6 @@ namespace ShoppingCore.Domain.Interfaces
 
          DateTime DateOfBirth { get; set; }
 
-         List<Product> Products { get; set; }
+         ICollection<Product> Products { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace ShoppingCore.Domain.Sellers
     {
         public int? SellerID { get; set; }
 
-        public string BusinessName { get; set; }
+        public int SellerBusinessID { get; set; }
 
         public string FirstName { get; set; }
 
@@ -23,19 +23,19 @@ namespace ShoppingCore.Domain.Sellers
 
         public DateTime DateOfBirth { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User User { get; set; } //#seller corresponds to one user
 
-        public virtual List<Product> Products { get; set; }
+        public virtual SellerBusiness SellerBusiness { get; set; } //#seller belongs to one sellerbusiness
 
-        public virtual ICollection<SellerInformation> SellerInformation { get; set; }
+        public virtual ICollection<Product> Products { get; set; } //#seller can sell multiple products
 
-
+        public virtual ICollection<SellerAddress> SellerAddresses { get; set; } //#seller can have multiple locations
 
         public Seller()
         {
-            Products = new List<Product>();
+            Products = new HashSet<Product>();
 
-            SellerInformation = new HashSet<SellerInformation>();
+            SellerAddresses = new HashSet<SellerAddress>();
         }
     }
 }
