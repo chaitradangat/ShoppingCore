@@ -121,20 +121,8 @@ namespace ShoppingCore.Presentation.ConsoleUI
 
 
             //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
-            //**************URGENT PUT SELLER DOMAIN MODEL AND MIGRATIONS IN SHAPE*****************
+            //#todo: Solve ShoppingCore.Domain.Common and ShoppingCore.Domain.Interfaces mixup.
+
 
             Console.WriteLine("Hello World!");
 
