@@ -22,6 +22,7 @@ using ShoppingCore.Persistence.Interfaces;
 using ShoppingCore.Application.Customers.Queries.GetAllCustomers;
 
 using ShoppingCore.Application.Users.Queries.GetUser;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.DependencyInjection
 {

@@ -108,7 +108,6 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
                     FirstName = product.Seller.FirstName,
                     MiddleName = product.Seller.MiddleName,
                     LastName = product.Seller.LastName,
-                    BusinessName = product.Seller.BusinessName,
                     DateOfBirth = product.Seller.DateOfBirth,
                     Gender = product.Seller.Gender,
                     Products = new List<ProductModel>(product.Seller.Products.Select(_product => new ProductModel()

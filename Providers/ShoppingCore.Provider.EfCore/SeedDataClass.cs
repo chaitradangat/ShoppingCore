@@ -7,6 +7,7 @@ using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Provider.EfCore
 {
@@ -52,7 +53,6 @@ namespace ShoppingCore.Provider.EfCore
                 new Seller
                 {
                     SellerID = 1,
-                    BusinessName = "SamuelSales",
                     FirstName = "Samuel",
                     MiddleName = "L",
                     LastName = "Jackson",

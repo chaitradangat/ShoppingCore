@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq.Expressions;
 using System.Linq;
 using ShoppingCore.Persistence.Interfaces;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Provider.EfCore
 {

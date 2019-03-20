@@ -12,7 +12,7 @@ using ShoppingCore.Persistence.EfCore.Customers;
 using ShoppingCore.Persistence.EfCore.Products;
 using ShoppingCore.Persistence.EfCore.Sellers;
 using ShoppingCore.Persistence.EfCore.Users;
-
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Persistence.EfCore
 {

@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShoppingCore.Domain.Interfaces;
+
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
+using ShoppingCore.Domain.Common;
 using ShoppingCore.Domain.Users;
 
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace ShoppingCore.Persistence.Interfaces
 {

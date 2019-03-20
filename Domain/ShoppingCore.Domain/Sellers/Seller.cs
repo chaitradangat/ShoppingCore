@@ -1,18 +1,23 @@
 ﻿using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Products;
+using ShoppingCore.Domain.Users;
+
 using System;
 using System.Collections.Generic;
-using System.Text;
-using ShoppingCore.Domain.Users;
 
 namespace ShoppingCore.Domain.Sellers
 {
     public class Seller : IEntity,ISeller
     {
+        //Keys
         public int? SellerID { get; set; }
+
+        public int UserID { get; set; }
 
         public int SellerBusinessID { get; set; }
 
+        
+        //properties
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -23,14 +28,18 @@ namespace ShoppingCore.Domain.Sellers
 
         public DateTime DateOfBirth { get; set; }
 
-        public virtual User User { get; set; } //#seller corresponds to one user
 
-        public virtual SellerBusiness SellerBusiness { get; set; } //#seller belongs to one sellerbusiness
+        //navigation properties
+        public virtual User User { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; } //#seller can sell multiple products
+        public virtual SellerBusiness SellerBusiness { get; set; }
 
-        public virtual ICollection<SellerAddress> SellerAddresses { get; set; } //#seller can have multiple locations
+        public virtual ICollection<Product> Products { get; set; }
 
+        public virtual ICollection<SellerAddress> SellerAddresses { get; set; }
+
+        
+        //ctor
         public Seller()
         {
             Products = new HashSet<Product>();

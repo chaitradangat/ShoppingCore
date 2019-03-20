@@ -13,6 +13,7 @@ using ShoppingCore.Persistence.Interfaces;
 using System.Linq;
 
 using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Persistence.EfCore.Common
 {
