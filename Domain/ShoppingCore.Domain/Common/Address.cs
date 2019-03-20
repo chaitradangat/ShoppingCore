@@ -1,11 +1,8 @@
 ﻿using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ShoppingCore.Domain.Interfaces
+namespace ShoppingCore.Domain.Common
 {
     public class Address : IEntity,IAddress
     {
