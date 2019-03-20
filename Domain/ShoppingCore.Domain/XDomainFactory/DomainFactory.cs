@@ -3,6 +3,7 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Domain.Sellers;
 using ShoppingCore.Domain.Users;
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Domain.XDomainFactory
 {

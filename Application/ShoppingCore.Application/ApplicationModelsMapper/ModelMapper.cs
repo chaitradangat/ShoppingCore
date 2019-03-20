@@ -8,6 +8,7 @@ using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Products;
 using ShoppingCore.Application.ApplicationModels;
 using ShoppingCore.Application.Interfaces;
+using ShoppingCore.Domain.Common;
 
 
 

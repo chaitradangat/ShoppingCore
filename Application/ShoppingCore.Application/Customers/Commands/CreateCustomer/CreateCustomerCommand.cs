@@ -9,7 +9,7 @@ using ShoppingCore.Domain.Interfaces;
 using ShoppingCore.Domain.Customers;
 using ShoppingCore.Domain.Users;
 using ShoppingCore.Domain.XDomainFactory;
-
+using ShoppingCore.Domain.Common;
 
 namespace ShoppingCore.Application.Customers.Commands.CreateCustomer
 {
