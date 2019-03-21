@@ -34,16 +34,12 @@ namespace ShoppingCore.Domain.Sellers
 
         public virtual SellerBusiness SellerBusiness { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
-
         public virtual ICollection<SellerAddress> SellerAddresses { get; set; }
 
         
         //ctor
         public Seller()
         {
-            Products = new HashSet<Product>();
-
             SellerAddresses = new HashSet<SellerAddress>();
         }
     }
