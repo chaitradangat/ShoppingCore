@@ -26,6 +26,6 @@ namespace ShoppingCore.Domain.Interfaces
 
          DateTime DateOfBirth { get; set; }
 
-         ICollection<Product> Products { get; set; }
+         //ICollection<Product> Products { get; set; }
     }
 }

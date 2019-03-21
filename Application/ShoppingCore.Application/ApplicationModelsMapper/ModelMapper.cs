@@ -90,63 +90,64 @@ namespace ShoppingCore.Application.ApplicationModelsMapper
             return _addresses;
         }
 
-        public static IQueryable<ProductModel> MapProductModel(this IQueryable<Product> products)
-        {
-            var _products = products.Select(product => new ProductModel()
-            {
+        //public static IQueryable<ProductModel> MapProductModel(this IQueryable<Product> products)
+        //{
+        //    var _products = products.Select(product => new ProductModel()
+        //    {
 
-                ProductID = product.ProductID,
-                Name = product.Name,
-                ProductDescription = product.ProductDescription,
-                ProductTitle = product.ProductTitle,
-                UnitPrice = product.UnitPrice,
-                Currency = product.Currency,
-                Seller = new SellerModel()
-                {
-                    SellerID = product.Seller.SellerID,
-                    UserID = product.Seller.User.UserID,
-                    FirstName = product.Seller.FirstName,
-                    MiddleName = product.Seller.MiddleName,
-                    LastName = product.Seller.LastName,
-                    DateOfBirth = product.Seller.DateOfBirth,
-                    Gender = product.Seller.Gender,
-                    Products = new List<ProductModel>(product.Seller.Products.Select(_product => new ProductModel()
-                    {
-                        ProductID = _product.ProductID,
-                        Name = _product.Name,
-                        ProductDescription = _product.ProductDescription,
-                        ProductTitle = _product.ProductTitle,
-                        UnitPrice = _product.UnitPrice,
-                        Currency = _product.Currency,
-                        Unit = _product.Unit,
-                        //#pending all properties to be mapped in subproducts on seller,some complicated one's can be ignored
-                    }))
-                },
-                Unit = product.Unit,
-                ProductCategories = new List<ProductCategoryModel>(product.ProductCategories.Select(pc => new ProductCategoryModel()
-                {
-                    CategoryModel = new CategoryModel()
-                    {
-                        CategoryID = pc.Category.CategoryID,
-                        CategoryName = pc.Category.CategoryName,
-                        SubCategory = new CategoryModel()
-                        {
-                            CategoryID = pc.Category.SubCategory.CategoryID,
-                            CategoryName = pc.Category.SubCategory.CategoryName,
-                            //# find efficient way to populate the sub-members skipped for time being
-                        }
-                    }
-                })),
-                ProductImages = new List<ProductImageModel>(product.ProductImages.Select(pi => new ProductImageModel()
-                {
-                    ImageUrl = pi.ImageUrl,
-                    ProductID = pi.ProductID,
-                    ProductImageID = pi.ProductImageID
-                })),
-            });
+        //        ProductID = product.ProductID,
+        //        Name = product.Name,
+        //        ProductDescription = product.ProductDescription,
+        //        ProductTitle = product.ProductTitle,
+        //        UnitPrice = product.UnitPrice,
+        //        Currency = product.Currency,
+        //        Seller = new SellerModel()
+        //        {
+        //            SellerID = product.Seller.SellerID,
+        //            UserID = product.Seller.User.UserID,
+        //            FirstName = product.Seller.FirstName,
+        //            MiddleName = product.Seller.MiddleName,
+        //            LastName = product.Seller.LastName,
+        //            DateOfBirth = product.Seller.DateOfBirth,
+        //            Gender = product.Seller.Gender,
 
-            return _products;
-        }
+        //            Products = new List<ProductModel>(product.Seller.Products.Select(_product => new ProductModel()
+        //            {
+        //                ProductID = _product.ProductID,
+        //                Name = _product.Name,
+        //                ProductDescription = _product.ProductDescription,
+        //                ProductTitle = _product.ProductTitle,
+        //                UnitPrice = _product.UnitPrice,
+        //                Currency = _product.Currency,
+        //                Unit = _product.Unit,
+        //                //#pending all properties to be mapped in subproducts on seller,some complicated one's can be ignored
+        //            }))
+        //        },
+        //        Unit = product.Unit,
+        //        ProductCategories = new List<ProductCategoryModel>(product.ProductCategories.Select(pc => new ProductCategoryModel()
+        //        {
+        //            CategoryModel = new CategoryModel()
+        //            {
+        //                CategoryID = pc.Category.CategoryID,
+        //                CategoryName = pc.Category.CategoryName,
+        //                SubCategory = new CategoryModel()
+        //                {
+        //                    CategoryID = pc.Category.SubCategory.CategoryID,
+        //                    CategoryName = pc.Category.SubCategory.CategoryName,
+        //                    //# find efficient way to populate the sub-members skipped for time being
+        //                }
+        //            }
+        //        })),
+        //        ProductImages = new List<ProductImageModel>(product.ProductImages.Select(pi => new ProductImageModel()
+        //        {
+        //            ImageUrl = pi.ImageUrl,
+        //            ProductID = pi.ProductID,
+        //            ProductImageID = pi.ProductImageID
+        //        })),
+        //    });
+
+        //    return _products;
+        //}
 
         public static IQueryable<UserModel> MapUserModel(this IQueryable<User> users)
         {

@@ -20,8 +20,6 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Sellers
                    .WithOne(u => u.Seller)
                    .OnDelete(DeleteBehavior.Cascade);
                 
-            builder.HasMany(p => p.Products)
-                .WithOne(s => s.Seller);
         }
     }
 }

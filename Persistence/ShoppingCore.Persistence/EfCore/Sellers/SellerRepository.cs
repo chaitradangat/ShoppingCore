@@ -27,14 +27,13 @@ namespace ShoppingCore.Persistence.EfCore.Sellers
             return
                 _efcoredatabase.Sellers
                   .Include(s => s.User)
-                  .Include(s => s.Products)
                   as IQueryable<Seller>;
         }
 
         public IEntity Find(int sellerID)
         {
             return
-                _efcoredatabase.Sellers.Include(s => s.Products)
+                _efcoredatabase.Sellers
                 .Include(s => s.User)
                 .Where(s => s.SellerID == sellerID).FirstOrDefault();
         }

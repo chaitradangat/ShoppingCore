@@ -14,8 +14,8 @@ namespace ShoppingCore.Provider.EfCore.Configurations.Products
             builder.HasMany(p => p.ProductImages)
                 .WithOne(p => p.Product);
 
-            builder.HasOne(p => p.Seller)
-                .WithMany(s => s.Products);
+            builder.HasOne(p => p.Seller);
+                
 
             builder.HasMany(p => p.ProductCategories)
                 .WithOne(pc => pc.Product)
