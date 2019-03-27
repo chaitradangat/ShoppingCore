@@ -1,12 +1,10 @@
-﻿using ShoppingCore.Domain.Common;
-using ShoppingCore.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ShoppingCore.Domain.Interfaces;
+using ShoppingCore.Domain.Common;
+
 
 namespace ShoppingCore.Domain.Sellers
 {
-    public class SellerAddress
+    public class SellerAddress : IEntity
     {
         public int SellerAddressID { get; set; }
 
