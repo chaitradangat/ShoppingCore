@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="XModelFactory\" />
+    <Compile Remove="XModelFactory\**" />
+    <EmbeddedResource Remove="XModelFactory\**" />
+    <None Remove="XModelFactory\**" />
   </ItemGroup>
 
   <ItemGroup>
